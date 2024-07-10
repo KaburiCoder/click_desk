@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/routes/route_provider.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/routes/route_provider.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

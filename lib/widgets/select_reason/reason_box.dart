@@ -1,9 +1,9 @@
-import 'package:click_recept/constants/font_family.dart';
-import 'package:click_recept/models/reason_state/reason_state.dart';
-import 'package:click_recept/providers/checkin/checkin_provider.dart';
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/widgets/select_reason/dialog/select_reason_sub_dialog.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/constants/font_family.dart';
+import 'package:click_desk/models/reason_state/reason_state.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/select_reason/dialog/select_reason_sub_dialog.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

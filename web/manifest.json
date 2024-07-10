@@ -1,6 +1,6 @@
 {
-    "name": "click_recept",
-    "short_name": "click_recept",
+    "name": "click_desk",
+    "short_name": "click_desk",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

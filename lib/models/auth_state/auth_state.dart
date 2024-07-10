@@ -1,4 +1,4 @@
-import 'package:click_recept/models/error_state/error_state.dart';
+import 'package:click_desk/models/error_state/error_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 

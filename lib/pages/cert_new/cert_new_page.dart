@@ -1,9 +1,9 @@
-import 'package:click_recept/constants/lottie_paths.dart';
-import 'package:click_recept/models/checkin_state/checkin_state.dart';
-import 'package:click_recept/providers/checkin/checkin_provider.dart';
-import 'package:click_recept/widgets/common_left_body.dart';
-import 'package:click_recept/widgets/left_wrapper.dart';
-import 'package:click_recept/widgets/lottie.dart';
+import 'package:click_desk/constants/lottie_paths.dart';
+import 'package:click_desk/models/checkin_state/checkin_state.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/widgets/common_left_body.dart';
+import 'package:click_desk/widgets/left_wrapper.dart';
+import 'package:click_desk/widgets/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

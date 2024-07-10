@@ -1,7 +1,7 @@
-import 'package:click_recept/widgets/checkin_end/checkin_end_left_widget.dart';
-import 'package:click_recept/widgets/checkin_end/receive_button.dart';
-import 'package:click_recept/widgets/checkin_end/receive_info_box.dart';
-import 'package:click_recept/widgets/right_container.dart';
+import 'package:click_desk/widgets/checkin_end/checkin_end_left_widget.dart';
+import 'package:click_desk/widgets/checkin_end/receive_button.dart';
+import 'package:click_desk/widgets/checkin_end/receive_info_box.dart';
+import 'package:click_desk/widgets/right_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

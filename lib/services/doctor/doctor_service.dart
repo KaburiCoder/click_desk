@@ -1,5 +1,5 @@
-import 'package:click_recept/models/doctor_state/doctor_state.dart';
-import 'package:click_recept/providers/dio/dio_provider.dart';
+import 'package:click_desk/models/doctor_state/doctor_state.dart';
+import 'package:click_desk/providers/dio/dio_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'doctor_service.g.dart';
 

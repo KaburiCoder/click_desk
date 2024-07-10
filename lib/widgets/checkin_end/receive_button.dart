@@ -1,10 +1,10 @@
-import 'package:click_recept/models/receive_patient_res_state/receive_patient_res_state.dart';
-import 'package:click_recept/models/request_state/request_state.dart';
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/widgets/checkin_end/receive_provider.dart';
-import 'package:click_recept/widgets/dialogs/base_alert_dialog.dart';
-import 'package:click_recept/widgets/spacer.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/models/receive_patient_res_state/receive_patient_res_state.dart';
+import 'package:click_desk/models/request_state/request_state.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/checkin_end/receive_provider.dart';
+import 'package:click_desk/widgets/dialogs/base_alert_dialog.dart';
+import 'package:click_desk/widgets/spacer.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

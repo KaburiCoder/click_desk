@@ -1,7 +1,7 @@
-import 'package:click_recept/models/checkin_state/checkin_state.dart';
-import 'package:click_recept/models/doctor_state/doctor_state.dart';
-import 'package:click_recept/models/patient_state/patient_state.dart';
-import 'package:click_recept/models/reason_state/reason_state.dart';
+import 'package:click_desk/models/checkin_state/checkin_state.dart';
+import 'package:click_desk/models/doctor_state/doctor_state.dart';
+import 'package:click_desk/models/patient_state/patient_state.dart';
+import 'package:click_desk/models/reason_state/reason_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'checkin_provider.g.dart';

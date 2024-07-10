@@ -1,6 +1,6 @@
-import 'package:click_recept/models/doctor_state/doctor_state.dart';
-import 'package:click_recept/models/patient_state/patient_state.dart';
-import 'package:click_recept/models/reason_state/reason_state.dart';
+import 'package:click_desk/models/doctor_state/doctor_state.dart';
+import 'package:click_desk/models/patient_state/patient_state.dart';
+import 'package:click_desk/models/reason_state/reason_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'checkin_state.freezed.dart';

@@ -1,5 +1,5 @@
-import 'package:click_recept/services/doctor/get_reasons.dart';
-import 'package:click_recept/widgets/dialogs/select_patient_dialog.dart';
+import 'package:click_desk/services/doctor/get_reasons.dart';
+import 'package:click_desk/widgets/dialogs/select_patient_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

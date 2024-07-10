@@ -1,4 +1,4 @@
-import 'package:click_recept/providers/shared_utiltiy/shared_utility_provider.dart';
+import 'package:click_desk/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

@@ -1,8 +1,8 @@
-import 'package:click_recept/constants/lottie_paths.dart';
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/widgets/lottie.dart';
-import 'package:click_recept/widgets/right_container.dart';
-import 'package:click_recept/widgets/spacer.dart';
+import 'package:click_desk/constants/lottie_paths.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/lottie.dart';
+import 'package:click_desk/widgets/right_container.dart';
+import 'package:click_desk/widgets/spacer.dart';
 import 'package:flutter/material.dart';
 
 import 'choice_card.dart';

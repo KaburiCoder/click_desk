@@ -1,6 +1,6 @@
-import 'package:click_recept/models/params/user_search_params.dart';
-import 'package:click_recept/models/patient_state/patient_state.dart';
-import 'package:click_recept/providers/socket_io/socket_io_provider.dart';
+import 'package:click_desk/models/params/user_search_params.dart';
+import 'package:click_desk/models/patient_state/patient_state.dart';
+import 'package:click_desk/providers/socket_io/socket_io_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../models/request_state/request_state.dart';

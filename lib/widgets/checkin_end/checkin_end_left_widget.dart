@@ -1,4 +1,4 @@
-import 'package:click_recept/widgets/left_wrapper.dart';
+import 'package:click_desk/widgets/left_wrapper.dart';
 import 'package:flutter/material.dart';
 
 import 'confirm_left_body_widget.dart';

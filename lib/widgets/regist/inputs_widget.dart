@@ -1,13 +1,13 @@
-import 'package:click_recept/models/request_state/request_state.dart';
-import 'package:click_recept/pages/regist/regist_page.dart';
-import 'package:click_recept/providers/checkin/checkin_provider.dart';
-import 'package:click_recept/providers/patient/patient_confirm_manager.dart';
-import 'package:click_recept/providers/patient/patient_confirm_provider.dart';
-import 'package:click_recept/utils/string_util.dart';
-import 'package:click_recept/widgets/dialogs/base_alert_dialog.dart';
-import 'package:click_recept/widgets/labeld_row.dart';
-import 'package:click_recept/widgets/round_input.dart';
-import 'package:click_recept/widgets/spacer.dart';
+import 'package:click_desk/models/request_state/request_state.dart';
+import 'package:click_desk/pages/regist/regist_page.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/providers/patient/patient_confirm_manager.dart';
+import 'package:click_desk/providers/patient/patient_confirm_provider.dart';
+import 'package:click_desk/utils/string_util.dart';
+import 'package:click_desk/widgets/dialogs/base_alert_dialog.dart';
+import 'package:click_desk/widgets/labeld_row.dart';
+import 'package:click_desk/widgets/round_input.dart';
+import 'package:click_desk/widgets/spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

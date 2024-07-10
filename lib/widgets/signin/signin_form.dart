@@ -1,7 +1,7 @@
-import 'package:click_recept/models/auth_state/auth_state.dart';
-import 'package:click_recept/providers/auth/auth_notifier_provider.dart';
-import 'package:click_recept/widgets/custom_input.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/models/auth_state/auth_state.dart';
+import 'package:click_desk/providers/auth/auth_notifier_provider.dart';
+import 'package:click_desk/widgets/custom_input.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

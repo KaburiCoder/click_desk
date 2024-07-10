@@ -1,8 +1,8 @@
-import 'package:click_recept/constants/font_family.dart';
-import 'package:click_recept/services/doctor/get_doctors.dart';
-import 'package:click_recept/widgets/select_doctor/doctor_card.dart';
-import 'package:click_recept/widgets/spacer.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/constants/font_family.dart';
+import 'package:click_desk/services/doctor/get_doctors.dart';
+import 'package:click_desk/widgets/select_doctor/doctor_card.dart';
+import 'package:click_desk/widgets/spacer.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

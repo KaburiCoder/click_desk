@@ -1,7 +1,7 @@
-import 'package:click_recept/constants/font_family.dart';
-import 'package:click_recept/constants/lottie_paths.dart';
-import 'package:click_recept/widgets/lottie.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/constants/font_family.dart';
+import 'package:click_desk/constants/lottie_paths.dart';
+import 'package:click_desk/widgets/lottie.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmLeftBodyWidget extends StatelessWidget {

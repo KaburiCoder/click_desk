@@ -1,5 +1,5 @@
-import 'package:click_recept/widgets/close_button_widget.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/widgets/close_button_widget.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 
 class ReasonSubTitle extends StatelessWidget {

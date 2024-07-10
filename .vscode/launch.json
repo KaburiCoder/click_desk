@@ -5,18 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "click_recept",
+      "name": "click_desk",
       "request": "launch",
       "type": "dart"
     },
     {
-      "name": "click_recept (debug mode)",
+      "name": "click_desk (debug mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug"
     },
     {
-      "name": "click_recept (release mode)",
+      "name": "click_desk (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"

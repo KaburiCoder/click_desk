@@ -1,5 +1,5 @@
-import 'package:click_recept/widgets/spacer.dart';
-import 'package:click_recept/widgets/texts/lg_text.dart';
+import 'package:click_desk/widgets/spacer.dart';
+import 'package:click_desk/widgets/texts/lg_text.dart';
 import 'package:flutter/material.dart';
 
 class CustomKeypad extends StatelessWidget {

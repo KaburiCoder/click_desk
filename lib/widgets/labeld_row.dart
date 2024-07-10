@@ -1,4 +1,4 @@
-import 'package:click_recept/widgets/label.dart';
+import 'package:click_desk/widgets/label.dart';
 import 'package:flutter/material.dart';
 
 class LabeldRow extends StatelessWidget {

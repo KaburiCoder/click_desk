@@ -1,4 +1,4 @@
-import 'package:click_recept/routes/nav.dart';
+import 'package:click_desk/routes/nav.dart';
 import 'package:flutter/material.dart';
 
 class CloseButtonWidget extends StatelessWidget {

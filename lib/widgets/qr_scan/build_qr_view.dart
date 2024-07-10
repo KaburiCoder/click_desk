@@ -1,5 +1,5 @@
-import 'package:click_recept/providers/qr_scan/qr_scan_provider.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/providers/qr_scan/qr_scan_provider.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';

@@ -1,5 +1,5 @@
-import 'package:click_recept/widgets/head_mini_text.dart';
-import 'package:click_recept/widgets/round_nav_buttons.dart';
+import 'package:click_desk/widgets/head_mini_text.dart';
+import 'package:click_desk/widgets/round_nav_buttons.dart';
 import 'package:flutter/material.dart';
 
 class LeftWrapper extends StatelessWidget {

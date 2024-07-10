@@ -1,8 +1,8 @@
-import 'package:click_recept/providers/checkin/checkin_provider.dart';
-import 'package:click_recept/widgets/head_mini_text.dart';
-import 'package:click_recept/widgets/round_nav_buttons.dart';
-import 'package:click_recept/widgets/spacer.dart';
-import 'package:click_recept/widgets/texts/xl_text.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/widgets/head_mini_text.dart';
+import 'package:click_desk/widgets/round_nav_buttons.dart';
+import 'package:click_desk/widgets/spacer.dart';
+import 'package:click_desk/widgets/texts/xl_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

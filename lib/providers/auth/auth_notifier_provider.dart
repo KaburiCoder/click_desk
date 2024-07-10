@@ -1,12 +1,12 @@
-import 'package:click_recept/models/error_state/error_state.dart';
+import 'package:click_desk/models/error_state/error_state.dart';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:click_recept/models/auth_state/auth_state.dart';
-import 'package:click_recept/models/user/user.dart';
-import 'package:click_recept/providers/shared_utiltiy/shared_utility_provider.dart';
-import 'package:click_recept/providers/user/user_notifier_provider.dart';
-import 'package:click_recept/services/auth/auth_service.dart';
+import 'package:click_desk/models/auth_state/auth_state.dart';
+import 'package:click_desk/models/user/user.dart';
+import 'package:click_desk/providers/shared_utiltiy/shared_utility_provider.dart';
+import 'package:click_desk/providers/user/user_notifier_provider.dart';
+import 'package:click_desk/services/auth/auth_service.dart';
 
 part 'auth_notifier_provider.g.dart';
 

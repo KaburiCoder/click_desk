@@ -1,6 +1,6 @@
-import 'package:click_recept/providers/keypad/phone_keypad_provider.dart';
-import 'package:click_recept/widgets/checkin/keypad.dart';
-import 'package:click_recept/widgets/checkin/phone_inputs.dart';
+import 'package:click_desk/providers/keypad/phone_keypad_provider.dart';
+import 'package:click_desk/widgets/checkin/keypad.dart';
+import 'package:click_desk/widgets/checkin/phone_inputs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

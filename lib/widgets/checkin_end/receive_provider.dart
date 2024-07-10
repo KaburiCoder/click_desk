@@ -1,8 +1,8 @@
-import 'package:click_recept/models/receive_patient_res_state/receive_patient_res_state.dart';
-import 'package:click_recept/models/request_state/request_state.dart';
-import 'package:click_recept/models/socket_io/socket_response.dart';
-import 'package:click_recept/providers/checkin/checkin_provider.dart';
-import 'package:click_recept/providers/socket_io/socket_io_provider.dart';
+import 'package:click_desk/models/receive_patient_res_state/receive_patient_res_state.dart';
+import 'package:click_desk/models/request_state/request_state.dart';
+import 'package:click_desk/models/socket_io/socket_response.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/providers/socket_io/socket_io_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'receive_provider.g.dart';

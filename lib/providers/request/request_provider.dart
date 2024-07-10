@@ -1,4 +1,4 @@
-import 'package:click_recept/models/request_state/request_state.dart';
+import 'package:click_desk/models/request_state/request_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'request_provider.g.dart';

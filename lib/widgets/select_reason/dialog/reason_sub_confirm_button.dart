@@ -1,4 +1,5 @@
-import 'package:click_recept/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,6 +13,7 @@ class ReasonSubConfirmButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final checkinState = ref.watch(checkinProvider);
+    final checked = checkinState.reasonState.isSubsExists;
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
@@ -22,8 +24,9 @@ class ReasonSubConfirmButton extends ConsumerWidget {
           borderRadius: BorderRadius.circular(8), // 직각 모서리 설정
         ),
       ),
-      onPressed: checkinState.reasonState.isSubsExists ? onConfirm : null,
-      child: const Text("확인"),
+      onPressed: checked ? onConfirm : null,
+      child: BaseText("확인",
+          fontSize: 24, color: checked ? Colors.white : Colors.black),
     );
   }
 }

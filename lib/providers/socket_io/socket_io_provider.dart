@@ -1,4 +1,4 @@
-import 'package:click_recept/providers/user/user_notifier_provider.dart';
+import 'package:click_desk/providers/user/user_notifier_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../services/socket_io/socket_io_service.dart';
 part 'socket_io_provider.g.dart';

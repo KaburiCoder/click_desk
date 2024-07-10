@@ -1,4 +1,4 @@
-import 'package:click_recept/utils/date_util.dart';
+import 'package:click_desk/utils/date_util.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'doctor_state.freezed.dart';

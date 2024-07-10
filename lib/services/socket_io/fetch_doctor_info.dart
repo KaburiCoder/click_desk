@@ -1,6 +1,6 @@
-import 'package:click_recept/models/doctor_state/doctor_state.dart';
-import 'package:click_recept/models/socket_io/socket_response.dart';
-import 'package:click_recept/providers/socket_io/socket_io_provider.dart';
+import 'package:click_desk/models/doctor_state/doctor_state.dart';
+import 'package:click_desk/models/socket_io/socket_response.dart';
+import 'package:click_desk/providers/socket_io/socket_io_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'fetch_doctor_info.g.dart';

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:click_recept/models/qr_scan_state/qr_scan_state.dart';
+import 'package:click_desk/models/qr_scan_state/qr_scan_state.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

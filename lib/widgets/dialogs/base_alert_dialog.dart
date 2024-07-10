@@ -1,5 +1,5 @@
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 
 Future<dynamic> baseAlertDialog(BuildContext context, String message) {

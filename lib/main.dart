@@ -1,5 +1,5 @@
-import 'package:click_recept/providers/shared_utiltiy/shared_utility_provider.dart';
-import 'package:click_recept/routes/route_provider.dart';
+import 'package:click_desk/providers/shared_utiltiy/shared_utility_provider.dart';
+import 'package:click_desk/routes/route_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

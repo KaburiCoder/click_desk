@@ -1,6 +1,6 @@
-import 'package:click_recept/models/keypad_state/keypad_state.dart';
-import 'package:click_recept/providers/interfaces/ikeypad.dart';
-import 'package:click_recept/widgets/custom_keypad.dart';
+import 'package:click_desk/models/keypad_state/keypad_state.dart';
+import 'package:click_desk/providers/interfaces/ikeypad.dart';
+import 'package:click_desk/widgets/custom_keypad.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'phone_keypad_provider.g.dart';
 

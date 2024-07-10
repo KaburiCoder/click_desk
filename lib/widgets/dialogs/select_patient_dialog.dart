@@ -1,11 +1,11 @@
-import 'package:click_recept/models/patient_state/patient_state.dart';
-import 'package:click_recept/providers/checkin/checkin_provider.dart';
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/widgets/gender_avatar.dart';
-import 'package:click_recept/widgets/spacer.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
-import 'package:click_recept/widgets/texts/grey_text.dart';
-import 'package:click_recept/widgets/texts/lg_text.dart';
+import 'package:click_desk/models/patient_state/patient_state.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/gender_avatar.dart';
+import 'package:click_desk/widgets/spacer.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
+import 'package:click_desk/widgets/texts/grey_text.dart';
+import 'package:click_desk/widgets/texts/lg_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -1,7 +1,7 @@
-import 'package:click_recept/constants/lottie_paths.dart';
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/widgets/card_x.dart';
-import 'package:click_recept/widgets/lottie.dart';
+import 'package:click_desk/constants/lottie_paths.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/card_x.dart';
+import 'package:click_desk/widgets/lottie.dart';
 import 'package:flutter/material.dart';
 
 class NewVerificationSelections extends StatelessWidget {

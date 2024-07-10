@@ -1,7 +1,7 @@
-import 'package:click_recept/models/request_state/request_state.dart';
-import 'package:click_recept/providers/keypad/keypad_manager.dart';
-import 'package:click_recept/providers/patient/patient_confirm_manager.dart';
-import 'package:click_recept/widgets/custom_keypad.dart';
+import 'package:click_desk/models/request_state/request_state.dart';
+import 'package:click_desk/providers/keypad/keypad_manager.dart';
+import 'package:click_desk/providers/patient/patient_confirm_manager.dart';
+import 'package:click_desk/widgets/custom_keypad.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

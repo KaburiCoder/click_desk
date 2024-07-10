@@ -1,10 +1,10 @@
-import 'package:click_recept/models/doctor_state/doctor_state.dart';
-import 'package:click_recept/providers/checkin/checkin_provider.dart';
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/widgets/chip_widget.dart';
-import 'package:click_recept/widgets/dialogs/base_alert_dialog.dart';
-import 'package:click_recept/widgets/spacer.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/models/doctor_state/doctor_state.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/chip_widget.dart';
+import 'package:click_desk/widgets/dialogs/base_alert_dialog.dart';
+import 'package:click_desk/widgets/spacer.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

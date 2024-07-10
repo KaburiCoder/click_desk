@@ -1,13 +1,13 @@
-import 'package:click_recept/constants/socket_ev.dart';
-import 'package:click_recept/models/checkin_state/checkin_state.dart';
-import 'package:click_recept/models/doctor_state/doctor_state.dart';
-import 'package:click_recept/models/params/patient_cert_params.dart';
-import 'package:click_recept/models/params/user_search_params.dart';
-import 'package:click_recept/models/patient_cert_state/patient_cert_state.dart';
-import 'package:click_recept/models/patient_state/patient_state.dart';
-import 'package:click_recept/models/receive_patient_res_state/receive_patient_res_state.dart';
-import 'package:click_recept/models/socket_io/socket_response.dart';
-import 'package:click_recept/models/user/user.dart';
+import 'package:click_desk/constants/socket_ev.dart';
+import 'package:click_desk/models/checkin_state/checkin_state.dart';
+import 'package:click_desk/models/doctor_state/doctor_state.dart';
+import 'package:click_desk/models/params/patient_cert_params.dart';
+import 'package:click_desk/models/params/user_search_params.dart';
+import 'package:click_desk/models/patient_cert_state/patient_cert_state.dart';
+import 'package:click_desk/models/patient_state/patient_state.dart';
+import 'package:click_desk/models/receive_patient_res_state/receive_patient_res_state.dart';
+import 'package:click_desk/models/socket_io/socket_response.dart';
+import 'package:click_desk/models/user/user.dart';
 // ignore: library_prefixes
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 

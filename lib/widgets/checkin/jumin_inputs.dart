@@ -1,9 +1,9 @@
-import 'package:click_recept/models/params/user_search_params.dart';
-import 'package:click_recept/models/patient_state/patient_state.dart';
-import 'package:click_recept/providers/patient/patient_confirm_manager.dart';
-import 'package:click_recept/widgets/dialogs/select_patient_dialog.dart';
-import 'package:click_recept/widgets/hint_input.dart';
-import 'package:click_recept/providers/keypad/jumin_keypad_provider.dart';
+import 'package:click_desk/models/params/user_search_params.dart';
+import 'package:click_desk/models/patient_state/patient_state.dart';
+import 'package:click_desk/providers/patient/patient_confirm_manager.dart';
+import 'package:click_desk/widgets/dialogs/select_patient_dialog.dart';
+import 'package:click_desk/widgets/hint_input.dart';
+import 'package:click_desk/providers/keypad/jumin_keypad_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

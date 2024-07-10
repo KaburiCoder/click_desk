@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:click_recept/constants/lottie_paths.dart';
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/widgets/lottie.dart';
-import 'package:click_recept/widgets/spacer.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
-import 'package:click_recept/widgets/texts/xl_text.dart';
+import 'package:click_desk/constants/lottie_paths.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/lottie.dart';
+import 'package:click_desk/widgets/spacer.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
+import 'package:click_desk/widgets/texts/xl_text.dart';
 import 'package:flutter/material.dart';
 
 class SuccessPage extends StatefulWidget {

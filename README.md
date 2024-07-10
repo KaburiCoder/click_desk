@@ -1,4 +1,4 @@
-# click_recept
+# click_desk
 
 A new Flutter project.
 

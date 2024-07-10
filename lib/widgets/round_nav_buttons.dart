@@ -1,6 +1,6 @@
-import 'package:click_recept/routes/nav.dart';
-import 'package:click_recept/widgets/round_icon_button.dart';
-import 'package:click_recept/widgets/spacer.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/round_icon_button.dart';
+import 'package:click_desk/widgets/spacer.dart';
 import 'package:flutter/material.dart';
 
 class RoundNavButtons extends StatelessWidget {

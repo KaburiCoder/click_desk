@@ -1,7 +1,7 @@
-import 'package:click_recept/constants/lottie_paths.dart';
-import 'package:click_recept/widgets/common_left_body.dart';
-import 'package:click_recept/widgets/left_wrapper.dart';
-import 'package:click_recept/widgets/lottie.dart';
+import 'package:click_desk/constants/lottie_paths.dart';
+import 'package:click_desk/widgets/common_left_body.dart';
+import 'package:click_desk/widgets/left_wrapper.dart';
+import 'package:click_desk/widgets/lottie.dart';
 import 'package:flutter/material.dart';
 
 class CheckinWrapper extends StatelessWidget {

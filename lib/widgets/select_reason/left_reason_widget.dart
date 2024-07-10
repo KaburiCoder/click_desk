@@ -1,6 +1,6 @@
-import 'package:click_recept/widgets/left_wrapper.dart';
-import 'package:click_recept/widgets/spacer.dart';
-import 'package:click_recept/widgets/texts/xl_text.dart';
+import 'package:click_desk/widgets/left_wrapper.dart';
+import 'package:click_desk/widgets/spacer.dart';
+import 'package:click_desk/widgets/texts/xl_text.dart';
 import 'package:flutter/material.dart';
 
 class LeftReasonWidget extends StatelessWidget {

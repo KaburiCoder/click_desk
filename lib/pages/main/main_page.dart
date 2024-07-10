@@ -1,6 +1,6 @@
-import 'package:click_recept/providers/socket_io/socket_io_provider.dart';
-import 'package:click_recept/widgets/left_wrapper.dart';
-import 'package:click_recept/widgets/texts/base_text.dart';
+import 'package:click_desk/providers/socket_io/socket_io_provider.dart';
+import 'package:click_desk/widgets/left_wrapper.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -1,8 +1,8 @@
-import 'package:click_recept/providers/shared_utiltiy/shared_utility_provider.dart';
+import 'package:click_desk/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:click_recept/providers/dio/dio_provider.dart';
-import 'package:click_recept/models/user/user.dart';
+import 'package:click_desk/providers/dio/dio_provider.dart';
+import 'package:click_desk/models/user/user.dart';
 
 part 'auth_service.g.dart';
 
