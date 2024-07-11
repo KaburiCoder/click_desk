@@ -27,6 +27,7 @@ class ChoiceWidget extends StatelessWidget {
                 lottie: LottieAnimation(
                   LottiePaths.firstVisit,
                   forward: true,
+                  duration: 3000,
                 ),
                 onClick: () {
                   Nav.of(context).pushCertNew();
@@ -42,6 +43,7 @@ class ChoiceWidget extends StatelessWidget {
                 lottie: LottieAnimation(
                   LottiePaths.followUp,
                   forward: true,
+                  duration: 3000,
                 ),
                 onClick: () {
                   Nav.of(context).pushCert();

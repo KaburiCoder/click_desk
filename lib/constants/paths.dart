@@ -1,4 +1,5 @@
 class Paths {
+  static String initView = "/initView";
   static String signin = "/signin";
   static String main = "/";
   static String cert = "/cert";
