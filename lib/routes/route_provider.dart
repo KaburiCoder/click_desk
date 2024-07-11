@@ -23,11 +23,12 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 @riverpod
 GoRouter route(RouteRef ref) {
+  final auth = ref.watch(authProvider);
+  
   return GoRouter(
       navigatorKey: _rootNavigatorKey,
       initialLocation: Paths.initView,
       redirect: (context, state) {
-        final auth = ref.watch(authProvider);
         if (auth.isLoading && !auth.hasValue) return null;
 
         final isInitView = state.matchedLocation == Paths.initView;
