@@ -10,6 +10,7 @@ class User with _$User {
     @Default("") String userId,
     @Default("") String email,
     @Default("") String roomKey,
+    @Default("") String orgName,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

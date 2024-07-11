@@ -1,7 +1,6 @@
-import 'package:click_desk/models/receive_patient_res_state/receive_patient_res_state.dart';
 import 'package:click_desk/models/request_state/request_state.dart';
 import 'package:click_desk/routes/nav.dart';
-import 'package:click_desk/widgets/checkin_end/receive_provider.dart';
+import 'package:click_desk/services/socket_io/receive_provider.dart';
 import 'package:click_desk/widgets/dialogs/base_alert_dialog.dart';
 import 'package:click_desk/widgets/spacer.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';

@@ -6,7 +6,7 @@ class CustomInput extends StatelessWidget {
   final IconData prefixIcon;
   final bool obscureText;
   final TextInputType keyboardType;
-  final String? emptyText;
+  final String? validateText;
 
   const CustomInput({
     super.key,
@@ -15,7 +15,7 @@ class CustomInput extends StatelessWidget {
     required this.prefixIcon,
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
-    this.emptyText,
+    this.validateText,
   });
 
   @override
@@ -36,7 +36,7 @@ class CustomInput extends StatelessWidget {
       keyboardType: keyboardType,
       validator: (value) {
         if (value?.isEmpty ?? true) {
-          return emptyText;
+          return validateText;
         }
         return null;
       },

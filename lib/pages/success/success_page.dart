@@ -18,9 +18,10 @@ class SuccessPage extends StatefulWidget {
 
 class _SuccessPageState extends State<SuccessPage> {
   int _remainingSeconds = 5;
+  Timer? _timer;
 
   void _startTimer() {
-    Timer.periodic(
+    _timer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
         setState(() {
@@ -39,6 +40,12 @@ class _SuccessPageState extends State<SuccessPage> {
   void initState() {
     super.initState();
     _startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel(); // Cancel the timer when the widget is disposed
+    super.dispose();
   }
 
   @override

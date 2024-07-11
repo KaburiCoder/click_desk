@@ -1,0 +1,23 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "click-desk",
+          "appId": "1:900638492806:android:d890c6180a9f93f103e907",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "click-desk",
+          "configurations": {
+            "android": "1:900638492806:android:d890c6180a9f93f103e907",
+            "ios": "1:900638492806:ios:70d80d638351c79403e907",
+            "macos": "1:900638492806:ios:70d80d638351c79403e907"
+          }
+        }
+      }
+    }
+  }
+}

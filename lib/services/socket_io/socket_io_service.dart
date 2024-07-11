@@ -12,11 +12,11 @@ import 'package:click_desk/models/user/user.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class SocketIOService {
-  final User user;
+  final User? user;
   late IO.Socket socket;
 
-  SocketIOService(this.user) {
-    if (user.roomKey.isEmpty) return;
+  SocketIOService([this.user]) {
+    if (user == null || user!.roomKey.isEmpty) return;
 
     bool test = true;
     socket = IO.io(
@@ -34,7 +34,7 @@ class SocketIOService {
   Future<SocketResponse<List<PatientState>>> getMobilePatientInfo(
       UserSearchParams params) async {
     Map<String, dynamic> data = params.toJson();
-    data['key'] = user.roomKey;
+    data['key'] = user!.roomKey;
 
     final response =
         await socket.emitWithAckAsync(SocketEv.getMobilePatientInfo, data);
@@ -53,7 +53,7 @@ class SocketIOService {
   }
 
   Future<SocketResponse<List<DoctorState>>> getMobileDoctorInfo() async {
-    Map<String, dynamic> data = {"key": user.roomKey};
+    Map<String, dynamic> data = {"key": user!.roomKey};
 
     final response =
         await socket.emitWithAckAsync(SocketEv.getMobileDoctorInfo, data);
@@ -68,7 +68,7 @@ class SocketIOService {
   Future<SocketResponse<PatientCertState>> getMobilePatientCert(
       PatientCertParams params) async {
     final jsonData = params.toJson();
-    jsonData['key'] = user.roomKey;
+    jsonData['key'] = user!.roomKey;
 
     final response =
         await socket.emitWithAckAsync(SocketEv.getMobilePatientCert, jsonData);
@@ -80,7 +80,7 @@ class SocketIOService {
   Future<SocketResponse<ReceivePatientResState>> receiveMobilePatient(
       CheckinState checkin) async {
     final jsonData = checkin.toJson();
-    jsonData['key'] = user.roomKey;
+    jsonData['key'] = user!.roomKey;
 
     final response =
         await socket.emitWithAckAsync(SocketEv.receiveMobilePatient, jsonData);

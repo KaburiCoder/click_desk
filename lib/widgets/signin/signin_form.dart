@@ -1,6 +1,8 @@
-import 'package:click_desk/models/auth_state/auth_state.dart';
-import 'package:click_desk/providers/auth/auth_notifier_provider.dart';
-import 'package:click_desk/widgets/custom_input.dart';
+import 'package:click_desk/pages/regist/regist_page.dart';
+import 'package:click_desk/providers/auth/auth_provider.dart';
+import 'package:click_desk/utils/error_util.dart';
+import 'package:click_desk/widgets/round_input.dart';
+import 'package:click_desk/widgets/spacer.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,66 +21,72 @@ class _SigninFormState extends ConsumerState<SigninForm> {
 
   @override
   Widget build(BuildContext context) {
-    final authState = ref.watch(authNotifierProvider);
+    final auth = ref.watch(authProvider);
 
     return Form(
       key: _formKey,
       child: Container(
-        constraints: const BoxConstraints(minWidth: 300),
+        constraints: const BoxConstraints(minWidth: 350),
         child: Column(
           children: [
-            CustomInput(
+            RoundInput(
               controller: userId,
               hintText: 'Id',
               prefixIcon: Icons.person,
-              emptyText: "아이디를 입력하세요.",
+              textInputAction: TextInputAction.next,
+              validator: (value) => validateEmpty(value, "아이디를 입력하세요."),
             ),
             const SizedBox(height: 16),
-            CustomInput(
+            RoundInput(
               controller: password,
               prefixIcon: Icons.lock,
               hintText: 'Password',
               obscureText: true,
-              emptyText: "비밀번호를 입력하세요.",
+              validator: (value) => validateEmpty(value, "비밀번호를 입력하세요."),
             ),
             const SizedBox(height: 16),
-            if (authState.error?.error?['_form'] != null)
+            if (auth.hasError) ...[
               Container(
                 width: double.infinity,
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                 decoration: BoxDecoration(
                   color: Colors.red[50],
                   border: Border.all(color: Colors.red, width: 1),
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: BaseText(
-                  authState.error!.error!['_form'].toString(),
+                  parseError(auth.error, key: "_form"),
                   color: Colors.red,
                 ),
               ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: authState.loadingState == LoadingState.loading
-                  ? null
-                  : () async {
-                      if (!_formKey.currentState!.validate()) return;
+              const HeightSpacer(16)
+            ],
+            // const SizedBox(height: 24),
+            EvButton(
+              backgroundColor: Colors.blue,
+              minWidth: 400,
+              onPressed: () async {
+                if (!_formKey.currentState!.validate()) return;
 
-                      await ref
-                          .read(authNotifierProvider.notifier)
-                          .signin(userId.text, password.text);
-                    },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                minimumSize: const Size(double.infinity, 50), // 버튼 크기 조정
-              ),
-              child: authState.loadingState == LoadingState.loading
-                  ? const CircularProgressIndicator(color: Colors.white)
-                  : const BaseText('로그인', color: Colors.white),
+                await ref
+                    .read(authProvider.notifier)
+                    .signin(userId.text, password.text);
+              },
+              text: "로그인",
+              isLoading: auth.isLoading,
             ),
           ],
         ),
       ),
     );
   }
+}
+
+String? validateEmpty(String? value, String validateText) {
+  if (value?.isEmpty ?? true) {
+    return validateText;
+  }
+  return null;
 }

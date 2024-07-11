@@ -21,7 +21,13 @@ class SharedUtility {
 
   final SharedPreferences sharedPreferences;
 
-  List<String>? getAuthCookies() {    
+  bool isCookieExists() {
+    final cookies = getAuthCookies();
+
+    return cookies?.isNotEmpty ?? false;
+  }
+
+  List<String>? getAuthCookies() {
     return sharedPreferences.getStringList(_authCookiesKey);
   }
 

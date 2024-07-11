@@ -1,6 +1,6 @@
 import 'package:click_desk/constants/paths.dart';
-import 'package:click_desk/models/auth_state/auth_state.dart';
-import 'package:click_desk/providers/auth/auth_notifier_provider.dart';
+import 'package:click_desk/providers/auth/auth_provider.dart';
+import 'package:click_desk/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:click_desk/routes/details/cert_new_route.dart';
 import 'package:click_desk/routes/details/cert_route.dart';
 import 'package:click_desk/routes/details/checkin_end_route.dart';
@@ -23,20 +23,18 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 @riverpod
 GoRouter route(RouteRef ref) {
-  final authState = ref.watch(authNotifierProvider);
-  final isCookieExists =
-      ref.read(authNotifierProvider.notifier).isCookieExists();
+  final auth = ref.watch(authProvider);
+  final sharedUtil = ref.read(sharedUtilityProvider);
 
   return GoRouter(
       navigatorKey: _rootNavigatorKey,
-      initialLocation: isCookieExists ? Paths.main : Paths.signin,
+      initialLocation: sharedUtil.isCookieExists() ? Paths.main : Paths.signin,
       redirect: (context, state) {
-        if (authState.loadingState == LoadingState.init) {
-          return null;
-        }
+        if (auth.isLoading) return null;
+
         final withNotAuth = state.matchedLocation == Paths.signin;
 
-        if (authState.isAuthenticated) {
+        if (auth.value?.roomKey.isNotEmpty ?? false) {
           if (withNotAuth) return Paths.main;
         } else {
           if (!withNotAuth) return Paths.signin;

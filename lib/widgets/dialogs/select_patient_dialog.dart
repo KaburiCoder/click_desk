@@ -86,7 +86,7 @@ class SuccessWidget extends ConsumerWidget {
   void pushSelectDoctor(
       Checkin checkinNotifier, PatientState patient, BuildContext context) {
     checkinNotifier.setPatient(patient);
-    Nav.of(context).pushSelectDoctor(popFirst: true);
+    Nav.of(context).pushSelectDoctor(replace: true);
   }
 
   @override

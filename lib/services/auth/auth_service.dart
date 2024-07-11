@@ -21,7 +21,7 @@ class AuthService {
     return user;
   }
 
-  Future<User?> currentUser() async {
+  Future<User> currentUser() async {
     try {
       final dio = ref.read(dioProvider);
       final response = await dio.post("/currentuser");
@@ -29,7 +29,7 @@ class AuthService {
       return user;
     } catch (error) {
       print(error);
-      return null;
+      return const User();
     }
   }
 }

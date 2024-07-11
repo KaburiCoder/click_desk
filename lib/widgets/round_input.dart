@@ -16,6 +16,7 @@ class RoundInput extends StatelessWidget {
   final double fontSize;
   final TextInputAction? textInputAction;
   final FocusNode? focusNode;
+  final IconData? prefixIcon;
   final Function(String value)? onChanged;
   final String? Function(String? value)? validator;
   const RoundInput({
@@ -36,6 +37,7 @@ class RoundInput extends StatelessWidget {
     this.onChanged,
     this.focusNode,
     this.validator,
+    this.prefixIcon,
   });
 
   @override
@@ -57,16 +59,16 @@ class RoundInput extends StatelessWidget {
       onChanged: onChanged,
       validator: validator,
       decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          hintText: hintText,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30.0),
-          ),
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 30, vertical: 10)
-          // prefixIcon: Icon(prefixIcon),
-          ),
+        filled: true,
+        fillColor: Colors.white,
+        hintText: hintText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
+      ),
     );
   }
 }
@@ -78,6 +80,7 @@ class RoundTextInput extends StatelessWidget {
   final bool readOnly;
   final double fontSize;
   final TextInputAction? textInputAction;
+  final String? hintText;
   final FocusNode? focusNode;
   final Function(String value)? onChanged;
   final String? Function(String? value)? validator;
@@ -92,6 +95,7 @@ class RoundTextInput extends StatelessWidget {
     this.onChanged,
     this.focusNode,
     this.validator,
+    this.hintText,
   });
 
   @override
@@ -105,6 +109,7 @@ class RoundTextInput extends StatelessWidget {
         onChanged: onChanged,
         focusNode: focusNode,
         validator: validator,
+        hintText: hintText,
         textInputAction: textInputAction,
         keyboardType: TextInputType.text,
         maxLines: maxLines,

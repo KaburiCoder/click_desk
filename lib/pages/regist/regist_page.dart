@@ -9,7 +9,7 @@ import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/widgets/left_wrapper.dart';
 import 'package:click_desk/widgets/lottie.dart';
 import 'package:click_desk/widgets/right_container.dart';
-import 'package:click_desk/widgets/tab_outsid_to_close_keyboard.dart';
+import 'package:click_desk/widgets/tab_outside_to_close_keyboard.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -128,20 +128,26 @@ class _RegistPageState extends ConsumerState<RegistPage> {
 class EvButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
+  final double minWidth;
+  final double minHeight;
   final bool isLoading;
+  final Color backgroundColor;
   const EvButton({
     super.key,
     required this.onPressed,
     required this.text,
     this.isLoading = false,
+    this.minWidth = 300,
+    this.minHeight = 65,
+    this.backgroundColor = Colors.black38,
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        minimumSize: const Size(300, 80),
-        backgroundColor: Colors.black38,
+        minimumSize: Size(minWidth, minHeight),
+        backgroundColor: backgroundColor,
       ),
       onPressed: isLoading ? null : onPressed,
       child: IntrinsicWidth(

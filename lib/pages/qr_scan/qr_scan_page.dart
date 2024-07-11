@@ -37,6 +37,7 @@ class _QrScanPageState extends ConsumerState<QrScanPage> {
         if (context.mounted) Nav.of(context).pushRegist(replace: true);
       },
     );
+    
     _qrScanManager.listen(
       onScanned: (qrCode) => _patientConfirmManager
           .read()

@@ -1,10 +1,11 @@
-import 'package:click_desk/providers/user/user_notifier_provider.dart';
+import 'package:click_desk/providers/auth/auth_provider.dart';
+import 'package:click_desk/services/socket_io/socket_io_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../services/socket_io/socket_io_service.dart';
+
 part 'socket_io_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 SocketIOService socketIO(SocketIORef ref) {
-  final user = ref.watch(userNotifierProvider);
-  return SocketIOService(user);
+  final auth = ref.watch(authProvider);
+  return SocketIOService(auth.value);
 }

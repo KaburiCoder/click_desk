@@ -23,6 +23,7 @@ mixin _$User {
   String get userId => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get roomKey => throw _privateConstructorUsedError;
+  String get orgName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({String userId, String email, String roomKey});
+  $Res call({String userId, String email, String roomKey, String orgName});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? userId = null,
     Object? email = null,
     Object? roomKey = null,
+    Object? orgName = null,
   }) {
     return _then(_value.copyWith(
       userId: null == userId
@@ -67,6 +69,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.roomKey
           : roomKey // ignore: cast_nullable_to_non_nullable
               as String,
+      orgName: null == orgName
+          ? _value.orgName
+          : orgName // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -78,7 +84,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String userId, String email, String roomKey});
+  $Res call({String userId, String email, String roomKey, String orgName});
 }
 
 /// @nodoc
@@ -94,6 +100,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? userId = null,
     Object? email = null,
     Object? roomKey = null,
+    Object? orgName = null,
   }) {
     return _then(_$UserImpl(
       userId: null == userId
@@ -108,6 +115,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.roomKey
           : roomKey // ignore: cast_nullable_to_non_nullable
               as String,
+      orgName: null == orgName
+          ? _value.orgName
+          : orgName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -115,7 +126,11 @@ class __$$UserImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserImpl with DiagnosticableTreeMixin implements _User {
-  const _$UserImpl({this.userId = "", this.email = "", this.roomKey = ""});
+  const _$UserImpl(
+      {this.userId = "",
+      this.email = "",
+      this.roomKey = "",
+      this.orgName = ""});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
@@ -129,10 +144,13 @@ class _$UserImpl with DiagnosticableTreeMixin implements _User {
   @override
   @JsonKey()
   final String roomKey;
+  @override
+  @JsonKey()
+  final String orgName;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(userId: $userId, email: $email, roomKey: $roomKey)';
+    return 'User(userId: $userId, email: $email, roomKey: $roomKey, orgName: $orgName)';
   }
 
   @override
@@ -142,7 +160,8 @@ class _$UserImpl with DiagnosticableTreeMixin implements _User {
       ..add(DiagnosticsProperty('type', 'User'))
       ..add(DiagnosticsProperty('userId', userId))
       ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('roomKey', roomKey));
+      ..add(DiagnosticsProperty('roomKey', roomKey))
+      ..add(DiagnosticsProperty('orgName', orgName));
   }
 
   @override
@@ -152,12 +171,13 @@ class _$UserImpl with DiagnosticableTreeMixin implements _User {
             other is _$UserImpl &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.roomKey, roomKey) || other.roomKey == roomKey));
+            (identical(other.roomKey, roomKey) || other.roomKey == roomKey) &&
+            (identical(other.orgName, orgName) || other.orgName == orgName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, userId, email, roomKey);
+  int get hashCode => Object.hash(runtimeType, userId, email, roomKey, orgName);
 
   @JsonKey(ignore: true)
   @override
@@ -177,7 +197,8 @@ abstract class _User implements User {
   const factory _User(
       {final String userId,
       final String email,
-      final String roomKey}) = _$UserImpl;
+      final String roomKey,
+      final String orgName}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
@@ -187,6 +208,8 @@ abstract class _User implements User {
   String get email;
   @override
   String get roomKey;
+  @override
+  String get orgName;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>

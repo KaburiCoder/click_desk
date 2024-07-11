@@ -161,13 +161,14 @@ class InputsWidget2State extends ConsumerState<InputsWidget2> {
           const WidthSpacer(),
           ElevatedButton(
             onPressed: () async {
-              KopoModel model = await Navigator.push(
+              KopoModel? model = await Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => RemediKopo(),
                 ),
               );
 
+              if (model == null) return;
               setState(() {
                 _postal1.text = Strings.substring(model.zonecode, 0, 3);
                 _postal2.text = Strings.substring(model.zonecode, 3, 6);

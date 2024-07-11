@@ -6,7 +6,7 @@ part of 'socket_io_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$socketIOHash() => r'ac320aebddc71ce2a70da8ab74173b04beedfaa8';
+String _$socketIOHash() => r'56f18aabba0cd82ae1fdae091df7a70c34f04538';
 
 /// See also [socketIO].
 @ProviderFor(socketIO)

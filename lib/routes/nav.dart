@@ -39,9 +39,15 @@ class Nav {
     _context.pushReplacementNamed(Paths.selectDoctor);
   }
 
-  pushSelectDoctor({bool popFirst = false}) {
+  pushNamed({bool replace = false}) {
+    final pushNamed =
+        replace ? _context.pushReplacementNamed : _context.pushNamed;
+    return pushNamed;
+  }
+
+  pushSelectDoctor({bool popFirst = false, bool replace = false}) {
     if (popFirst) pop();
-    _context.pushNamed(Paths.selectDoctor);
+    pushNamed(replace: replace)(Paths.selectDoctor);
   }
 
   pushPhone() {

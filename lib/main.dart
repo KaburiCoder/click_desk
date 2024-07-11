@@ -1,5 +1,9 @@
+import 'dart:ui';
+
 import 'package:click_desk/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:click_desk/routes/route_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,22 +11,39 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
+Future<void> initializeFire() async {
+  await Firebase.initializeApp();
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
+}
+
+Future<Override> createSharedPreferencesOverride() async {
+  final sharedPreferences = await SharedPreferences.getInstance();
+  return sharedPreferencesProvider.overrideWithValue(sharedPreferences);
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // timezone 초기설정
-  tz.initializeTimeZones();
-  // 화면꺼짐 방지
-  WakelockPlus.enable();
-  final sharedPreferences = await SharedPreferences.getInstance();
-
-  // 상단바 숨기기
+  await initializeFire();
+  tz.initializeTimeZones(); // timezone 초기설정
+  WakelockPlus.enable(); // 화면꺼짐 방지
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-      overlays: [SystemUiOverlay.bottom]);
-  // 하단바 숨기기
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  runApp(ProviderScope(overrides: [
-    sharedPreferencesProvider.overrideWithValue(sharedPreferences),
-  ], child: const MyApp()));
+      overlays: [SystemUiOverlay.bottom]); // 상단바 숨기기
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky); // 하단바 숨기기
+
+  final sharedPreferencesOverride = await createSharedPreferencesOverride();
+  runApp(
+    ProviderScope(
+      overrides: [sharedPreferencesOverride],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends ConsumerWidget {

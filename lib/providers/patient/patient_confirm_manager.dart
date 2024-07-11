@@ -76,6 +76,8 @@ class PatientConfirmManager
             } else {
               final patient = next.data[0];
               final checkinNotifier = ref.read(checkinProvider.notifier);
+
+              checkinNotifier.setIsQRScanned(true); // QR스캔 성공
               if (patient.wjAuto == 0) {
                 final checkinState = ref.read(checkinProvider);
 
@@ -86,7 +88,6 @@ class PatientConfirmManager
                 }
 
                 checkinNotifier.setPatient(patient);
-                checkinNotifier.setIsQRScanned(true);
                 onSuccess();
                 // Nav.of(context).pushRegist(replace: true);
               } else {
