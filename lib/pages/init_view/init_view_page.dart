@@ -1,6 +1,6 @@
-import 'package:click_desk/constants/lottie_paths.dart';
-import 'package:click_desk/widgets/lottie.dart';
 import 'package:flutter/material.dart';
+
+import 'package:click_desk/constants/image_paths.dart';
 
 class InitViewPage extends StatelessWidget {
   const InitViewPage({super.key});
@@ -8,14 +8,9 @@ class InitViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
-        child: Column(
-          children: [
-            LottieAnimation(LottiePaths.congratulations, duration: 3000),
-            const Text("하하 시작 대기화면"),
-            const CircularProgressIndicator(),
-          ],
-        ),
+        child: Image.asset(ImagePaths.clickSoftLogo),
       ),
     );
   }
