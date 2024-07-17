@@ -3,7 +3,8 @@
     <application
         android:label="Click Desk"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/launcher_icon"
+        android:enableOnBackInvokedCallback="false">
 
         <activity
             android:name=".MainActivity"

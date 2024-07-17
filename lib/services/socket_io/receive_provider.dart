@@ -15,7 +15,7 @@ class Receive extends _$Receive {
   }
 
   bool _setError(String message) {
-    state = RequestErrorState<ReceivePatientResState>(message: message);
+    state = RequestErrorState(message: message);
     return false;
   }
 

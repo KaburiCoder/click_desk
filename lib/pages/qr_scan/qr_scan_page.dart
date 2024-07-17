@@ -1,4 +1,5 @@
 import 'package:click_desk/constants/lottie_paths.dart';
+import 'package:click_desk/models/params/regist_params.dart';
 import 'package:click_desk/models/params/user_search_params.dart';
 import 'package:click_desk/providers/patient/patient_confirm_manager.dart';
 import 'package:click_desk/providers/qr_scan/qr_scan_manager.dart';
@@ -6,10 +7,9 @@ import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/widgets/common_left_body.dart';
 import 'package:click_desk/widgets/left_wrapper.dart';
 import 'package:click_desk/widgets/lottie.dart';
+import 'package:click_desk/widgets/qr_scan/build_qr_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../widgets/qr_scan/build_qr_view.dart';
 
 class QrScanPage extends ConsumerStatefulWidget {
   const QrScanPage({super.key});
@@ -34,10 +34,12 @@ class _QrScanPageState extends ConsumerState<QrScanPage> {
     _patientConfirmManager.listenOnQRScan(
       context,
       onSuccess: () {
-        if (context.mounted) Nav.of(context).pushRegist(replace: true);
+        if (context.mounted) {
+          Nav.of(context).pushRegist(replace: true);
+        }
       },
     );
-    
+
     _qrScanManager.listen(
       onScanned: (qrCode) => _patientConfirmManager
           .read()

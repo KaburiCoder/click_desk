@@ -85,7 +85,7 @@ class _RegistPageState extends ConsumerState<RegistPage> {
                   itemBuilder: (context, index, realIndex) {
                     final widgets = [
                       InputsWidget(
-                        onNext: ({required jumin, required suname}) {
+                        onNext: ({required jumin, required suname}) async {
                           ref
                               .read(checkinProvider.notifier)
                               .setNewPatient1(suname: suname, jumin: jumin);

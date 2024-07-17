@@ -36,7 +36,11 @@ void main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.bottom]); // 상단바 숨기기
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky); // 하단바 숨기기
-
+  // 가로화면만 가능
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight
+  ]);
   final sharedPreferencesOverride = await createSharedPreferencesOverride();
   runApp(
     ProviderScope(

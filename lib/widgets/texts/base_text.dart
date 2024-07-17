@@ -8,13 +8,18 @@ class BaseText extends StatelessWidget {
   final double fontSize;
   final String fontFamily;
   final int? maxLines;
-  const BaseText(this.text,
-      {super.key,
-      this.bold = false,
-      this.color = Colors.black,
-      this.fontSize = 16,
-      this.fontFamily = FontFamily.nanumSquareRound,
-      this.maxLines});
+  final TextDecoration? decoration;
+
+  const BaseText(
+    this.text, {
+    super.key,
+    this.bold = false,
+    this.color = Colors.black,
+    this.fontSize = 16,
+    this.fontFamily = FontFamily.nanumSquareRound,
+    this.maxLines,
+    this.decoration,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +27,11 @@ class BaseText extends StatelessWidget {
       text,
       maxLines: maxLines,
       style: TextStyle(
-        fontFamily: fontFamily,
-        fontWeight: bold ? FontWeight.bold : null,
-        fontSize: fontSize,
-        color: color,
-      ),
+          fontFamily: fontFamily,
+          fontWeight: bold ? FontWeight.bold : null,
+          fontSize: fontSize,
+          color: color,
+          decoration: decoration),
     );
   }
 }

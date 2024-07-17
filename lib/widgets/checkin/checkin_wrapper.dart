@@ -1,4 +1,3 @@
-import 'package:click_desk/constants/lottie_paths.dart';
 import 'package:click_desk/widgets/common_left_body.dart';
 import 'package:click_desk/widgets/left_wrapper.dart';
 import 'package:click_desk/widgets/lottie.dart';
@@ -7,10 +6,12 @@ import 'package:flutter/material.dart';
 class CheckinWrapper extends StatelessWidget {
   final List<String> titles;
   final Widget keyPad;
+  final String lottiePath;
   const CheckinWrapper({
     super.key,
     required this.titles,
     required this.keyPad,
+    required this.lottiePath,
   });
 
   @override
@@ -26,7 +27,7 @@ class CheckinWrapper extends StatelessWidget {
             bodyWidget: Align(
               alignment: Alignment.centerRight,
               child: LottieAnimation(
-                LottiePaths.phonNumber,
+                lottiePath,
                 duration: 5000,
               ),
             ),

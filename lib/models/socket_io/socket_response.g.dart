@@ -18,6 +18,7 @@ _$SocketResponseImpl<T> _$$SocketResponseImplFromJson<T>(
       error: (json['error'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
+      errorCode: json['errorCode'] as String?,
     );
 
 Map<String, dynamic> _$$SocketResponseImplToJson<T>(
@@ -29,6 +30,7 @@ Map<String, dynamic> _$$SocketResponseImplToJson<T>(
       'data': _$nullableGenericToJson(instance.data, toJsonT),
       'message': instance.message,
       'error': instance.error,
+      'errorCode': instance.errorCode,
     };
 
 const _$ResponseStatusEnumMap = {

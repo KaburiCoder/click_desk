@@ -7,7 +7,7 @@ GoRoute registRoute() {
   return GoRoute(
       path: Paths.regist,
       name: Paths.regist,
-      builder: (context, state) {
+      builder: (context, state) { 
         return const TimeoutTimerLayout(
           seconds: 60,
           child: RegistPage(),

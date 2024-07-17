@@ -8,5 +8,5 @@ GoRoute qrScanRoute() {
       path: Paths.qrScan,
       name: Paths.qrScan,
       builder: (context, state) =>
-          const TimeoutTimerLayout(child: QrScanPage()));
+          const TimeoutTimerLayout(seconds: 60, child: QrScanPage()));
 }

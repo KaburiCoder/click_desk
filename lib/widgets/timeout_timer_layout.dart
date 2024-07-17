@@ -1,7 +1,6 @@
-import 'dart:async';
-
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/routes/route_provider.dart';
+import 'package:click_desk/services/count_down_timer.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,12 +20,28 @@ class TimeoutTimerLayout extends ConsumerStatefulWidget {
 
 class _TimeoutTimerState extends ConsumerState<TimeoutTimerLayout>
     with WidgetsBindingObserver, RouteAware {
-  Timer? _timer;
-  int _counter = 30;
-  bool _isActive = true;
+  late CountDownTimer _timer;
   final FocusNode _focusNode = FocusNode();
 
   void clear() {}
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _timer = CountDownTimer(
+        onComplete: () {
+          if (context.mounted) Nav.of(context).goMain();
+        },
+        initCounter: widget.seconds);
+    _timer.start();
+    _focusNode.addListener(_onFocusChange);
+  }
+
+  void _onFocusChange() {
+    _timer.reset();
+  }
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -38,78 +53,36 @@ class _TimeoutTimerState extends ConsumerState<TimeoutTimerLayout>
 
   @override
   void didPop() {
-    _clearAndPauseTimer();
+    _timer.pause();
   }
 
   @override
   void didPushNext() {
-    _clearAndPauseTimer();
+    _timer.pause();
   }
 
   @override
   void didPopNext() {
-    _resumeTimer();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addObserver(this);
-    _startTimer();
-    _focusNode.addListener(_onFocusChange);
-  }
-
-  void _onFocusChange() {
-    _resetCounter();
+    _timer.resetAndResume();
   }
 
   @override
   void dispose() {
     routeObserver.unsubscribe(this);
     WidgetsBinding.instance.removeObserver(this);
-    _timer?.cancel();
+    _timer.dispose();
     _focusNode.dispose();
     super.dispose();
-  }
-
-  void _startTimer() {
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_isActive) {
-        setState(() {
-          if (_counter == 0) {
-            Nav.of(context).goMain();
-          }
-          _counter--;
-        });
-      }
-    });
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive) {
-      _pauseTimer();
+      _timer.pause();
     } else if (state == AppLifecycleState.resumed) {
-      _resumeTimer();
+      _timer.resume();
     }
-  }
-
-  void _resetCounter() {
-    _counter = widget.seconds;
-  }
-
-  void _clearAndPauseTimer() {
-    _resetCounter();
-    _pauseTimer();
-  }
-
-  void _pauseTimer() {
-    _isActive = false;
-  }
-
-  void _resumeTimer() {
-    _isActive = true;
   }
 
   @override
@@ -122,7 +95,7 @@ class _TimeoutTimerState extends ConsumerState<TimeoutTimerLayout>
             focusNode: _focusNode,
             child: Listener(
               onPointerDown: (event) {
-                _resetCounter();
+                _timer.reset();
               },
               child: widget.child,
             ),
@@ -132,15 +105,19 @@ class _TimeoutTimerState extends ConsumerState<TimeoutTimerLayout>
             right: 2,
             child: CircleAvatar(
               minRadius: 16,
-              backgroundColor: Colors.lightBlue,
+              backgroundColor: Colors.lightBlue[200],
               child: CircleAvatar(
-                backgroundColor: Colors.lightBlueAccent,
+                backgroundColor: Colors.white60,
                 minRadius: 12,
                 child: Center(
-                  child: BaseText(
-                    '$_counter',
-                    fontSize: 10,                    
-                  ),
+                  child: StreamBuilder<int>(
+                      stream: _timer.controller.stream,
+                      builder: (context, snapshot) {
+                        return BaseText(
+                          '${snapshot.data}',
+                          fontSize: 10,
+                        );
+                      }),
                 ),
               ),
             ),

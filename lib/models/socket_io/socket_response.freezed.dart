@@ -25,6 +25,7 @@ mixin _$SocketResponse<T> {
   T? get data => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   Map<String, String>? get error => throw _privateConstructorUsedError;
+  String? get errorCode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
       throw _privateConstructorUsedError;
@@ -43,7 +44,8 @@ abstract class $SocketResponseCopyWith<T, $Res> {
       {ResponseStatus status,
       T? data,
       String? message,
-      Map<String, String>? error});
+      Map<String, String>? error,
+      String? errorCode});
 }
 
 /// @nodoc
@@ -63,6 +65,7 @@ class _$SocketResponseCopyWithImpl<T, $Res, $Val extends SocketResponse<T>>
     Object? data = freezed,
     Object? message = freezed,
     Object? error = freezed,
+    Object? errorCode = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -81,6 +84,10 @@ class _$SocketResponseCopyWithImpl<T, $Res, $Val extends SocketResponse<T>>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
+      errorCode: freezed == errorCode
+          ? _value.errorCode
+          : errorCode // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -97,7 +104,8 @@ abstract class _$$SocketResponseImplCopyWith<T, $Res>
       {ResponseStatus status,
       T? data,
       String? message,
-      Map<String, String>? error});
+      Map<String, String>? error,
+      String? errorCode});
 }
 
 /// @nodoc
@@ -115,6 +123,7 @@ class __$$SocketResponseImplCopyWithImpl<T, $Res>
     Object? data = freezed,
     Object? message = freezed,
     Object? error = freezed,
+    Object? errorCode = freezed,
   }) {
     return _then(_$SocketResponseImpl<T>(
       status: null == status
@@ -133,6 +142,10 @@ class __$$SocketResponseImplCopyWithImpl<T, $Res>
           ? _value._error
           : error // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
+      errorCode: freezed == errorCode
+          ? _value.errorCode
+          : errorCode // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -144,7 +157,8 @@ class _$SocketResponseImpl<T> implements _SocketResponse<T> {
       {this.status = ResponseStatus.none,
       this.data,
       this.message,
-      final Map<String, String>? error})
+      final Map<String, String>? error,
+      this.errorCode})
       : _error = error;
 
   factory _$SocketResponseImpl.fromJson(
@@ -169,8 +183,11 @@ class _$SocketResponseImpl<T> implements _SocketResponse<T> {
   }
 
   @override
+  final String? errorCode;
+
+  @override
   String toString() {
-    return 'SocketResponse<$T>(status: $status, data: $data, message: $message, error: $error)';
+    return 'SocketResponse<$T>(status: $status, data: $data, message: $message, error: $error, errorCode: $errorCode)';
   }
 
   @override
@@ -181,7 +198,9 @@ class _$SocketResponseImpl<T> implements _SocketResponse<T> {
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality().equals(other._error, _error));
+            const DeepCollectionEquality().equals(other._error, _error) &&
+            (identical(other.errorCode, errorCode) ||
+                other.errorCode == errorCode));
   }
 
   @JsonKey(ignore: true)
@@ -191,7 +210,8 @@ class _$SocketResponseImpl<T> implements _SocketResponse<T> {
       status,
       const DeepCollectionEquality().hash(data),
       message,
-      const DeepCollectionEquality().hash(_error));
+      const DeepCollectionEquality().hash(_error),
+      errorCode);
 
   @JsonKey(ignore: true)
   @override
@@ -211,7 +231,8 @@ abstract class _SocketResponse<T> implements SocketResponse<T> {
       {final ResponseStatus status,
       final T? data,
       final String? message,
-      final Map<String, String>? error}) = _$SocketResponseImpl<T>;
+      final Map<String, String>? error,
+      final String? errorCode}) = _$SocketResponseImpl<T>;
 
   factory _SocketResponse.fromJson(
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =
@@ -225,6 +246,8 @@ abstract class _SocketResponse<T> implements SocketResponse<T> {
   String? get message;
   @override
   Map<String, String>? get error;
+  @override
+  String? get errorCode;
   @override
   @JsonKey(ignore: true)
   _$$SocketResponseImplCopyWith<T, _$SocketResponseImpl<T>> get copyWith =>

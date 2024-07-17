@@ -62,28 +62,21 @@ class Nav {
     while (_context.canPop()) {
       _context.pop();
     }
-    _context.pushNamed(Paths.success,
-        queryParameters: {"isConsented": isConsented.toString()});
+
+    Map<String, dynamic> queryParameters = {
+      "isConsented": isConsented.toString()
+    };
+    _context.pushNamed(Paths.success, queryParameters: queryParameters);
   }
 
   pushSelectReason() {
     _context.pushNamed(Paths.selectReason);
   }
 
-  pushRegist({RegistParams? params, bool replace = false}) {
-    Map<String, dynamic> queryParameters = params == null
-        ? {}
-        : {
-            "suname": params.suname,
-            "jumin": params.jumin,
-          };
-
+  pushRegist({bool replace = false}) {
     final pushNamed =
         replace ? _context.pushReplacementNamed : _context.pushNamed;
-    pushNamed(
-      Paths.regist,
-      queryParameters: queryParameters,
-    );
+    pushNamed(Paths.regist);
   }
 
   pushReplacementSelectPatient(UserSearchParams params) {

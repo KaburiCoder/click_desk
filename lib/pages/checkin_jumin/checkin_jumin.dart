@@ -1,3 +1,4 @@
+import 'package:click_desk/constants/lottie_paths.dart';
 import 'package:click_desk/providers/keypad/jumin_keypad_provider.dart';
 import 'package:click_desk/widgets/checkin/checkin_wrapper.dart';
 import 'package:click_desk/widgets/checkin/jumin_inputs.dart';
@@ -17,6 +18,7 @@ class _CheckInJuminState extends ConsumerState<CheckInJumin> {
   Widget build(BuildContext context) {
     return CheckinWrapper(
       titles: const ["주민등록번호로", "접수해 주세요"],
+      lottiePath: LottiePaths.security,
       keyPad: Keypad(
         inputWidget: const JuminInputs(),
         keypadProvider: juminKeypadProvider,

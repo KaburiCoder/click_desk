@@ -32,6 +32,7 @@ GoRouter route(RouteRef ref) {
         if (auth.isLoading && !auth.hasValue) return null;
 
         final isInitView = state.matchedLocation == Paths.initView;
+        // final isSigninView = state.matchedLocation == Paths.signin;
         final hasAuth = auth.value?.roomKey.isNotEmpty ?? false;
         if (isInitView) {
           return hasAuth ? Paths.main : Paths.signin;

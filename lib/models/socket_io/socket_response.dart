@@ -10,6 +10,7 @@ class SocketResponse<T> with _$SocketResponse<T> {
     T? data,
     String? message,
     Map<String, String>? error,
+    String? errorCode,
   }) = _SocketResponse<T>;
 
   factory SocketResponse.fromJson(
