@@ -8,7 +8,7 @@ class RightContainer extends StatelessWidget {
     super.key,
     required this.child,
     this.height,
-    this.padding = const EdgeInsets.all(60),
+    this.padding = const EdgeInsets.all(30),
   });
 
   @override

@@ -1,5 +1,4 @@
 import 'package:click_desk/constants/lottie_paths.dart';
-import 'package:click_desk/models/params/regist_params.dart';
 import 'package:click_desk/models/params/user_search_params.dart';
 import 'package:click_desk/providers/patient/patient_confirm_manager.dart';
 import 'package:click_desk/providers/qr_scan/qr_scan_manager.dart';

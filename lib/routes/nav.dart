@@ -1,5 +1,4 @@
 import 'package:click_desk/constants/paths.dart';
-import 'package:click_desk/models/params/regist_params.dart';
 import 'package:click_desk/models/params/user_search_params.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -90,8 +89,8 @@ class Nav {
     );
   }
 
-  void pop() {
-    _context.pop();
+  void pop<T extends Object?>([T? result]) {
+    _context.pop(result);
   }
 
   void pushCheckinEnd({bool popFirst = false}) {

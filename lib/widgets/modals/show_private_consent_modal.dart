@@ -1,3 +1,9 @@
+import 'package:click_desk/pages/regist/regist_page.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/dialogs/consent_doc_dialog.dart';
+import 'package:click_desk/widgets/modals/private_consent_modal_provider.dart';
+import 'package:click_desk/widgets/modals/signature_modal.dart';
 import 'package:click_desk/widgets/round_check_box.dart';
 import 'package:click_desk/widgets/simple_check_box.dart';
 import 'package:click_desk/widgets/spacer.dart';
@@ -5,7 +11,8 @@ import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-Future<bool?> showPrivateConsentModal(BuildContext context) {
+Future<PrivateConsentModalState?> showPrivateConsentModal(
+    BuildContext context) {
   return showModalBottomSheet(
     constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width),
     context: context,
@@ -27,129 +34,126 @@ class PrivateConsentModal extends ConsumerStatefulWidget {
 }
 
 class _PrivateConsentModalState extends ConsumerState<PrivateConsentModal> {
-  bool _allChecked = false;
-  bool _privateChecked = false;
-  bool _maketingChecked = false;
-
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 60.0, vertical: 60.0),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _titleWidget(),
-          const HeightSpacer(40),
-          _allConsentCheckBoxWidget(
-            allChecked: _allChecked,
-            allCheckChanged: (checked) {
-              setState(() {
-                _allChecked = !_allChecked;
-                if (_allChecked) {
-                  _privateChecked = true;
-                  _maketingChecked = true;
-                }
-              });
-            },
-          ),
-          const HeightSpacer(40),
-          _consentCheckBoxesWidget(
-            privateChecked: _privateChecked,
-            maketingChecked: _maketingChecked,
-            onPrivateChanged: (checked) {
-              setState(() {
-                _privateChecked = !_privateChecked;
-                _allChecked = _privateChecked && _maketingChecked;
-              });
-            },
-            onMaketingChanged: (checked) {
-              setState(() {
-                _maketingChecked = !_maketingChecked;
-                _allChecked = _privateChecked && _maketingChecked;
-              });
-            },
-          ),
-          const HeightSpacer(40),
-          _consentButtonWidget()
+          TitleWidget(),
+          HeightSpacer(40),
+          AllConsentCheckBox(),
+          HeightSpacer(40),
+          ConsentCheckBoxes(),
+          HeightSpacer(40),
+          ConsentButton(),
         ],
       ),
     );
   }
 }
 
-Padding _consentCheckBoxesWidget({
-  required bool privateChecked,
-  required bool maketingChecked,
-  required Function(bool checked) onPrivateChanged,
-  required Function(bool checked) onMaketingChanged,
-}) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-    child: Row(
-      children: [
-        Expanded(
-          child: ConsentCheckBox(
-            text: "개인정보 수집 및 이용 동의",
-            isRequired: true,
-            checked: privateChecked,
-            onCheckChanged: onPrivateChanged,
-          ),
-        ),
-        Expanded(
-          child: ConsentCheckBox(
-            text: "마케팅 활용 동의",
-            isRequired: false,
-            checked: maketingChecked,
-            onCheckChanged: onMaketingChanged,
-          ),
-        ),
-      ],
-    ),
-  );
-}
+class ConsentCheckBoxes extends ConsumerWidget {
+  const ConsentCheckBoxes({super.key});
 
-ElevatedButton _consentButtonWidget() {
-  return ElevatedButton(
-    style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue,
-        minimumSize: const Size(double.infinity, 80)),
-    onPressed: () {},
-    child: const BaseText(
-      "확인",
-      color: Colors.white,
-      fontSize: 24,
-    ),
-  );
-}
-
-Row _allConsentCheckBoxWidget(
-    {required bool allChecked,
-    required Function(bool checked) allCheckChanged}) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      RoundCheckBox(
-        text: const BaseText("약관에 모두 동의합니다.", fontSize: 28),
-        checked: allChecked,
-        onCheckChanged: allCheckChanged,
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(privateConsentModalProvider);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: ConsentCheckBox(
+              text: "개인정보 수집 및 이용 동의",
+              isRequired: true,
+              checked: state.privateChecked,
+              onCheckChanged:
+                  ref.read(privateConsentModalProvider.notifier).privateChanged,
+            ),
+          ),
+          Expanded(
+            child: ConsentCheckBox(
+              text: "마케팅 활용 동의",
+              isRequired: false,
+              checked: state.marketingChecked,
+              onCheckChanged: ref
+                  .read(privateConsentModalProvider.notifier)
+                  .marketingChanged,
+            ),
+          ),
+        ],
       ),
-      TextButton(
-          onPressed: () {},
-          child: const BaseText("전체보기",
-              fontSize: 18,
-              color: Colors.grey,
-              decoration: TextDecoration.underline)),
-    ],
-  );
+    );
+  }
 }
 
-BaseText _titleWidget() {
-  return const BaseText(
-    "모모모님의 이용약관 동의",
-    fontSize: 32,
-    bold: true,
-  );
+class ConsentButton extends ConsumerWidget {
+  const ConsentButton({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(privateConsentModalProvider);
+
+    return EvButton(
+      onPressed: state.privateChecked
+          ? () async {
+              final buffer = await showSignatureModal(context);
+              if (buffer != null && context.mounted) {
+                Nav.of(context).pop(state.copyWith(signImageBuffer: buffer));
+              }
+            }
+          : null,
+      text: "확인",
+      minWidth: double.infinity,
+      backgroundColor: Colors.blue,
+    );
+  }
+}
+
+class AllConsentCheckBox extends ConsumerWidget {
+  const AllConsentCheckBox({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(privateConsentModalProvider);
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        RoundCheckBox(
+          text: const BaseText("약관에 모두 동의합니다.", fontSize: 28),
+          checked: state.allChecked,
+          onCheckChanged:
+              ref.read(privateConsentModalProvider.notifier).allCheckChanged,
+        ),
+        TextButton(
+            onPressed: () {
+              showConsentDocDialog(context);
+            },
+            child: const BaseText("내용보기",
+                fontSize: 18,
+                color: Colors.grey,
+                decoration: TextDecoration.underline)),
+      ],
+    );
+  }
+}
+
+class TitleWidget extends ConsumerWidget {
+  const TitleWidget({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final checkin = ref.watch(checkinProvider);
+    return BaseText(
+      "${checkin.patientState.suname}님의 이용약관 동의",
+      fontSize: 32,
+      bold: true,
+    );
+  }
 }
 
 class ConsentCheckBox extends StatelessWidget {

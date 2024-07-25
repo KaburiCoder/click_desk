@@ -19,14 +19,20 @@ class DoctorsWidget extends ConsumerWidget {
       data: (doctors) {
         return RefreshIndicator(
           onRefresh: () async => ref.invalidate(getDoctorsProvider),
-          child: GridView.count(
-            crossAxisCount: 2,
-            childAspectRatio: 2.5,
-            mainAxisSpacing: 4,
-            crossAxisSpacing: 8,
-            children: [
-              for (final doctor in doctors) DoctorCard(doctor: doctor)
-            ],
+          child: Scrollbar(
+            thumbVisibility: true,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: GridView.count(
+                crossAxisCount: 2,
+                childAspectRatio: 2.5,
+                mainAxisSpacing: 4,
+                crossAxisSpacing: 8,
+                children: [
+                  for (final doctor in doctors) DoctorCard(doctor: doctor)
+                ],
+              ),
+            ),
           ),
         );
       },

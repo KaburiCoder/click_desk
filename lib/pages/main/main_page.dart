@@ -30,7 +30,8 @@ class MainPage extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     LeftWidget(),
-                    BaseText("우측 버튼을 클릭해 접수해주세요.", fontSize: 20, bold: true),
+                    BaseText("우측 버튼을 클릭해 접수해주세요.",
+                        fontSize: 20, bold: true),
                   ],
                 ),
               ),

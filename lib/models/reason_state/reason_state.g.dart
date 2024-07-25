@@ -10,6 +10,7 @@ _$ReasonStateImpl _$$ReasonStateImplFromJson(Map<String, dynamic> json) =>
     _$ReasonStateImpl(
       id: json['id'] as String? ?? "",
       userId: json['userId'] as String? ?? "",
+      useNHISHealthCheckUp: json['useNHISHealthCheckUp'] as bool? ?? false,
       seq: (json['seq'] as num?)?.toInt() ?? 0,
       text: json['text'] as String? ?? "",
       subs: (json['subs'] as List<dynamic>?)
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$ReasonStateImplToJson(_$ReasonStateImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'userId': instance.userId,
+      'useNHISHealthCheckUp': instance.useNHISHealthCheckUp,
       'seq': instance.seq,
       'text': instance.text,
       'subs': instance.subs,
@@ -35,6 +37,7 @@ _$ReasonSubImpl _$$ReasonSubImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => ReasonSub.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      code: json['code'] as String?,
     );
 
 Map<String, dynamic> _$$ReasonSubImplToJson(_$ReasonSubImpl instance) =>
@@ -42,4 +45,5 @@ Map<String, dynamic> _$$ReasonSubImplToJson(_$ReasonSubImpl instance) =>
       'seq': instance.seq,
       'text': instance.text,
       'subs': instance.subs,
+      'code': instance.code,
     };

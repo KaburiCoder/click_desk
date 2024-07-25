@@ -127,7 +127,7 @@ class _RegistPageState extends ConsumerState<RegistPage> {
 
 class EvButton extends StatelessWidget {
   final String text;
-  final Function() onPressed;
+  final Function()? onPressed;
   final double minWidth;
   final double minHeight;
   final bool isLoading;

@@ -1,3 +1,4 @@
+import 'package:click_desk/providers/pointer/pointer_provider.dart';
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/routes/route_provider.dart';
 import 'package:click_desk/services/count_down_timer.dart';
@@ -29,11 +30,9 @@ class _TimeoutTimerState extends ConsumerState<TimeoutTimerLayout>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    _timer = CountDownTimer(
-        onComplete: () {
-          if (context.mounted) Nav.of(context).goMain();
-        },
-        initCounter: widget.seconds);
+    _timer = CountDownTimer(context, onComplete: () {
+      if (context.mounted) Nav.of(context).goMain();
+    }, initCounter: widget.seconds);
     _timer.start();
     _focusNode.addListener(_onFocusChange);
   }
@@ -87,18 +86,21 @@ class _TimeoutTimerState extends ConsumerState<TimeoutTimerLayout>
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(
+      pointerProvider,
+      (previous, next) {
+        if (previous != next) {
+          _timer.reset();
+        }
+      },
+    );
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         children: [
           Focus(
             focusNode: _focusNode,
-            child: Listener(
-              onPointerDown: (event) {
-                _timer.reset();
-              },
-              child: widget.child,
-            ),
+            child: widget.child,
           ),
           Positioned(
             top: 2,

@@ -1,5 +1,7 @@
+import 'dart:developer';
 import 'dart:ui';
 
+import 'package:click_desk/providers/pointer/pointer_provider.dart';
 import 'package:click_desk/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:click_desk/routes/route_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -37,10 +39,8 @@ void main() async {
       overlays: [SystemUiOverlay.bottom]); // 상단바 숨기기
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky); // 하단바 숨기기
   // 가로화면만 가능
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight
-  ]);
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
   final sharedPreferencesOverride = await createSharedPreferencesOverride();
   runApp(
     ProviderScope(
@@ -65,6 +65,14 @@ class MyApp extends ConsumerWidget {
         useMaterial3: true,
       ),
       routerConfig: router,
+      builder: (context, child) {
+        return Listener(
+          onPointerDown: (event) {
+            ref.read(pointerProvider.notifier).toggle();
+          },
+          child: child,
+        );
+      },
     );
   }
 }

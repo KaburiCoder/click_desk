@@ -1,13 +1,18 @@
 import 'dart:async';
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
 
 class CountDownTimer {
   final Function() onComplete;
   final int initCounter;
+  final BuildContext context;
   StreamController<int> controller = StreamController<int>();
   Timer? _timer;
   late int _currentCounter;
 
-  CountDownTimer({
+  CountDownTimer(
+    this.context, {
     required this.onComplete,
     required this.initCounter,
   }) {

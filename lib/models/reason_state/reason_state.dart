@@ -10,6 +10,7 @@ class ReasonState with _$ReasonState {
   const factory ReasonState({
     @Default("") String id,
     @Default("") String userId,
+    @Default(false) bool useNHISHealthCheckUp,
     @Default(0) int seq,
     @Default("") String text,
     @Default([]) List<ReasonSub> subs,
@@ -36,6 +37,7 @@ class ReasonSub with _$ReasonSub {
     @Default(0) int seq,
     @Default("") String text,
     @Default([]) List<ReasonSub> subs,
+    String? code, // 코드(DB상엔 존재하지 않음)
   }) = _ReasonSub;
 
   factory ReasonSub.fromJson(Map<String, dynamic> json) =>
@@ -49,6 +51,7 @@ extension ReasonStateExtension on ReasonState {
       userId: userId,
       seq: seq,
       text: text,
+      useNHISHealthCheckUp: useNHISHealthCheckUp,
       // subs 필드는 기본값인 빈 리스트를 사용하거나 명시적으로 설정하지 않습니다.
     );
   }

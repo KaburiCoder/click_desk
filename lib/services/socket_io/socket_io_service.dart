@@ -8,6 +8,8 @@ import 'package:click_desk/models/patient_state/patient_state.dart';
 import 'package:click_desk/models/receive_patient_res_state/receive_patient_res_state.dart';
 import 'package:click_desk/models/socket_io/socket_response.dart';
 import 'package:click_desk/models/user/user.dart';
+import 'package:click_desk/services/socket_io/args/socket_args.dart';
+import 'package:click_desk/services/socket_io/res/socket_res.dart';
 // ignore: library_prefixes
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
@@ -20,9 +22,12 @@ class SocketIOService {
 
     bool test = true;
     socket = IO.io(
-        test ? "http://192.168.1.43:4020" : 'https://hs.click-soft.co.kr',
+        test
+            ? "http://192.168.1.43:4001/click-desk"
+            // ? "http://192.168.1.43:4020"
+            : 'https://hs.click-soft.co.kr',
         IO.OptionBuilder()
-            .setPath("/api/socket.io")
+            // .setPath("/api/socket.io")
             .setTransports(['websocket']).build());
 
     socket.onConnect((_) {
@@ -89,5 +94,43 @@ class SocketIOService {
         response,
         (json) =>
             ReceivePatientResState.fromJson(json as Map<String, dynamic>));
+  }
+
+  Future<SocketResponse<SocketCheckConsentRes>> checkMobileConsent(
+      SocketCheckConsentArgs args) async {
+    final jsonData = args.toJson();
+    jsonData['key'] = user!.roomKey;
+
+    final response = await socket.emitWithAckAsync(
+        SocketEv.checkMobilePatientConsent, jsonData);
+
+    return SocketResponse.fromJson(response,
+        (json) => SocketCheckConsentRes.fromJson(json as Map<String, dynamic>));
+  }
+
+  Future<SocketResponse<SocketSaveConsentRes>> saveMobileConsent(
+      SocketSaveConsentArgs args) async {
+    final jsonData = args.toJson();
+    jsonData['key'] = user!.roomKey;
+
+    final response = await socket.emitWithAckAsync(
+        SocketEv.saveMobilePatientConsent, jsonData);
+
+    return SocketResponse.fromJson(response,
+        (json) => SocketSaveConsentRes.fromJson(json as Map<String, dynamic>));
+  }
+
+  Future<SocketResponse<SocketFetchHealthCheckUpListRes>>
+      fetchHealthCheckUpList(SocketFetchHealthCheckUpListArgs args) async {
+    final jsonData = args.toJson();
+    jsonData['key'] = user!.roomKey;
+
+    final response = await socket.emitWithAckAsync(
+        SocketEv.fetchHealthCheckUpList, jsonData);
+
+    return SocketResponse.fromJson(
+        response,
+        (json) => SocketFetchHealthCheckUpListRes.fromJson(
+            json as Map<String, dynamic>));
   }
 }

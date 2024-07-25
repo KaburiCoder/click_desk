@@ -18,9 +18,6 @@ class SelectReasonSubDialog extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final checkinState = ref.watch(checkinProvider);
-
-    print(checkinState.reasonState);
     return Dialog(
       child: IntrinsicWidth(
         child: Container(

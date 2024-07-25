@@ -22,6 +22,7 @@ ReasonState _$ReasonStateFromJson(Map<String, dynamic> json) {
 mixin _$ReasonState {
   String get id => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  bool get useNHISHealthCheckUp => throw _privateConstructorUsedError;
   int get seq => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   List<ReasonSub> get subs => throw _privateConstructorUsedError;
@@ -39,7 +40,12 @@ abstract class $ReasonStateCopyWith<$Res> {
       _$ReasonStateCopyWithImpl<$Res, ReasonState>;
   @useResult
   $Res call(
-      {String id, String userId, int seq, String text, List<ReasonSub> subs});
+      {String id,
+      String userId,
+      bool useNHISHealthCheckUp,
+      int seq,
+      String text,
+      List<ReasonSub> subs});
 }
 
 /// @nodoc
@@ -57,6 +63,7 @@ class _$ReasonStateCopyWithImpl<$Res, $Val extends ReasonState>
   $Res call({
     Object? id = null,
     Object? userId = null,
+    Object? useNHISHealthCheckUp = null,
     Object? seq = null,
     Object? text = null,
     Object? subs = null,
@@ -70,6 +77,10 @@ class _$ReasonStateCopyWithImpl<$Res, $Val extends ReasonState>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      useNHISHealthCheckUp: null == useNHISHealthCheckUp
+          ? _value.useNHISHealthCheckUp
+          : useNHISHealthCheckUp // ignore: cast_nullable_to_non_nullable
+              as bool,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -95,7 +106,12 @@ abstract class _$$ReasonStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id, String userId, int seq, String text, List<ReasonSub> subs});
+      {String id,
+      String userId,
+      bool useNHISHealthCheckUp,
+      int seq,
+      String text,
+      List<ReasonSub> subs});
 }
 
 /// @nodoc
@@ -111,6 +127,7 @@ class __$$ReasonStateImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? userId = null,
+    Object? useNHISHealthCheckUp = null,
     Object? seq = null,
     Object? text = null,
     Object? subs = null,
@@ -124,6 +141,10 @@ class __$$ReasonStateImplCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      useNHISHealthCheckUp: null == useNHISHealthCheckUp
+          ? _value.useNHISHealthCheckUp
+          : useNHISHealthCheckUp // ignore: cast_nullable_to_non_nullable
+              as bool,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -146,6 +167,7 @@ class _$ReasonStateImpl extends _ReasonState {
   const _$ReasonStateImpl(
       {this.id = "",
       this.userId = "",
+      this.useNHISHealthCheckUp = false,
       this.seq = 0,
       this.text = "",
       final List<ReasonSub> subs = const []})
@@ -163,6 +185,9 @@ class _$ReasonStateImpl extends _ReasonState {
   final String userId;
   @override
   @JsonKey()
+  final bool useNHISHealthCheckUp;
+  @override
+  @JsonKey()
   final int seq;
   @override
   @JsonKey()
@@ -178,7 +203,7 @@ class _$ReasonStateImpl extends _ReasonState {
 
   @override
   String toString() {
-    return 'ReasonState(id: $id, userId: $userId, seq: $seq, text: $text, subs: $subs)';
+    return 'ReasonState(id: $id, userId: $userId, useNHISHealthCheckUp: $useNHISHealthCheckUp, seq: $seq, text: $text, subs: $subs)';
   }
 
   @override
@@ -188,6 +213,8 @@ class _$ReasonStateImpl extends _ReasonState {
             other is _$ReasonStateImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.useNHISHealthCheckUp, useNHISHealthCheckUp) ||
+                other.useNHISHealthCheckUp == useNHISHealthCheckUp) &&
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality().equals(other._subs, _subs));
@@ -195,8 +222,8 @@ class _$ReasonStateImpl extends _ReasonState {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, userId, seq, text,
-      const DeepCollectionEquality().hash(_subs));
+  int get hashCode => Object.hash(runtimeType, id, userId, useNHISHealthCheckUp,
+      seq, text, const DeepCollectionEquality().hash(_subs));
 
   @JsonKey(ignore: true)
   @override
@@ -216,6 +243,7 @@ abstract class _ReasonState extends ReasonState {
   const factory _ReasonState(
       {final String id,
       final String userId,
+      final bool useNHISHealthCheckUp,
       final int seq,
       final String text,
       final List<ReasonSub> subs}) = _$ReasonStateImpl;
@@ -228,6 +256,8 @@ abstract class _ReasonState extends ReasonState {
   String get id;
   @override
   String get userId;
+  @override
+  bool get useNHISHealthCheckUp;
   @override
   int get seq;
   @override
@@ -249,6 +279,7 @@ mixin _$ReasonSub {
   int get seq => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   List<ReasonSub> get subs => throw _privateConstructorUsedError;
+  String? get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -261,7 +292,7 @@ abstract class $ReasonSubCopyWith<$Res> {
   factory $ReasonSubCopyWith(ReasonSub value, $Res Function(ReasonSub) then) =
       _$ReasonSubCopyWithImpl<$Res, ReasonSub>;
   @useResult
-  $Res call({int seq, String text, List<ReasonSub> subs});
+  $Res call({int seq, String text, List<ReasonSub> subs, String? code});
 }
 
 /// @nodoc
@@ -280,6 +311,7 @@ class _$ReasonSubCopyWithImpl<$Res, $Val extends ReasonSub>
     Object? seq = null,
     Object? text = null,
     Object? subs = null,
+    Object? code = freezed,
   }) {
     return _then(_value.copyWith(
       seq: null == seq
@@ -294,6 +326,10 @@ class _$ReasonSubCopyWithImpl<$Res, $Val extends ReasonSub>
           ? _value.subs
           : subs // ignore: cast_nullable_to_non_nullable
               as List<ReasonSub>,
+      code: freezed == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -306,7 +342,7 @@ abstract class _$$ReasonSubImplCopyWith<$Res>
       __$$ReasonSubImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int seq, String text, List<ReasonSub> subs});
+  $Res call({int seq, String text, List<ReasonSub> subs, String? code});
 }
 
 /// @nodoc
@@ -323,6 +359,7 @@ class __$$ReasonSubImplCopyWithImpl<$Res>
     Object? seq = null,
     Object? text = null,
     Object? subs = null,
+    Object? code = freezed,
   }) {
     return _then(_$ReasonSubImpl(
       seq: null == seq
@@ -337,6 +374,10 @@ class __$$ReasonSubImplCopyWithImpl<$Res>
           ? _value._subs
           : subs // ignore: cast_nullable_to_non_nullable
               as List<ReasonSub>,
+      code: freezed == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -345,7 +386,10 @@ class __$$ReasonSubImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ReasonSubImpl implements _ReasonSub {
   const _$ReasonSubImpl(
-      {this.seq = 0, this.text = "", final List<ReasonSub> subs = const []})
+      {this.seq = 0,
+      this.text = "",
+      final List<ReasonSub> subs = const [],
+      this.code})
       : _subs = subs;
 
   factory _$ReasonSubImpl.fromJson(Map<String, dynamic> json) =>
@@ -367,8 +411,11 @@ class _$ReasonSubImpl implements _ReasonSub {
   }
 
   @override
+  final String? code;
+
+  @override
   String toString() {
-    return 'ReasonSub(seq: $seq, text: $text, subs: $subs)';
+    return 'ReasonSub(seq: $seq, text: $text, subs: $subs, code: $code)';
   }
 
   @override
@@ -378,13 +425,14 @@ class _$ReasonSubImpl implements _ReasonSub {
             other is _$ReasonSubImpl &&
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.text, text) || other.text == text) &&
-            const DeepCollectionEquality().equals(other._subs, _subs));
+            const DeepCollectionEquality().equals(other._subs, _subs) &&
+            (identical(other.code, code) || other.code == code));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, seq, text, const DeepCollectionEquality().hash(_subs));
+      runtimeType, seq, text, const DeepCollectionEquality().hash(_subs), code);
 
   @JsonKey(ignore: true)
   @override
@@ -404,7 +452,8 @@ abstract class _ReasonSub implements ReasonSub {
   const factory _ReasonSub(
       {final int seq,
       final String text,
-      final List<ReasonSub> subs}) = _$ReasonSubImpl;
+      final List<ReasonSub> subs,
+      final String? code}) = _$ReasonSubImpl;
 
   factory _ReasonSub.fromJson(Map<String, dynamic> json) =
       _$ReasonSubImpl.fromJson;
@@ -415,6 +464,8 @@ abstract class _ReasonSub implements ReasonSub {
   String get text;
   @override
   List<ReasonSub> get subs;
+  @override
+  String? get code;
   @override
   @JsonKey(ignore: true)
   _$$ReasonSubImplCopyWith<_$ReasonSubImpl> get copyWith =>

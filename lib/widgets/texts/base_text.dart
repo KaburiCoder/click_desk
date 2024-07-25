@@ -9,7 +9,7 @@ class BaseText extends StatelessWidget {
   final String fontFamily;
   final int? maxLines;
   final TextDecoration? decoration;
-
+  final EdgeInsetsGeometry? padding;
   const BaseText(
     this.text, {
     super.key,
@@ -19,11 +19,12 @@ class BaseText extends StatelessWidget {
     this.fontFamily = FontFamily.nanumSquareRound,
     this.maxLines,
     this.decoration,
+    this.padding,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    final textWidget = Text(
       text,
       maxLines: maxLines,
       style: TextStyle(
@@ -33,5 +34,13 @@ class BaseText extends StatelessWidget {
           color: color,
           decoration: decoration),
     );
+
+    if (padding != null) {
+      return Padding(
+        padding: padding!,
+        child: textWidget,
+      );
+    }
+    return textWidget;
   }
 }

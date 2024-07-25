@@ -106,53 +106,59 @@ class SuccessWidget extends ConsumerWidget {
               const BaseText("접수할 대상을 선택하세요.", bold: true),
               const HeightSpacer(),
               Flexible(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      for (final patient in patients)
-                        Container(
-                          margin: const EdgeInsets.symmetric(vertical: 4),
-                          child: GestureDetector(
-                            onTap: () {
-                              pushSelectDoctor(
-                                  checkinNotifier, patient, context);
-                            },
-                            child: Container(
-                              constraints: const BoxConstraints(minWidth: 500),
-                              child: Card(
-                                elevation: 5,
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 40.0, vertical: 20.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      GenderAvatar(isWoman: patient.sex == "F"),
-                                      const WidthSpacer(32),
-                                      BaseText(
-                                        patient.suname,
-                                        fontSize: 30,
-                                        bold: true,
+                child: Scrollbar(
+                  thumbVisibility: true,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          for (final patient in patients)
+                            Container(
+                              margin: const EdgeInsets.symmetric(vertical: 4),
+                              child: GestureDetector(
+                                onTap: () {
+                                  pushSelectDoctor(
+                                      checkinNotifier, patient, context);
+                                },
+                                child: Container(
+                                  constraints: const BoxConstraints(minWidth: 500),
+                                  child: Card(
+                                    elevation: 5,
+                                    color: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 40.0, vertical: 20.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          GenderAvatar(isWoman: patient.sex == "F"),
+                                          const WidthSpacer(32),
+                                          BaseText(
+                                            patient.suname,
+                                            fontSize: 30,
+                                            bold: true,
+                                          ),
+                                          const WidthSpacer(32),
+                                          BaseText(
+                                            patient.formatBirth,
+                                            fontSize: 20,
+                                            color: Colors.grey[600],
+                                          ),
+                                        ],
                                       ),
-                                      const WidthSpacer(32),
-                                      BaseText(
-                                        patient.formatBirth,
-                                        fontSize: 20,
-                                        color: Colors.grey[600],
-                                      ),
-                                    ],
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ),
-                    ],
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),

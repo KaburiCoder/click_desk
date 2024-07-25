@@ -8,4 +8,5 @@ class LottiePaths {
   static String checkNote = "assets/lottie/check_note_ani.json";
   static String write = "assets/lottie/write_ani.json";
   static String congratulations = "assets/lottie/congratulations_ani.json";
+  static String loading = "assets/lottie/loading-ani.json";
 }
