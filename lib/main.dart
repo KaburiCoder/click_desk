@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:click_desk/providers/pointer/pointer_provider.dart';
@@ -13,6 +14,7 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 Future<void> initializeFire() async {
+  if(Platform.isWindows) return;
   await Firebase.initializeApp();
   FlutterError.onError = (errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);

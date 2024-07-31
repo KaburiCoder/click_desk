@@ -15,6 +15,7 @@ class SigninPage extends ConsumerStatefulWidget {
 
 class _SigininPageState extends ConsumerState<SigninPage> {
   final GlobalKey _testkey = GlobalKey();
+  final double _minHeight = 500;
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +26,12 @@ class _SigininPageState extends ConsumerState<SigninPage> {
         child: SingleChildScrollView(
           child: Container(
             width: double.infinity,
-            height: screenHeight,
+            height: screenHeight < _minHeight ? _minHeight : screenHeight,
             decoration: const BoxDecoration(
                 gradient: RadialGradient(
                     colors: [Colors.lightBlueAccent, Colors.white],
                     center: Alignment.bottomRight,
-                    radius: 1.1)
-                // gradient: LinearGradient(
-                //     colors: [Colors.blue, Colors.white],
-                //     begin: Alignment.topLeft,
-                //     end: Alignment.bottomRight),
-                ),
+                    radius: 1.1)),
             child: IntrinsicHeight(
               child: Center(
                 child: Container(
