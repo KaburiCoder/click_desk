@@ -20,12 +20,11 @@ class SocketIOService {
   SocketIOService([this.user]) {
     if (user == null || user!.roomKey.isEmpty) return;
 
-    bool test = true;
+    bool test = false;
     socket = IO.io(
         test
             ? "http://192.168.1.43:4001/click-desk"
-            // ? "http://192.168.1.43:4020"
-            : 'https://hs.click-soft.co.kr',
+            : 'https://sock.click-soft.co.kr/click-desk',
         IO.OptionBuilder()
             // .setPath("/api/socket.io")
             .setTransports(['websocket']).build());
@@ -34,6 +33,9 @@ class SocketIOService {
       print('connect');
     });
     socket.onDisconnect((_) => print('disconnect'));
+    socket.onError((error){ 
+      print(error.toString());
+    });
   }
 
   Future<SocketResponse<List<PatientState>>> getMobilePatientInfo(

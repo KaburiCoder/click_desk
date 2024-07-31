@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:ui';
 
 import 'package:click_desk/providers/pointer/pointer_provider.dart';
@@ -10,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:timezone/data/latest.dart' as tz;
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 Future<void> initializeFire() async {
   await Firebase.initializeApp();
