@@ -6,13 +6,26 @@ import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class DoctorsWidget extends ConsumerWidget {
+class DoctorsWidget extends ConsumerStatefulWidget {
   const DoctorsWidget({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<DoctorsWidget> createState() => _DoctorsWidgetState();
+}
+
+class _DoctorsWidgetState extends ConsumerState<DoctorsWidget> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final doctorsAsyncValue = ref.watch(getDoctorsProvider);
 
     return doctorsAsyncValue.when(
@@ -20,10 +33,12 @@ class DoctorsWidget extends ConsumerWidget {
         return RefreshIndicator(
           onRefresh: () async => ref.invalidate(getDoctorsProvider),
           child: Scrollbar(
+            controller: _scrollController,
             thumbVisibility: true,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: GridView.count(
+                controller: _scrollController,
                 crossAxisCount: 2,
                 childAspectRatio: 2.5,
                 mainAxisSpacing: 4,

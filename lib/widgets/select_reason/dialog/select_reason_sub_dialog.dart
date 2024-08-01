@@ -20,24 +20,26 @@ class SelectReasonSubDialog extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Dialog(
       child: IntrinsicWidth(
-        child: Container(
-          constraints: const BoxConstraints(minWidth: 500, maxWidth: 800),
-          padding: const EdgeInsets.all(24.0),
-          clipBehavior: Clip.hardEdge,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12.0),
-          ),
-          child: IntrinsicHeight(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const ReasonSubTitle(),
-                const HeightSpacer(24),
-                ...buildRows(ref, reason.subs),
-                const HeightSpacer(24),
-                ReasonSubConfirmButton(onConfirm: onConfirm)
-              ],
+        child: SingleChildScrollView(
+          child: Container(
+            constraints: const BoxConstraints(minWidth: 500, maxWidth: 800),
+            padding: const EdgeInsets.all(24.0),
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            child: IntrinsicHeight(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const ReasonSubTitle(),
+                  const HeightSpacer(24),
+                  ...buildRows(ref, reason.subs),
+                  const HeightSpacer(24),
+                  ReasonSubConfirmButton(onConfirm: onConfirm)
+                ],
+              ),
             ),
           ),
         ),

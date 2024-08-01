@@ -2,6 +2,7 @@ import 'package:click_desk/providers/pointer/pointer_provider.dart';
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/routes/route_provider.dart';
 import 'package:click_desk/services/count_down_timer.dart';
+import 'package:click_desk/widgets/sized_scaffold.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -94,9 +95,8 @@ class _TimeoutTimerState extends ConsumerState<TimeoutTimerLayout>
         }
       },
     );
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
+    return SizedScaffold(
+      child: Stack(
         children: [
           Focus(
             focusNode: _focusNode,

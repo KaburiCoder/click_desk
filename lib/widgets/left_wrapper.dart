@@ -25,25 +25,22 @@ class LeftWrapper extends StatelessWidget {
 
     return Expanded(
       flex: flex,
-      child: SingleChildScrollView(
-        child: Container(
-          height: screenHeight,
-          color: backgroundColor,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              HeadMiniText(color: logoTextColor),
-              bodyWidget,
-              if (showNavButtons)
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: RoundNavButtons(navButtonColor: navButtonColor),
-                  ),
+      child: Container(
+        color: backgroundColor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            HeadMiniText(color: logoTextColor),
+            bodyWidget,
+            if (showNavButtons)
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RoundNavButtons(navButtonColor: navButtonColor),
                 ),
-            ],
-          ),
+              ),
+          ],
         ),
       ),
     );
