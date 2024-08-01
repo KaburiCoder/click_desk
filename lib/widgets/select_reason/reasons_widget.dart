@@ -76,7 +76,7 @@ class _ReasonsWidgetState extends ConsumerState<ReasonsWidget> {
                         },
                       ),
                     ),
-                    if (healthCheckupState == const RequestLoadingState())
+                    if (healthCheckupState is RequestLoadingState)
                       SizedBox(
                         width: double.infinity,
                         height: double.infinity,
