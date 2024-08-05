@@ -18,7 +18,7 @@ Future<PrivateConsentModalState?> showPrivateConsentModal(
     context: context,
     backgroundColor: Colors.white,
     builder: (BuildContext context) {
-      return const PrivateConsentModal();
+      return const SingleChildScrollView(child: PrivateConsentModal());
     },
   );
 }

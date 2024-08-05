@@ -6,7 +6,7 @@ part 'dio_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 Dio dio(DioRef ref) {
-  bool test = false;
+  bool test = true;
   final dio = Dio(BaseOptions(
       baseUrl: test
           ? "http://192.168.1.43:4020/api"

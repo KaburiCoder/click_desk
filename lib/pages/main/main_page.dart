@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:click_desk/providers/socket_io/socket_io_provider.dart';
-import 'package:click_desk/utils/widget_util.dart';
 import 'package:click_desk/widgets/left_wrapper.dart';
 import 'package:click_desk/widgets/main/choice_widget.dart';
 import 'package:click_desk/widgets/main/left_widget.dart';

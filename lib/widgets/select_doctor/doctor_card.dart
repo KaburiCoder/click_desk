@@ -46,26 +46,37 @@ class DoctorCard extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
+          children: [JinryoHeader(doctor: doctor), JinryoBody(doctor: doctor)],
+        ),
+      ),
+    );
+  }
+}
+
+class JinryoBody extends StatelessWidget {
+  const JinryoBody({
+    super.key,
+    required this.doctor,
+  });
+
+  final DoctorState doctor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                BaseText(doctor.jinchalName,
-                    fontSize: 28, bold: true, color: Colors.blue),
-                ChipWidget(
-                    text: doctor.isWorking ? "진료가능" : "자리비움",
-                    color: doctor.isWorking ? Colors.green : Colors.grey),
-              ],
+            CircleAvatar(
+              backgroundColor: Colors.blue[200],
+              foregroundColor: Colors.white,
+              child: const Icon(Icons.person_2_outlined),
             ),
-            Row(
+            const WidthSpacer(18.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  backgroundColor: Colors.blue[200],
-                  foregroundColor: Colors.white,
-                  child: const Icon(Icons.person_2_outlined),
-                ),
-                const WidthSpacer(18.0),
                 Container(
                   constraints: const BoxConstraints(minWidth: 120),
                   child: BaseText(
@@ -78,14 +89,56 @@ class DoctorCard extends ConsumerWidget {
                 const WidthSpacer(),
                 BaseText(
                   doctor.kwamokName,
-                  fontSize: 20,
+                  fontSize: 18,
                   color: Colors.black54,
                 ),
               ],
-            )
+            ),
           ],
         ),
-      ),
+        if (doctor.isWorking)
+          Row(
+            children: [
+              const Row(
+                children: [
+                  Icon(Icons.timer_sharp, color: Colors.blueGrey),
+                  WidthSpacer(),
+                  BaseText("대기인원"),
+                ],
+              ),
+              const WidthSpacer(24),
+              BaseText(
+                "${doctor.waitingPatientsCount}명",
+                fontSize: 24,
+                bold: true,
+                color: Colors.blue[800],
+              ),
+            ],
+          )
+      ],
+    );
+  }
+}
+
+class JinryoHeader extends StatelessWidget {
+  const JinryoHeader({
+    super.key,
+    required this.doctor,
+  });
+
+  final DoctorState doctor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        BaseText(doctor.jinchalName, fontSize: 28, bold: true),
+        ChipWidget(
+            text: doctor.isWorking ? "진료가능" : "자리비움",
+            color: doctor.isWorking ? Colors.green : Colors.grey),
+      ],
     );
   }
 }

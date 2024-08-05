@@ -26,10 +26,11 @@ class DoctorState with _$DoctorState {
       @Default("") String name,
       @Default("") String jinchalName,
       @Default("") String kwamokName,
+      @Default(0) int waitingPatientsCount,
       @Default(DoctorWorks()) DoctorWorks works}) = _DoctorState;
 
   bool get isWorking {
-    DateTime now =  DateUtil.now();
+    DateTime now = DateUtil.now();
     final day = weekdays[now.weekday];
 
     final timeRange = works[day!].firstOrNull;

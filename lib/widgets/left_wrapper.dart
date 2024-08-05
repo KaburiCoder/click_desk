@@ -21,8 +21,6 @@ class LeftWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Expanded(
       flex: flex,
       child: Container(

@@ -20,7 +20,7 @@ class SocketIOService {
   SocketIOService([this.user]) {
     if (user == null || user!.roomKey.isEmpty) return;
 
-    bool test = false;
+    bool test = true;
     socket = IO.io(
         test
             ? "http://192.168.1.43:4001/click-desk"

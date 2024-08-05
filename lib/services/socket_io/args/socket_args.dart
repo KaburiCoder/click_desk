@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'socket_args.freezed.dart';
 part 'socket_args.g.dart';
 

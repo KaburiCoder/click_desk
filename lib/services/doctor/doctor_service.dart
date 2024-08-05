@@ -1,5 +1,7 @@
 import 'package:click_desk/models/doctor_state/doctor_state.dart';
+import 'package:click_desk/models/socket_io/socket_response.dart';
 import 'package:click_desk/providers/dio/dio_provider.dart';
+import 'package:click_desk/providers/socket_io/socket_io_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'doctor_service.g.dart';
 
@@ -21,6 +23,25 @@ class DoctorService {
       if (a.isWorking && !b.isWorking) return -1;
       return 0;
     });
+
+    // 대기환자 수 할당
+    final socketService = ref.read(socketIOProvider);
+    final clientDoctorsResponse = await socketService.getMobileDoctorInfo();
+    if (clientDoctorsResponse.status == ResponseStatus.success) {
+      final clientDoctors = clientDoctorsResponse.data;
+      final Map<String, DoctorState> clientDoctorsMap = {
+        for (var clientDoctor in clientDoctors!) clientDoctor.code: clientDoctor
+      };
+
+      for (int i = 0; i < doctors.length; i++) {
+        final doctor = doctors[i];
+        final foundDoctor = clientDoctorsMap[doctor.code];
+        if (foundDoctor == null) continue;
+
+        doctors[i] = doctor.copyWith(
+            waitingPatientsCount: foundDoctor.waitingPatientsCount);
+      }
+    }
 
     return doctors;
   }

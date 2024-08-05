@@ -64,6 +64,7 @@ class _ReasonsWidgetState extends ConsumerState<ReasonsWidget> {
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: GridView.builder(
                         controller: _scrollController,
+                        physics: const AlwaysScrollableScrollPhysics(),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,

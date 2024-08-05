@@ -43,6 +43,7 @@ class _DoctorsWidgetState extends ConsumerState<DoctorsWidget> {
                 childAspectRatio: 2.5,
                 mainAxisSpacing: 4,
                 crossAxisSpacing: 8,
+                physics: const AlwaysScrollableScrollPhysics(),
                 children: [
                   for (final doctor in doctors) DoctorCard(doctor: doctor)
                 ],
