@@ -39,7 +39,8 @@ class DoctorService {
         if (foundDoctor == null) continue;
 
         doctors[i] = doctor.copyWith(
-            waitingPatientsCount: foundDoctor.waitingPatientsCount);
+            waitingPatientsCount: foundDoctor.waitingPatientsCount,
+            gumjin: foundDoctor.gumjin);
       }
     }
 

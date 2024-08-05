@@ -17,6 +17,7 @@ _$DoctorStateImpl _$$DoctorStateImplFromJson(Map<String, dynamic> json) =>
       kwamokName: json['kwamokName'] as String? ?? "",
       waitingPatientsCount:
           (json['waitingPatientsCount'] as num?)?.toInt() ?? 0,
+      gumjin: json['gumjin'] as bool? ?? false,
       works: json['works'] == null
           ? const DoctorWorks()
           : DoctorWorks.fromJson(json['works'] as Map<String, dynamic>),
@@ -32,6 +33,7 @@ Map<String, dynamic> _$$DoctorStateImplToJson(_$DoctorStateImpl instance) =>
       'jinchalName': instance.jinchalName,
       'kwamokName': instance.kwamokName,
       'waitingPatientsCount': instance.waitingPatientsCount,
+      'gumjin': instance.gumjin,
       'works': instance.works,
     };
 

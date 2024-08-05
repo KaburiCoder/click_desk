@@ -135,9 +135,20 @@ class JinryoHeader extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         BaseText(doctor.jinchalName, fontSize: 28, bold: true),
-        ChipWidget(
-            text: doctor.isWorking ? "진료가능" : "자리비움",
-            color: doctor.isWorking ? Colors.green : Colors.grey),
+        Row(
+          children: [
+            if (doctor.gumjin) ...[
+              ChipWidget(
+                text: "공단검진",
+                color: Colors.pink[300]!,
+              ),
+              const WidthSpacer()
+            ],
+            ChipWidget(
+                text: doctor.isWorking ? "진료가능" : "자리비움",
+                color: doctor.isWorking ? Colors.green : Colors.grey),
+          ],
+        ),
       ],
     );
   }

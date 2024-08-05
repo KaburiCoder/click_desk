@@ -27,6 +27,7 @@ class DoctorState with _$DoctorState {
       @Default("") String jinchalName,
       @Default("") String kwamokName,
       @Default(0) int waitingPatientsCount,
+      @Default(false) bool gumjin,
       @Default(DoctorWorks()) DoctorWorks works}) = _DoctorState;
 
   bool get isWorking {

@@ -1,6 +1,7 @@
 import 'package:click_desk/constants/lottie_paths.dart';
 import 'package:click_desk/models/reason_state/reason_state.dart';
 import 'package:click_desk/models/request_state/request_state.dart';
+import 'package:click_desk/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/services/doctor/get_reasons.dart';
 import 'package:click_desk/services/socket_io/fetch_health_check_up_list_provider.dart';
 import 'package:click_desk/widgets/dialogs/base_alert_dialog.dart';
@@ -37,6 +38,7 @@ class _ReasonsWidgetState extends ConsumerState<ReasonsWidget> {
   @override
   Widget build(BuildContext context) {
     final reasonsAsyncValue = ref.watch(getReasonsProvider);
+    final checkin = ref.watch(checkinProvider);
     final healthCheckupState = ref.watch(fetchHealthCheckUpListProvider);
     ref.listen(
       fetchHealthCheckUpListProvider,
@@ -53,6 +55,7 @@ class _ReasonsWidgetState extends ConsumerState<ReasonsWidget> {
     return Container(
       child: reasonsAsyncValue.when(
           data: (data) {
+            final newData = checkin.doctorState.gumjin ? data : data.where((d)=> !d.useNHISHealthCheckUp).toList();
             return RefreshIndicator(
               onRefresh: () async => ref.invalidate(getReasonsProvider),
               child: Scrollbar(
@@ -70,9 +73,9 @@ class _ReasonsWidgetState extends ConsumerState<ReasonsWidget> {
                           crossAxisCount: 2,
                           childAspectRatio: 1.7,
                         ),
-                        itemCount: data.length,
+                        itemCount: newData.length,
                         itemBuilder: (context, index) {
-                          final reason = data[index];
+                          final reason = newData[index];
                           return ReasonBox(reason: reason);
                         },
                       ),

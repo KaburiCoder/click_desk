@@ -28,6 +28,7 @@ mixin _$DoctorState {
   String get jinchalName => throw _privateConstructorUsedError;
   String get kwamokName => throw _privateConstructorUsedError;
   int get waitingPatientsCount => throw _privateConstructorUsedError;
+  bool get gumjin => throw _privateConstructorUsedError;
   DoctorWorks get works => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $DoctorStateCopyWith<$Res> {
       String jinchalName,
       String kwamokName,
       int waitingPatientsCount,
+      bool gumjin,
       DoctorWorks works});
 
   $DoctorWorksCopyWith<$Res> get works;
@@ -77,6 +79,7 @@ class _$DoctorStateCopyWithImpl<$Res, $Val extends DoctorState>
     Object? jinchalName = null,
     Object? kwamokName = null,
     Object? waitingPatientsCount = null,
+    Object? gumjin = null,
     Object? works = null,
   }) {
     return _then(_value.copyWith(
@@ -112,6 +115,10 @@ class _$DoctorStateCopyWithImpl<$Res, $Val extends DoctorState>
           ? _value.waitingPatientsCount
           : waitingPatientsCount // ignore: cast_nullable_to_non_nullable
               as int,
+      gumjin: null == gumjin
+          ? _value.gumjin
+          : gumjin // ignore: cast_nullable_to_non_nullable
+              as bool,
       works: null == works
           ? _value.works
           : works // ignore: cast_nullable_to_non_nullable
@@ -145,6 +152,7 @@ abstract class _$$DoctorStateImplCopyWith<$Res>
       String jinchalName,
       String kwamokName,
       int waitingPatientsCount,
+      bool gumjin,
       DoctorWorks works});
 
   @override
@@ -170,6 +178,7 @@ class __$$DoctorStateImplCopyWithImpl<$Res>
     Object? jinchalName = null,
     Object? kwamokName = null,
     Object? waitingPatientsCount = null,
+    Object? gumjin = null,
     Object? works = null,
   }) {
     return _then(_$DoctorStateImpl(
@@ -205,6 +214,10 @@ class __$$DoctorStateImplCopyWithImpl<$Res>
           ? _value.waitingPatientsCount
           : waitingPatientsCount // ignore: cast_nullable_to_non_nullable
               as int,
+      gumjin: null == gumjin
+          ? _value.gumjin
+          : gumjin // ignore: cast_nullable_to_non_nullable
+              as bool,
       works: null == works
           ? _value.works
           : works // ignore: cast_nullable_to_non_nullable
@@ -225,6 +238,7 @@ class _$DoctorStateImpl extends _DoctorState {
       this.jinchalName = "",
       this.kwamokName = "",
       this.waitingPatientsCount = 0,
+      this.gumjin = false,
       this.works = const DoctorWorks()})
       : super._();
 
@@ -257,11 +271,14 @@ class _$DoctorStateImpl extends _DoctorState {
   final int waitingPatientsCount;
   @override
   @JsonKey()
+  final bool gumjin;
+  @override
+  @JsonKey()
   final DoctorWorks works;
 
   @override
   String toString() {
-    return 'DoctorState(id: $id, userId: $userId, seq: $seq, code: $code, name: $name, jinchalName: $jinchalName, kwamokName: $kwamokName, waitingPatientsCount: $waitingPatientsCount, works: $works)';
+    return 'DoctorState(id: $id, userId: $userId, seq: $seq, code: $code, name: $name, jinchalName: $jinchalName, kwamokName: $kwamokName, waitingPatientsCount: $waitingPatientsCount, gumjin: $gumjin, works: $works)';
   }
 
   @override
@@ -280,13 +297,14 @@ class _$DoctorStateImpl extends _DoctorState {
                 other.kwamokName == kwamokName) &&
             (identical(other.waitingPatientsCount, waitingPatientsCount) ||
                 other.waitingPatientsCount == waitingPatientsCount) &&
+            (identical(other.gumjin, gumjin) || other.gumjin == gumjin) &&
             (identical(other.works, works) || other.works == works));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, userId, seq, code, name,
-      jinchalName, kwamokName, waitingPatientsCount, works);
+      jinchalName, kwamokName, waitingPatientsCount, gumjin, works);
 
   @JsonKey(ignore: true)
   @override
@@ -312,6 +330,7 @@ abstract class _DoctorState extends DoctorState {
       final String jinchalName,
       final String kwamokName,
       final int waitingPatientsCount,
+      final bool gumjin,
       final DoctorWorks works}) = _$DoctorStateImpl;
   const _DoctorState._() : super._();
 
@@ -334,6 +353,8 @@ abstract class _DoctorState extends DoctorState {
   String get kwamokName;
   @override
   int get waitingPatientsCount;
+  @override
+  bool get gumjin;
   @override
   DoctorWorks get works;
   @override
