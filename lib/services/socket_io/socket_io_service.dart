@@ -1,4 +1,5 @@
 import 'package:click_desk/constants/socket_ev.dart';
+import 'package:click_desk/constants/url_paths.dart';
 import 'package:click_desk/models/checkin_state/checkin_state.dart';
 import 'package:click_desk/models/doctor_state/doctor_state.dart';
 import 'package:click_desk/models/params/patient_cert_params.dart';
@@ -20,20 +21,14 @@ class SocketIOService {
   SocketIOService([this.user]) {
     if (user == null || user!.roomKey.isEmpty) return;
 
-    bool test = true;
-    socket = IO.io(
-        test
-            ? "http://192.168.1.43:4001/click-desk"
-            : 'https://sock.click-soft.co.kr/click-desk',
-        IO.OptionBuilder()
-            // .setPath("/api/socket.io")
-            .setTransports(['websocket']).build());
+    socket = IO.io(UrlPaths.sockUrl,
+        IO.OptionBuilder().setTransports(['websocket']).build());
 
     socket.onConnect((_) {
       print('connect');
     });
     socket.onDisconnect((_) => print('disconnect'));
-    socket.onError((error){ 
+    socket.onError((error) {
       print(error.toString());
     });
   }
