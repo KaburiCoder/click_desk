@@ -6,9 +6,13 @@ part 'phone_keypad_provider.g.dart';
 
 @riverpod
 class PhoneKeypad extends _$PhoneKeypad implements IKeypad {
+  KeypadState _inititalState() {
+    return const KeypadState(number: "010");
+  }
+
   @override
   KeypadState build() {
-    return const KeypadState(number: "");
+    return _inititalState();
   }
 
   setNumber(String number) {
@@ -19,7 +23,7 @@ class PhoneKeypad extends _$PhoneKeypad implements IKeypad {
   handleChange({required InputStyle inputStyle, required String value}) {
     switch (inputStyle) {
       case InputStyle.clear:
-        state = const KeypadState();
+        state = _inititalState();
         break;
       case InputStyle.delete:
         if (state.number.isNotEmpty) {
@@ -30,12 +34,12 @@ class PhoneKeypad extends _$PhoneKeypad implements IKeypad {
         state = state.copyWith(goNext: true);
         break;
       default:
-        if (state.number.isEmpty) {
-          if (value != "0") {
-            setNumber("010$value");
-            return;
-          }
-        }
+        // if (state.number.isEmpty) {
+        //   if (value != "0") {
+        //     setNumber("010$value");
+        //     return;
+        //   }
+        // }
 
         final combinedNumber = state.number + value;
 
