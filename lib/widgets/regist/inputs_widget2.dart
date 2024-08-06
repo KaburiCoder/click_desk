@@ -50,6 +50,23 @@ class InputsWidget2State extends ConsumerState<InputsWidget2> {
     _phoneNum1.text = "010";
   }
 
+  @override
+  void dispose() {
+    _phoneNum1.dispose();
+    _phoneNum2.dispose();
+    _phoneNum3.dispose();
+    _phoneNum2FocusNode.dispose();
+    _phoneNum3FocusNode.dispose();
+
+    _postal1.dispose();
+    _postal2.dispose();
+
+    _address1.dispose();
+    _address2.dispose();
+
+    super.dispose();
+  }
+
   void focusPhoneNum2() {
     FocusScope.of(context).requestFocus(_phoneNum2FocusNode);
   }

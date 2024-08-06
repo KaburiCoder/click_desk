@@ -19,6 +19,14 @@ class _JuminInputsState extends ConsumerState<JuminInputs> {
       List.generate(13, (index) => TextEditingController());
 
   @override
+  void dispose() {
+    for (var num in nums) {
+      num.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     ref.listen(juminKeypadProvider, (previous, next) async {
       if (next.goNext) {

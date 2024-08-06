@@ -33,6 +33,14 @@ class _InputsWidgetState extends ConsumerState<InputsWidget> {
   get suname => _suname.text.trim();
 
   @override
+  void dispose() {
+    _suname.dispose();
+    _jumin1.dispose();
+    _jumin2.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -58,7 +66,7 @@ class _InputsWidgetState extends ConsumerState<InputsWidget> {
     final patientConfirm = PatientConfirmManager(ref);
     final patientConfirmState = ref.watch(patientConfirmProvider);
     final checkinState = ref.watch(checkinProvider);
- 
+
     patientConfirm.listenOnRegist(context, _onNext);
 
     return Column(

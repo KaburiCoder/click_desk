@@ -16,8 +16,15 @@ class SigninForm extends ConsumerStatefulWidget {
 
 class _SigninFormState extends ConsumerState<SigninForm> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController userId = TextEditingController();
-  TextEditingController password = TextEditingController();
+  final TextEditingController _userId = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+
+  @override
+  void dispose() {
+    _userId.dispose();
+    _password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,7 @@ class _SigninFormState extends ConsumerState<SigninForm> {
         child: Column(
           children: [
             RoundInput(
-              controller: userId,
+              controller: _userId,
               hintText: 'Id',
               prefixIcon: Icons.person,
               textInputAction: TextInputAction.next,
@@ -38,7 +45,7 @@ class _SigninFormState extends ConsumerState<SigninForm> {
             ),
             const SizedBox(height: 16),
             RoundInput(
-              controller: password,
+              controller: _password,
               prefixIcon: Icons.lock,
               hintText: 'Password',
               obscureText: true,
@@ -72,7 +79,7 @@ class _SigninFormState extends ConsumerState<SigninForm> {
 
                 await ref
                     .read(authProvider.notifier)
-                    .signin(userId.text, password.text);
+                    .signin(_userId.text, _password.text);
               },
               text: "로그인",
               isLoading: auth.isLoading,

@@ -26,6 +26,14 @@ class _PhoneInputsState extends ConsumerState<PhoneInputs> {
   }
 
   @override
+  void dispose() {
+    for (var num in nums) {
+      num.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     ref.listen(phoneKeypadProvider, (previous, next) {
       if (next.goNext) {
