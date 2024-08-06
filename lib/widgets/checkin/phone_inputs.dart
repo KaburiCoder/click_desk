@@ -17,6 +17,15 @@ class _PhoneInputsState extends ConsumerState<PhoneInputs> {
       List.generate(11, (index) => TextEditingController());
 
   @override
+  void initState() {
+    super.initState();
+
+    nums[0].text = "0";
+    nums[1].text = "1";
+    nums[2].text = "0";
+  }
+
+  @override
   Widget build(BuildContext context) {
     ref.listen(phoneKeypadProvider, (previous, next) {
       if (next.goNext) {
