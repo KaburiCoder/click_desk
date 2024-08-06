@@ -18,7 +18,7 @@ class MainPage extends ConsumerWidget {
       canPop: false,
       child: SizedScaffold(
         child: Row(
-          children: [
+          children: [            
             // Left
             LeftWrapper(
               flex: 4,

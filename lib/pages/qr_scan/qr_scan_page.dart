@@ -3,6 +3,7 @@ import 'package:click_desk/models/params/user_search_params.dart';
 import 'package:click_desk/providers/patient/patient_confirm_manager.dart';
 import 'package:click_desk/providers/qr_scan/qr_scan_manager.dart';
 import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/utils/audio_util.dart';
 import 'package:click_desk/widgets/common_left_body.dart';
 import 'package:click_desk/widgets/left_wrapper.dart';
 import 'package:click_desk/widgets/lottie.dart';
@@ -40,9 +41,12 @@ class _QrScanPageState extends ConsumerState<QrScanPage> {
     );
 
     _qrScanManager.listen(
-      onScanned: (qrCode) => _patientConfirmManager
-          .read()
-          .fetchPatients(UserSearchParams(qrCode: qrCode)),
+      onScanned: (qrCode) async {
+        await AudioUtil().beep(BeepStyle.scanner);
+        await _patientConfirmManager
+            .read()
+            .fetchPatients(UserSearchParams(qrCode: qrCode));
+      },
     );
 
     return Row(
