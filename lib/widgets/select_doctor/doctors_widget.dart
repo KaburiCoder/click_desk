@@ -1,6 +1,7 @@
 import 'package:click_desk/constants/font_family.dart';
 import 'package:click_desk/services/doctor/get_doctors.dart';
 import 'package:click_desk/widgets/select_doctor/doctor_card.dart';
+import 'package:click_desk/widgets/select_doctor/lib/select_doctor_and_push.dart';
 import 'package:click_desk/widgets/spacer.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,11 @@ class _DoctorsWidgetState extends ConsumerState<DoctorsWidget> {
 
     return doctorsAsyncValue.when(
       data: (doctors) {
+        if (doctors.length == 1) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            selectDoctorAndPush(context, ref, doctor: doctors[0]);
+          });
+        }
         return RefreshIndicator(
           onRefresh: () async => ref.invalidate(getDoctorsProvider),
           child: Scrollbar(
