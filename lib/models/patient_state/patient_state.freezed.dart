@@ -24,6 +24,7 @@ mixin _$PatientState {
   String get chart => throw _privateConstructorUsedError;
   String get suname => throw _privateConstructorUsedError;
   String get jumin => throw _privateConstructorUsedError;
+  String get pDoctorCode => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
   String get postalCode => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ abstract class $PatientStateCopyWith<$Res> {
       String chart,
       String suname,
       String jumin,
+      String pDoctorCode,
       String phoneNumber,
       String postalCode,
       String address,
@@ -69,6 +71,7 @@ class _$PatientStateCopyWithImpl<$Res, $Val extends PatientState>
     Object? chart = null,
     Object? suname = null,
     Object? jumin = null,
+    Object? pDoctorCode = null,
     Object? phoneNumber = null,
     Object? postalCode = null,
     Object? address = null,
@@ -90,6 +93,10 @@ class _$PatientStateCopyWithImpl<$Res, $Val extends PatientState>
       jumin: null == jumin
           ? _value.jumin
           : jumin // ignore: cast_nullable_to_non_nullable
+              as String,
+      pDoctorCode: null == pDoctorCode
+          ? _value.pDoctorCode
+          : pDoctorCode // ignore: cast_nullable_to_non_nullable
               as String,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
@@ -124,6 +131,7 @@ abstract class _$$PatientStateImplCopyWith<$Res>
       String chart,
       String suname,
       String jumin,
+      String pDoctorCode,
       String phoneNumber,
       String postalCode,
       String address,
@@ -145,6 +153,7 @@ class __$$PatientStateImplCopyWithImpl<$Res>
     Object? chart = null,
     Object? suname = null,
     Object? jumin = null,
+    Object? pDoctorCode = null,
     Object? phoneNumber = null,
     Object? postalCode = null,
     Object? address = null,
@@ -166,6 +175,10 @@ class __$$PatientStateImplCopyWithImpl<$Res>
       jumin: null == jumin
           ? _value.jumin
           : jumin // ignore: cast_nullable_to_non_nullable
+              as String,
+      pDoctorCode: null == pDoctorCode
+          ? _value.pDoctorCode
+          : pDoctorCode // ignore: cast_nullable_to_non_nullable
               as String,
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
@@ -195,6 +208,7 @@ class _$PatientStateImpl extends _PatientState {
       this.chart = "",
       this.suname = "",
       this.jumin = "",
+      this.pDoctorCode = "",
       this.phoneNumber = "",
       this.postalCode = "",
       this.address = "",
@@ -218,6 +232,9 @@ class _$PatientStateImpl extends _PatientState {
   final String jumin;
   @override
   @JsonKey()
+  final String pDoctorCode;
+  @override
+  @JsonKey()
   final String phoneNumber;
   @override
   @JsonKey()
@@ -231,7 +248,7 @@ class _$PatientStateImpl extends _PatientState {
 
   @override
   String toString() {
-    return 'PatientState(wjAuto: $wjAuto, chart: $chart, suname: $suname, jumin: $jumin, phoneNumber: $phoneNumber, postalCode: $postalCode, address: $address, addressDetail: $addressDetail)';
+    return 'PatientState(wjAuto: $wjAuto, chart: $chart, suname: $suname, jumin: $jumin, pDoctorCode: $pDoctorCode, phoneNumber: $phoneNumber, postalCode: $postalCode, address: $address, addressDetail: $addressDetail)';
   }
 
   @override
@@ -243,6 +260,8 @@ class _$PatientStateImpl extends _PatientState {
             (identical(other.chart, chart) || other.chart == chart) &&
             (identical(other.suname, suname) || other.suname == suname) &&
             (identical(other.jumin, jumin) || other.jumin == jumin) &&
+            (identical(other.pDoctorCode, pDoctorCode) ||
+                other.pDoctorCode == pDoctorCode) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
             (identical(other.postalCode, postalCode) ||
@@ -255,7 +274,7 @@ class _$PatientStateImpl extends _PatientState {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, wjAuto, chart, suname, jumin,
-      phoneNumber, postalCode, address, addressDetail);
+      pDoctorCode, phoneNumber, postalCode, address, addressDetail);
 
   @JsonKey(ignore: true)
   @override
@@ -277,6 +296,7 @@ abstract class _PatientState extends PatientState {
       final String chart,
       final String suname,
       final String jumin,
+      final String pDoctorCode,
       final String phoneNumber,
       final String postalCode,
       final String address,
@@ -294,6 +314,8 @@ abstract class _PatientState extends PatientState {
   String get suname;
   @override
   String get jumin;
+  @override
+  String get pDoctorCode;
   @override
   String get phoneNumber;
   @override

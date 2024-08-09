@@ -39,7 +39,7 @@ class ReceiveInfoBox extends ConsumerWidget {
                     title: "이름/성명",
                     text: "${patient.suname} (${patient.toKorGender})"),
                 ReceiveInfoRow(title: "생년월일", text: patient.formatBirth),
-                const ReceiveInfoRow(title: "전화번호", text: "010-1234-5555"),
+                // const ReceiveInfoRow(title: "전화번호", text: "010-1234-5555"),
                 ReceiveInfoRow(
                     title: "진료실",
                     text: "${doctor.jinchalName} / ${doctor.name}"),

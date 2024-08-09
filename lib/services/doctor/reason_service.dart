@@ -8,15 +8,26 @@ class ReasonService {
 
   ReasonService(this.ref);
 
-  Future<List<ReasonState>> getAll() async {
-    final dio = ref.read(dioProvider);
-    final response = await dio.get("/clickdesk/reason");
-
-    final reasons = (response.data as List).map((d) {
+  List<ReasonState> _toList<T>(T data) {
+    final reasons = (data as List).map((d) {
       return ReasonState.fromJson(d);
     }).toList();
 
     return reasons;
+  }
+
+  Future<List<ReasonState>> getAll() async {
+    final dio = ref.read(dioProvider);
+    final response = await dio.get("/clickdesk/reason");
+
+    return _toList(response.data);
+  }
+
+  Future<List<ReasonState>> getByDoctorId(String doctorId) async {
+    final dio = ref.read(dioProvider);
+    final response = await dio.get("/clickdesk/reason/$doctorId");
+
+    return _toList(response.data);
   }
 }
 

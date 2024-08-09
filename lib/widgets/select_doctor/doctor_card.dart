@@ -22,7 +22,7 @@ class DoctorCard extends ConsumerWidget {
     return GestureDetector(
       onTap: () async {
         if (!doctor.isWorking) {
-          baseAlertDialog(context, "해당 진료실은 현재 자리비움 상태 입니다.");
+          baseAlertDialog(context, "해당 진료실은 현재 휴진 상태 입니다.");
           return;
         }
 
@@ -53,7 +53,7 @@ class DoctorCard extends ConsumerWidget {
   }
 }
 
-class JinryoBody extends StatelessWidget {
+class JinryoBody extends ConsumerWidget {
   const JinryoBody({
     super.key,
     required this.doctor,
@@ -62,7 +62,9 @@ class JinryoBody extends StatelessWidget {
   final DoctorState doctor;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final checkin = ref.watch(checkinProvider);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -79,11 +81,24 @@ class JinryoBody extends StatelessWidget {
               children: [
                 Container(
                   constraints: const BoxConstraints(minWidth: 120),
-                  child: BaseText(
-                    doctor.name,
-                    fontSize: 24,
-                    color: Colors.blueGrey,
-                    bold: true,
+                  child: Row(
+                    children: [
+                      BaseText(
+                        doctor.name,
+                        fontSize: 24,
+                        color: Colors.blueGrey,
+                        bold: true,
+                      ),
+                      if (checkin.patientState.pDoctorCode == doctor.code) ...[
+                        const WidthSpacer(),
+                        const BaseText(
+                          "(주치의)",
+                          fontSize: 18,
+                          color: Colors.deepOrange,
+                          bold: true,
+                        ),
+                      ]
+                    ],
                   ),
                 ),
                 const WidthSpacer(),
@@ -145,7 +160,7 @@ class JinryoHeader extends StatelessWidget {
               const WidthSpacer()
             ],
             ChipWidget(
-                text: doctor.isWorking ? "진료가능" : "자리비움",
+                text: doctor.isWorking ? "진료가능" : "휴진",
                 color: doctor.isWorking ? Colors.green : Colors.grey),
           ],
         ),

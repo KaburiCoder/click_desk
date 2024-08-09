@@ -15,6 +15,7 @@ class PatientState with _$PatientState {
     @Default("") String chart,
     @Default("") String suname,
     @Default("") String jumin,
+    @Default("") String pDoctorCode,
     @Default("") String phoneNumber,
     @Default("") String postalCode,
     @Default("") String address,

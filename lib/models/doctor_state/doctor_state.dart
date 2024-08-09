@@ -34,20 +34,19 @@ class DoctorState with _$DoctorState {
     DateTime now = DateUtil.now();
     final day = weekdays[now.weekday];
 
-    final timeRange = works[day!].firstOrNull;
-    if (timeRange == null) {
-      return false;
-    }
+    return works[day!].any(
+      (timeRange) {
+        final start = timeRange.start;
+        final end = timeRange.end;
+        TimeValue nowTv = TimeValue(hour: now.hour, minute: now.minute);
 
-    final start = timeRange.start;
-    final end = timeRange.end;
-    TimeValue nowTv = TimeValue(hour: now.hour, minute: now.minute);
-
-    if (start > end) {
-      // 시작일시가 더 큰 경우
-      return start <= nowTv || end >= nowTv;
-    }
-    return start <= nowTv && nowTv <= end;
+        if (start > end) {
+          // 시작일시가 더 큰 경우
+          return start <= nowTv || end >= nowTv;
+        }
+        return start <= nowTv && nowTv <= end;
+      },
+    );
   }
 
   factory DoctorState.fromJson(Map<String, dynamic> json) =>

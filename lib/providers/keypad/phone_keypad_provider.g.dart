@@ -6,7 +6,7 @@ part of 'phone_keypad_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$phoneKeypadHash() => r'12804a33560e91f980d9cbe3f6b53bbbcc8d1f42';
+String _$phoneKeypadHash() => r'c14d96a5902fdf0306000f617e415db1cf3ee0ec';
 
 /// See also [PhoneKeypad].
 @ProviderFor(PhoneKeypad)
