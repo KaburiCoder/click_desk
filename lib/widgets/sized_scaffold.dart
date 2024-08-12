@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:click_desk/utils/widget_util.dart';
+import 'package:click_desk/shared/utils/widget_util.dart';
 import 'package:flutter/material.dart';
 
 class SizedScaffold extends StatelessWidget {

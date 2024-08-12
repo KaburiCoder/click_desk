@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:click_desk/constants/lottie_paths.dart';
+import 'package:click_desk/shared/constants/lottie_paths.dart';
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/widgets/lottie.dart';
 import 'package:click_desk/widgets/sized_scaffold.dart';

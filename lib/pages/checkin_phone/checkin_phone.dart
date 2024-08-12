@@ -1,11 +1,11 @@
-import 'package:click_desk/constants/lottie_paths.dart';
-import 'package:click_desk/providers/keypad/phone_keypad_provider.dart';
-import 'package:click_desk/widgets/checkin/keypad.dart';
-import 'package:click_desk/widgets/checkin/phone_inputs.dart';
+import 'package:click_desk/shared/constants/lottie_paths.dart';
+import 'package:click_desk/shared/providers/keypad/phone_keypad_provider.dart';
+import 'package:click_desk/features/checkin/keypad.dart';
+import 'package:click_desk/features/checkin/phone_inputs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../widgets/checkin/checkin_wrapper.dart';
+import '../../features/checkin/checkin_wrapper.dart';
 
 class CheckInPhone extends ConsumerStatefulWidget {
   const CheckInPhone({super.key});

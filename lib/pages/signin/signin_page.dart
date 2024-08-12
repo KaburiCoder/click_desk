@@ -1,5 +1,5 @@
-import 'package:click_desk/constants/image_paths.dart';
-import 'package:click_desk/widgets/signin/signin_form.dart';
+import 'package:click_desk/shared/constants/image_paths.dart';
+import 'package:click_desk/features/signin/signin_form.dart';
 import 'package:click_desk/widgets/sized_scaffold.dart';
 import 'package:click_desk/widgets/tab_outside_to_close_keyboard.dart';
 import 'package:click_desk/widgets/texts/xl_text.dart';

@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:click_desk/constants/font_family.dart';
-import 'package:click_desk/constants/lottie_paths.dart';
+import 'package:click_desk/shared/constants/font_family.dart';
+import 'package:click_desk/shared/constants/lottie_paths.dart';
 import 'package:click_desk/models/checkin_state/checkin_state.dart';
-import 'package:click_desk/widgets/regist/inputs_widget.dart';
-import 'package:click_desk/widgets/regist/inputs_widget2.dart';
-import 'package:click_desk/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/features/regist/inputs_widget.dart';
+import 'package:click_desk/features/regist/inputs_widget2.dart';
+import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/widgets/left_wrapper.dart';
 import 'package:click_desk/widgets/lottie.dart';

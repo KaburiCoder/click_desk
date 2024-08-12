@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:app_version_update/app_version_update.dart';
 import 'package:flutter/material.dart';
 
-import 'package:click_desk/constants/image_paths.dart';
+import 'package:click_desk/shared/constants/image_paths.dart';
 
 class InitViewPage extends StatefulWidget {
   const InitViewPage({super.key});

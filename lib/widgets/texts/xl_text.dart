@@ -1,4 +1,4 @@
-import 'package:click_desk/constants/font_family.dart';
+import 'package:click_desk/shared/constants/font_family.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 

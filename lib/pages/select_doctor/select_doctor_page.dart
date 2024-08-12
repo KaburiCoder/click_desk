@@ -1,9 +1,9 @@
 import 'package:click_desk/widgets/right_container.dart';
-import 'package:click_desk/widgets/select_doctor/doctors_widget.dart';
+import 'package:click_desk/features/select_doctor/doctors_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../widgets/select_doctor/doctor_left_widget.dart';
+import '../../features/select_doctor/doctor_left_widget.dart';
 
 class SelectDoctorPage extends ConsumerWidget {
   const SelectDoctorPage({

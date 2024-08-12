@@ -1,4 +1,4 @@
-import 'package:click_desk/constants/font_family.dart';
+import 'package:click_desk/shared/constants/font_family.dart';
 import 'package:flutter/material.dart';
 
 class BaseText extends StatelessWidget {
@@ -10,16 +10,18 @@ class BaseText extends StatelessWidget {
   final int? maxLines;
   final TextDecoration? decoration;
   final EdgeInsetsGeometry? padding;
+  final Paint? foreground;
   const BaseText(
     this.text, {
     super.key,
     this.bold = false,
-    this.color = Colors.black,
+    this.color,
     this.fontSize = 16,
     this.fontFamily = FontFamily.nanumSquareRound,
     this.maxLines,
     this.decoration,
     this.padding,
+    this.foreground,
   });
 
   @override
@@ -32,6 +34,7 @@ class BaseText extends StatelessWidget {
           fontWeight: bold ? FontWeight.bold : null,
           fontSize: fontSize,
           color: color,
+          foreground: foreground,
           decoration: decoration),
     );
 

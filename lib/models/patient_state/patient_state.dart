@@ -1,5 +1,5 @@
-import 'package:click_desk/utils/convert_util.dart';
-import 'package:click_desk/utils/string_util.dart';
+import 'package:click_desk/shared/utils/convert_util.dart';
+import 'package:click_desk/shared/utils/string_util.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 

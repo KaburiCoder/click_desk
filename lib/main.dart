@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'dart:ui';
 
-import 'package:click_desk/providers/pointer/pointer_provider.dart';
-import 'package:click_desk/providers/shared_utiltiy/shared_utility_provider.dart';
+import 'package:click_desk/shared/providers/pointer/pointer_provider.dart';
+import 'package:click_desk/shared/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:click_desk/routes/route_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
