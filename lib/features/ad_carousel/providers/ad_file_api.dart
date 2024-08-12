@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:click_desk/features/ad_carousel/api/get_ad_files.dart';
+import 'package:click_desk/features/ad_carousel/api/get_ad_image.dart';
+import 'package:click_desk/features/ad_carousel/api/get_ad_video.dart';
 import 'package:click_desk/models/ad_files/ad_files.dart';
-import 'package:click_desk/shared/providers/dio/dio_provider.dart';
-import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -16,15 +18,9 @@ class AdFileApi extends _$AdFileApi {
     return getAdDirPaths();
   }
 
-  Future<List<AdFile>> _getAdFiles() async {
-    final dio = ref.read(dioProvider);
-    final response = await dio.get("/ad-file");
-    return _toList<AdFile>(response.data, AdFile.fromJson);
-  }
-
   Future<List<File>> getAdDirPaths() async {
     state = await AsyncValue.guard(() async {
-      final adFiles = await _getAdFiles();
+      final adFiles = await getAdFiles(ref);
 
       List<File> files = [];
 
@@ -43,12 +39,12 @@ class AdFileApi extends _$AdFileApi {
           continue;
         }
 
-        final dio = ref.read(dioProvider);
-        final response = await dio.get<List<int>>(imagePath,
-            options: Options(responseType: ResponseType.bytes));
+        final Future<List<int>?> Function(Ref, String) getAdBuffer =
+            adFile.fileType == 'image' ? getAdImage : getAdVideo;
+        final adBuffer = await getAdBuffer(ref, adFile.fileName);
 
-        if (response.data != null) {
-          await file.writeAsBytes(response.data!);
+        if (adBuffer != null) {
+          await file.writeAsBytes(adBuffer);
           files.add(file);
         }
       }
@@ -86,14 +82,4 @@ class AdFileApi extends _$AdFileApi {
       }
     }
   }
-}
-
-List<TResult> _toList<TResult>(
-    dynamic data, Function(Map<String, dynamic>) fromJson) {
-  final reasons = (data as List).map((d) {
-    final data = fromJson(d) as TResult;
-    return data;
-  }).toList();
-
-  return reasons;
 }

@@ -1,4 +1,4 @@
-import 'package:click_desk/shared/constants/paths.dart';
+import 'package:click_desk/shared/constants/paths/paths.dart';
 import 'package:click_desk/shared/providers/auth/auth_provider.dart';
 import 'package:click_desk/routes/details/cert_new_route.dart';
 import 'package:click_desk/routes/details/cert_route.dart';

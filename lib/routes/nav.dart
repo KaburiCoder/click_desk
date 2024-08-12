@@ -1,4 +1,4 @@
-import 'package:click_desk/shared/constants/paths.dart';
+import 'package:click_desk/shared/constants/paths/paths.dart';
 import 'package:click_desk/models/params/user_search_params.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

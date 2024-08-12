@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:click_desk/features/ad_carousel/animation/animated_text_color.dart';
-import 'package:click_desk/features/ad_carousel/api/ad_file_api.dart';
+import 'package:click_desk/features/ad_carousel/providers/ad_file_api.dart';
 import 'package:click_desk/routes/route_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';

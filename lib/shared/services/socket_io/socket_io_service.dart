@@ -1,5 +1,5 @@
 import 'package:click_desk/shared/constants/socket_ev.dart';
-import 'package:click_desk/shared/constants/url_paths.dart';
+import 'package:click_desk/shared/constants/paths/url_paths.dart';
 import 'package:click_desk/models/checkin_state/checkin_state.dart';
 import 'package:click_desk/models/doctor_state/doctor_state.dart';
 import 'package:click_desk/models/params/patient_cert_params.dart';
