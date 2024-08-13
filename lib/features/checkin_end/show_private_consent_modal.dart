@@ -11,6 +11,8 @@ import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../widgets/ev_button.dart';
+
 Future<PrivateConsentModalState?> showPrivateConsentModal(
     BuildContext context) {
   return showModalBottomSheet(

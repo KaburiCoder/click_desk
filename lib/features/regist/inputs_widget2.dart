@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:remedi_kopo/remedi_kopo.dart';
 
+import '../../widgets/ev_button.dart';
+
 class InputsWidget2 extends ConsumerStatefulWidget {
   final Function({
     required String phoneNumber,

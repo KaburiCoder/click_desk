@@ -11,6 +11,8 @@ import 'package:click_desk/widgets/spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../widgets/ev_button.dart';
+
 class InputsWidget extends ConsumerStatefulWidget {
   final Function({required String suname, required String jumin}) onNext;
   const InputsWidget({
