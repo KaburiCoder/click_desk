@@ -1,11 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:click_desk/features/regist/regist_carousel.dart';
 import 'package:click_desk/shared/constants/font_family.dart';
 import 'package:click_desk/shared/constants/lottie_paths.dart';
-import 'package:click_desk/models/checkin_state/checkin_state.dart';
-import 'package:click_desk/features/regist/inputs_widget.dart';
-import 'package:click_desk/features/regist/inputs_widget2.dart';
-import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
-import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/widgets/left_wrapper.dart';
 import 'package:click_desk/widgets/lottie.dart';
 import 'package:click_desk/widgets/right_container.dart';
@@ -22,16 +17,6 @@ class RegistPage extends ConsumerStatefulWidget {
 }
 
 class _RegistPageState extends ConsumerState<RegistPage> {
-  final CarouselController _controller = CarouselController();
-  final GlobalKey<InputsWidget2State> widget2Key =
-      GlobalKey<InputsWidget2State>();
-
-  void _nextPage() {
-    setState(() {
-      _controller.nextPage();
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -61,60 +46,12 @@ class _RegistPageState extends ConsumerState<RegistPage> {
               ),
             ),
           ),
-          Expanded(
+          const Expanded(
             flex: 7,
             child: RightContainer(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               height: 800,
-              child: CarouselSlider.builder(
-                carouselController: _controller,
-                itemCount: 2,
-                options: CarouselOptions(
-                  viewportFraction: 1.0,
-                  scrollPhysics: const NeverScrollableScrollPhysics(),
-                  enableInfiniteScroll: false,
-                  onPageChanged: (index, reason) {
-                    if (index == 1) {
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        widget2Key.currentState?.focusPhoneNum2();
-                      });
-                    }
-                  },
-                ),
-                itemBuilder: (context, index, realIndex) {
-                  final widgets = [
-                    InputsWidget(
-                      onNext: ({required jumin, required suname}) async {
-                        ref
-                            .read(checkinProvider.notifier)
-                            .setNewPatient1(suname: suname, jumin: jumin);
-                        _nextPage();
-                      },
-                    ),
-                    InputsWidget2(
-                      key: widget2Key,
-                      onSubmit: (
-                          {required address,
-                          required addressDetail,
-                          required phoneNumber,
-                          required postalCode}) {
-                        final checkinNotifier =
-                            ref.read(checkinProvider.notifier);
-                        checkinNotifier.setNewPatient2(
-                          phoneNumber: phoneNumber,
-                          postalCode: postalCode,
-                          address: address,
-                          addressDetail: addressDetail,
-                        );
-                        checkinNotifier.setStartType(StartType.first);
-                        Nav.of(context).pushSelectDoctor();
-                      },
-                    )
-                  ];
-            
-                  return widgets[index];
-                },
-              ),
+              child: RegistCarousel(),
             ),
           )
         ],
