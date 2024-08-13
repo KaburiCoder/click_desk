@@ -1,7 +1,6 @@
-import 'package:click_desk/pages/regist/regist_page.dart';
 import 'package:click_desk/shared/utils/string_util.dart';
-import 'package:click_desk/widgets/dash.dart';
 import 'package:click_desk/widgets/base_alert_dialog.dart';
+import 'package:click_desk/widgets/dash.dart';
 import 'package:click_desk/widgets/labeld_row.dart';
 import 'package:click_desk/widgets/round_input.dart';
 import 'package:click_desk/widgets/spacer.dart';

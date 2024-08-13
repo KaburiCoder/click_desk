@@ -1,5 +1,4 @@
 import 'package:click_desk/models/request_state/request_state.dart';
-import 'package:click_desk/pages/regist/regist_page.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/shared/providers/patient/patient_confirm_manager.dart';
 import 'package:click_desk/shared/providers/patient/patient_confirm_provider.dart';

@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:click_desk/pages/regist/regist_page.dart';
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/widgets/close_button_widget.dart';
 import 'package:click_desk/widgets/spacer.dart';

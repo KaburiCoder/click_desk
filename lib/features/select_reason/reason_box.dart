@@ -2,7 +2,7 @@ import 'package:click_desk/shared/constants/font_family.dart';
 import 'package:click_desk/models/reason_state/reason_state.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/routes/nav.dart';
-import 'package:click_desk/shared/services/socket_io/fetch_health_check_up_list_provider.dart';
+import 'package:click_desk/features/select_reason/providers/fetch_health_check_up_list_provider.dart';
 import 'package:click_desk/features/select_reason/dialog/select_reason_sub_dialog.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
