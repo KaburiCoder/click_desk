@@ -1,7 +1,4 @@
 import 'package:click_desk/features/checkin/listeners/phone_keypad_listener.dart';
-import 'package:click_desk/features/checkin/providers/phone_keypad_provider.dart';
-import 'package:click_desk/models/params/user_search_params.dart';
-import 'package:click_desk/shared/providers/patient/patient_confirm_manager.dart';
 import 'package:click_desk/widgets/hint_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
