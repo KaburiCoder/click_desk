@@ -1,7 +1,7 @@
 import 'package:click_desk/models/doctor_state/doctor_state.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/routes/nav.dart';
-import 'package:click_desk/features/dialogs/base_alert_dialog.dart';
+import 'package:click_desk/widgets/base_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

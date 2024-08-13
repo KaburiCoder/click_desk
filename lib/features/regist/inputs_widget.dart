@@ -4,7 +4,7 @@ import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/shared/providers/patient/patient_confirm_manager.dart';
 import 'package:click_desk/shared/providers/patient/patient_confirm_provider.dart';
 import 'package:click_desk/shared/utils/string_util.dart';
-import 'package:click_desk/features/dialogs/base_alert_dialog.dart';
+import 'package:click_desk/widgets/base_alert_dialog.dart';
 import 'package:click_desk/widgets/labeld_row.dart';
 import 'package:click_desk/widgets/round_input.dart';
 import 'package:click_desk/widgets/spacer.dart';

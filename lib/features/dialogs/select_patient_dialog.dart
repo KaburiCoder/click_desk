@@ -1,6 +1,7 @@
 import 'package:click_desk/models/patient_state/patient_state.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/widgets/close_button_widget.dart';
 import 'package:click_desk/widgets/gender_avatar.dart';
 import 'package:click_desk/widgets/spacer.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
@@ -8,8 +9,6 @@ import 'package:click_desk/widgets/texts/grey_text.dart';
 import 'package:click_desk/widgets/texts/lg_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../widgets/close_button_widget.dart';
 
 class SelectPatientDialog extends ConsumerWidget {
   final List<PatientState> patients;
@@ -123,7 +122,8 @@ class SuccessWidget extends ConsumerWidget {
                                       checkinNotifier, patient, context);
                                 },
                                 child: Container(
-                                  constraints: const BoxConstraints(minWidth: 500),
+                                  constraints:
+                                      const BoxConstraints(minWidth: 500),
                                   child: Card(
                                     elevation: 5,
                                     color: Colors.white,
@@ -136,7 +136,8 @@ class SuccessWidget extends ConsumerWidget {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          GenderAvatar(isWoman: patient.sex == "F"),
+                                          GenderAvatar(
+                                              isWoman: patient.sex == "F"),
                                           const WidthSpacer(32),
                                           BaseText(
                                             patient.suname,

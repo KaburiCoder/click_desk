@@ -4,7 +4,7 @@ import 'package:click_desk/models/request_state/request_state.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/shared/services/doctor/get_reasons.dart';
 import 'package:click_desk/shared/services/socket_io/fetch_health_check_up_list_provider.dart';
-import 'package:click_desk/features/dialogs/base_alert_dialog.dart';
+import 'package:click_desk/widgets/base_alert_dialog.dart';
 import 'package:click_desk/features/dialogs/select_patient_dialog.dart';
 import 'package:click_desk/widgets/lottie.dart';
 import 'package:flutter/material.dart';

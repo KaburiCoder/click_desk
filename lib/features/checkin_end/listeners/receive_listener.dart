@@ -1,4 +1,4 @@
-import 'package:click_desk/features/dialogs/base_alert_dialog.dart';
+import 'package:click_desk/widgets/base_alert_dialog.dart';
 import 'package:click_desk/models/request_state/request_state.dart';
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/shared/services/socket_io/receive_provider.dart';

@@ -1,10 +1,10 @@
+import 'package:click_desk/features/dialogs/select_patient_show_dialog.dart';
 import 'package:click_desk/models/checkin_state/checkin_state.dart';
 import 'package:click_desk/models/request_state/request_state.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/shared/providers/interfaces/iprovder_manager_base.dart';
 import 'package:click_desk/shared/providers/patient/patient_confirm_provider.dart';
-import 'package:click_desk/features/checkin/jumin_inputs.dart';
-import 'package:click_desk/features/dialogs/base_alert_dialog.dart';
+import 'package:click_desk/widgets/base_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

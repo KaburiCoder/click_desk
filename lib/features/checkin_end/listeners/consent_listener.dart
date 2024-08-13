@@ -1,5 +1,5 @@
 import 'package:click_desk/features/checkin_end/providers/consent_provider.dart';
-import 'package:click_desk/features/dialogs/base_alert_dialog.dart';
+import 'package:click_desk/widgets/base_alert_dialog.dart';
 import 'package:click_desk/features/checkin_end/show_private_consent_modal.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/shared/services/socket_io/args/socket_args.dart';
