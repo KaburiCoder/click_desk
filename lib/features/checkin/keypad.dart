@@ -1,5 +1,5 @@
+import 'package:click_desk/features/checkin/providers/keypad_manager.dart';
 import 'package:click_desk/models/request_state/request_state.dart';
-import 'package:click_desk/shared/providers/keypad/keypad_manager.dart';
 import 'package:click_desk/shared/providers/patient/patient_confirm_manager.dart';
 import 'package:click_desk/widgets/custom_keypad.dart';
 import 'package:flutter/material.dart';
@@ -38,8 +38,7 @@ class Keypad extends ConsumerWidget {
             ),
           ],
         ),
-        if (isLoading)
-          const Center(child: CircularProgressIndicator())
+        if (isLoading) const Center(child: CircularProgressIndicator())
       ],
     );
   }

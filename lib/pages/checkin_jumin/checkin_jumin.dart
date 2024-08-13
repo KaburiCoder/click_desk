@@ -1,5 +1,5 @@
+import 'package:click_desk/features/checkin/providers/jumin_keypad_provider.dart';
 import 'package:click_desk/shared/constants/lottie_paths.dart';
-import 'package:click_desk/shared/providers/keypad/jumin_keypad_provider.dart';
 import 'package:click_desk/features/checkin/checkin_wrapper.dart';
 import 'package:click_desk/features/checkin/jumin_inputs.dart';
 import 'package:click_desk/features/checkin/keypad.dart';

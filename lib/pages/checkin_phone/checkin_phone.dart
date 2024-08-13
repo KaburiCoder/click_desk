@@ -1,5 +1,5 @@
+import 'package:click_desk/features/checkin/providers/phone_keypad_provider.dart';
 import 'package:click_desk/shared/constants/lottie_paths.dart';
-import 'package:click_desk/shared/providers/keypad/phone_keypad_provider.dart';
 import 'package:click_desk/features/checkin/keypad.dart';
 import 'package:click_desk/features/checkin/phone_inputs.dart';
 import 'package:flutter/material.dart';
