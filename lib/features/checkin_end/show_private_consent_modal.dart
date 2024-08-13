@@ -1,9 +1,9 @@
+import 'package:click_desk/features/checkin_end/providers/private_consent_modal_provider.dart';
 import 'package:click_desk/pages/regist/regist_page.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/features/checkin_end/consent_doc_dialog.dart';
-import 'package:click_desk/features/modals/private_consent_modal_provider.dart';
-import 'package:click_desk/features/modals/signature_modal.dart';
+import 'package:click_desk/widgets/signature_modal.dart';
 import 'package:click_desk/widgets/round_check_box.dart';
 import 'package:click_desk/widgets/simple_check_box.dart';
 import 'package:click_desk/widgets/spacer.dart';
