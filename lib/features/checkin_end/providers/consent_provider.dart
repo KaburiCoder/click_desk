@@ -1,8 +1,8 @@
 import 'package:click_desk/models/socket_io/socket_response.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/shared/providers/socket_io/socket_io_provider.dart';
-import 'package:click_desk/shared/services/socket_io/args/socket_args.dart';
-import 'package:click_desk/shared/services/socket_io/res/socket_res.dart';
+import 'package:click_desk/shared/services/socket_io/dto/socket_args.dart';
+import 'package:click_desk/shared/services/socket_io/dto/socket_res.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'consent_provider.g.dart';

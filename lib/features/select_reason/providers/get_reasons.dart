@@ -1,6 +1,6 @@
 import 'package:click_desk/models/reason_state/reason_state.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
-import 'package:click_desk/shared/services/doctor/reason_service.dart';
+import 'package:click_desk/shared/services/reason/reason_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'get_reasons.g.dart';

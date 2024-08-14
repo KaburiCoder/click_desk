@@ -4,7 +4,7 @@ import 'package:click_desk/features/select_reason/providers/fetch_health_check_u
 import 'package:click_desk/models/request_state/request_state.dart';
 import 'package:click_desk/shared/constants/lottie_paths.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
-import 'package:click_desk/shared/services/doctor/get_reasons.dart';
+import 'package:click_desk/features/select_reason/providers/get_reasons.dart';
 import 'package:click_desk/widgets/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

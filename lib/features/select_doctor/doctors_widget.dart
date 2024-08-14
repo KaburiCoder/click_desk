@@ -1,5 +1,5 @@
 import 'package:click_desk/shared/constants/font_family.dart';
-import 'package:click_desk/shared/services/doctor/get_doctors.dart';
+import 'package:click_desk/features/select_doctor/providers/get_doctors.dart';
 import 'package:click_desk/features/select_doctor/doctor_card.dart';
 import 'package:click_desk/features/select_doctor/lib/select_doctor_and_push.dart';
 import 'package:click_desk/widgets/spacer.dart';

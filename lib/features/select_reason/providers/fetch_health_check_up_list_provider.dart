@@ -3,7 +3,7 @@ import 'package:click_desk/models/request_state/request_state.dart';
 import 'package:click_desk/models/socket_io/socket_response.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
 import 'package:click_desk/shared/providers/socket_io/socket_io_provider.dart';
-import 'package:click_desk/shared/services/socket_io/args/socket_args.dart';
+import 'package:click_desk/shared/services/socket_io/dto/socket_args.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'fetch_health_check_up_list_provider.g.dart';

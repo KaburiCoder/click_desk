@@ -9,8 +9,8 @@ import 'package:click_desk/models/patient_state/patient_state.dart';
 import 'package:click_desk/models/receive_patient_res_state/receive_patient_res_state.dart';
 import 'package:click_desk/models/socket_io/socket_response.dart';
 import 'package:click_desk/models/user/user.dart';
-import 'package:click_desk/shared/services/socket_io/args/socket_args.dart';
-import 'package:click_desk/shared/services/socket_io/res/socket_res.dart';
+import 'package:click_desk/shared/services/socket_io/dto/socket_args.dart';
+import 'package:click_desk/shared/services/socket_io/dto/socket_res.dart';
 // ignore: library_prefixes
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 

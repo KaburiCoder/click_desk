@@ -1,7 +1,7 @@
 import 'package:click_desk/shared/constants/lottie_paths.dart';
 import 'package:click_desk/models/params/user_search_params.dart';
 import 'package:click_desk/shared/providers/patient/patient_confirm_manager.dart';
-import 'package:click_desk/shared/providers/qr_scan/qr_scan_manager.dart';
+import 'package:click_desk/features/qr_scan/providers/qr_scan_manager.dart';
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/shared/utils/audio_util.dart';
 import 'package:click_desk/widgets/common_left_body.dart';

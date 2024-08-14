@@ -2,7 +2,7 @@ import 'package:click_desk/features/checkin_end/listeners/consent_listener.dart'
 import 'package:click_desk/features/checkin_end/listeners/receive_listener.dart';
 import 'package:click_desk/features/checkin_end/providers/consent_provider.dart';
 import 'package:click_desk/models/request_state/request_state.dart';
-import 'package:click_desk/shared/services/socket_io/receive_provider.dart';
+import 'package:click_desk/features/checkin_end/providers/receive_provider.dart';
 import 'package:click_desk/widgets/spacer.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';

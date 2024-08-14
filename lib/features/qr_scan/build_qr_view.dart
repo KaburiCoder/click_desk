@@ -1,4 +1,4 @@
-import 'package:click_desk/shared/providers/qr_scan/qr_scan_provider.dart';
+import 'package:click_desk/features/qr_scan/providers/qr_scan_provider.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

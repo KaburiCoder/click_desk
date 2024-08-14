@@ -1,6 +1,6 @@
 import 'package:click_desk/models/qr_scan_state/qr_scan_state.dart';
 import 'package:click_desk/shared/providers/interfaces/iprovder_manager_base.dart';
-import 'package:click_desk/shared/providers/qr_scan/qr_scan_provider.dart';
+import 'package:click_desk/features/qr_scan/providers/qr_scan_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class QrScanManager implements IProviderManagerBase<QrScanState, QrScan> {

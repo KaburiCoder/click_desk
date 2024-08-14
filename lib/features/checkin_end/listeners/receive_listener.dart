@@ -1,7 +1,7 @@
 import 'package:click_desk/widgets/base_alert_dialog.dart';
 import 'package:click_desk/models/request_state/request_state.dart';
 import 'package:click_desk/routes/nav.dart';
-import 'package:click_desk/shared/services/socket_io/receive_provider.dart';
+import 'package:click_desk/features/checkin_end/providers/receive_provider.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
