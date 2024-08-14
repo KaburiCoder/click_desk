@@ -82,30 +82,32 @@ class _AdCarouselState extends ConsumerState<AdCarousel> with RouteAware {
           }),
           child: Stack(
             children: [
-              FlutterCarousel(
-                options: CarouselOptions(
-                  enableInfiniteScroll: true,
-                  viewportFraction: 1.0,
-                  autoPlay: data.length > 1,
-                  autoPlayInterval: const Duration(seconds: 5),
-                  height: size.height,
-                  showIndicator: true,
-                  slideIndicator: const CircularSlideIndicator(),
-                  initialPage: initialPage,
+              SizedBox(
+                width: size.width,
+                child: FlutterCarousel(
+                  options: CarouselOptions(
+                    enableInfiniteScroll: true,
+                    viewportFraction: 1.0,
+                    autoPlay: data.length > 1,
+                    autoPlayInterval: const Duration(seconds: 5),
+                    showIndicator: true,                
+                    slideIndicator: const CircularSlideIndicator(),
+                    initialPage: initialPage,
+                  ),
+                  items: data.map((file) {
+                    final image = Image.file(file, fit: BoxFit.fill);
+                    precacheImage(image.image, context);
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          decoration: const BoxDecoration(color: Colors.white),
+                          child: image,
+                        );
+                      },
+                    );
+                  }).toList(),
                 ),
-                items: data.map((file) {
-                  final image = Image.file(file, fit: BoxFit.fill);
-                  precacheImage(image.image, context);
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        decoration: const BoxDecoration(color: Colors.white),
-                        child: image,
-                      );
-                    },
-                  );
-                }).toList(),
               ),
               const Padding(
                 padding: EdgeInsets.only(bottom: 50.0),

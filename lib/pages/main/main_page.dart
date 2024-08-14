@@ -42,7 +42,7 @@ class MainPage extends ConsumerWidget {
                 const ChoiceWidget(),
               ],
             ),
-            const AdCarousel(),
+            const SizedBox(width: double.infinity, child: AdCarousel()),
           ],
         ),
       ),
