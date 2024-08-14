@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:click_desk/shared/utils/widget_util.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +15,8 @@ class SizedScaffold extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: SingleChildScrollView(
           child: SizedBox(
-            width: max(size.width, 1250),
-            height: max(size.height, 700),
+            width: size.width,
+            height: size.height,
             child: child,
           ),
         ),

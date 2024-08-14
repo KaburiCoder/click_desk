@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 Size getWidgetSize(GlobalKey key) {
@@ -10,5 +12,6 @@ Size getWidgetSize(GlobalKey key) {
 }
 
 Size getScreenSize(BuildContext context) {
-  return MediaQuery.of(context).size;
+  final size = MediaQuery.of(context).size;
+  return Size(max(size.width, 1250), max(size.height, 700));
 }

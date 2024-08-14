@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:click_desk/features/ad_carousel/animation/animated_text_color.dart';
 import 'package:click_desk/features/ad_carousel/providers/ad_file_api.dart';
 import 'package:click_desk/routes/route_provider.dart';
+import 'package:click_desk/shared/utils/widget_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -55,7 +56,7 @@ class _AdCarouselState extends ConsumerState<AdCarousel> with RouteAware {
   Widget build(BuildContext context) {
     if (_touched) return const SizedBox.shrink();
 
-    final size = MediaQuery.of(context).size;
+    final size = getScreenSize(context);
     final asyncValue = ref.watch(adFileApiProvider);
     return asyncValue.when(
       data: (data) {
@@ -90,7 +91,7 @@ class _AdCarouselState extends ConsumerState<AdCarousel> with RouteAware {
                     viewportFraction: 1.0,
                     autoPlay: data.length > 1,
                     autoPlayInterval: const Duration(seconds: 5),
-                    showIndicator: true,                
+                    showIndicator: true,
                     slideIndicator: const CircularSlideIndicator(),
                     initialPage: initialPage,
                   ),
@@ -100,7 +101,7 @@ class _AdCarouselState extends ConsumerState<AdCarousel> with RouteAware {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
-                          width: MediaQuery.of(context).size.width,
+                          width: size.width,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: image,
                         );
@@ -127,36 +128,5 @@ class _AdCarouselState extends ConsumerState<AdCarousel> with RouteAware {
         return const SizedBox.shrink();
       },
     );
-    // return FlutterCarousel(
-    //   options: CarouselOptions(
-    //     enableInfiniteScroll: true,
-    //     viewportFraction: 1.0,
-    //     autoPlay: true,
-    //     autoPlayInterval: const Duration(seconds: 5),
-    //     height: size.height,
-    //     showIndicator: true,
-    //     slideIndicator: const CircularSlideIndicator(),
-    //   ),
-    //   items: [
-    //     "assets/images/img1.png",
-    //     "assets/images/img2.png",
-    //     "assets/images/img3.png",
-    //     "assets/images/img4.png",
-    //   ].map((i) {
-    //     return Builder(
-    //       builder: (BuildContext context) {
-    //         return Container(
-    //           width: MediaQuery.of(context).size.width,
-    //           decoration: const BoxDecoration(color: Colors.amber),
-    //           child: Image.asset(
-    //             i,
-    //             // width: MediaQuery.of(context).size.width,
-    //             fit: BoxFit.cover,
-    //           ),
-    //         );
-    //       },
-    //     );
-    //   }).toList(),
-    // );
   }
 }
