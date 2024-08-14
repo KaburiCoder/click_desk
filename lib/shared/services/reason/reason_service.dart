@@ -1,6 +1,7 @@
 import 'package:click_desk/models/reason_state/reason_state.dart';
 import 'package:click_desk/shared/providers/dio/dio_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 part 'reason_service.g.dart';
 
 class ReasonService {
