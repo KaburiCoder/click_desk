@@ -18,6 +18,7 @@ class SharedUtility {
     required this.sharedPreferences,
   });
   final _authCookiesKey = "auth_cookies";
+  final _timerSecondsKey = "timer_seconds";
 
   final SharedPreferences sharedPreferences;
 
@@ -41,5 +42,13 @@ class SharedUtility {
 
   Future<void> removeAuthCookies() {
     return sharedPreferences.remove(_authCookiesKey);
+  }
+
+  int getTimerSeconds() {
+    return sharedPreferences.getInt(_timerSecondsKey) ?? 30;
+  }
+
+  Future<bool> setTimerSeconds(int value) async {
+    return sharedPreferences.setInt(_timerSecondsKey, value);
   }
 }

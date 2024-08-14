@@ -1,3 +1,4 @@
+import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/shared/constants/font_family.dart';
 import 'package:click_desk/shared/providers/auth/auth_provider.dart';
 import 'package:click_desk/widgets/click_count.dart';
@@ -13,19 +14,19 @@ class LeftWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final auth = ref.watch(authProvider);
-    
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ClickCount(
           count: 5,
           onCalled: () {
-            ref.read(authProvider.notifier).signout();
+            Nav.of(context).pushSettings();
           },
           child: const BaseText("안녕하세요!",
               fontSize: 40, bold: true, fontFamily: FontFamily.kccHanbit),
         ),
-         BaseText("${auth.value?.orgName}입니다.",
+        BaseText("${auth.value?.orgName}입니다.",
             fontSize: 40,
             bold: true,
             color: Colors.blue,

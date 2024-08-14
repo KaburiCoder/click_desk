@@ -78,6 +78,10 @@ class Nav {
     pushNamed(Paths.regist);
   }
 
+  pushSettings() {
+    _context.pushNamed(Paths.settings);
+  }
+
   pushReplacementSelectPatient(UserSearchParams params) {
     _context.pushReplacementNamed(
       Paths.selectPatient,

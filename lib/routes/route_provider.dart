@@ -1,3 +1,4 @@
+import 'package:click_desk/routes/details/settings_route.dart';
 import 'package:click_desk/shared/constants/paths/paths.dart';
 import 'package:click_desk/shared/providers/auth/auth_provider.dart';
 import 'package:click_desk/routes/details/cert_new_route.dart';
@@ -24,7 +25,7 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 @riverpod
 GoRouter route(RouteRef ref) {
   final auth = ref.watch(authProvider);
-  
+
   return GoRouter(
       navigatorKey: _rootNavigatorKey,
       initialLocation: Paths.initView,
@@ -58,6 +59,7 @@ GoRouter route(RouteRef ref) {
         selectReasonRoute(),
         checkinEndRoute(),
         successRoute(),
+        settingsRoute(),
       ]);
 }
 

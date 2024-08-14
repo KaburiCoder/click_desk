@@ -1,6 +1,7 @@
 import 'package:click_desk/shared/providers/pointer/pointer_provider.dart';
 import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/routes/route_provider.dart';
+import 'package:click_desk/shared/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:click_desk/widgets/timeout_timer_layout/lib/count_down_timer.dart';
 import 'package:click_desk/widgets/sized_scaffold.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
@@ -31,9 +32,13 @@ class _TimeoutTimerState extends ConsumerState<TimeoutTimerLayout>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    final sharedUtil = ref.read(sharedUtilityProvider);
+    int seconds = sharedUtil.getTimerSeconds();
+    seconds = seconds > widget.seconds ? seconds : widget.seconds;
+
     _timer = CountDownTimer(context, onComplete: () {
       if (context.mounted) Nav.of(context).goMain();
-    }, initCounter: widget.seconds);
+    }, initCounter: seconds);
     _timer.start();
     _focusNode.addListener(_onFocusChange);
   }
