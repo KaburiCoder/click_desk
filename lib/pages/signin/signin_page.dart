@@ -5,6 +5,7 @@ import 'package:click_desk/widgets/tab_outside_to_close_keyboard.dart';
 import 'package:click_desk/widgets/texts/xl_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:upgrader/upgrader.dart';
 
 class SigninPage extends ConsumerStatefulWidget {
   const SigninPage({super.key});

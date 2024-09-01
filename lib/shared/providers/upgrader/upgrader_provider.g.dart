@@ -1,24 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'route_provider.dart';
+part of 'upgrader_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routeHash() => r'fff0f33f31788af0daa4b9ee9cc9efded1083137';
+String _$upgraderHash() => r'46d6a3b4a3b7fe48c012128d35411f2c19e2f345';
 
-/// See also [route].
-@ProviderFor(route)
-final routeProvider = AutoDisposeProvider<GoRouter>.internal(
-  route,
-  name: r'routeProvider',
+/// See also [Upgrader].
+@ProviderFor(Upgrader)
+final upgraderProvider =
+    AutoDisposeAsyncNotifierProvider<Upgrader, ug.Upgrader>.internal(
+  Upgrader.new,
+  name: r'upgraderProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$routeHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$upgraderHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef RouteRef = AutoDisposeProviderRef<GoRouter>;
+typedef _$Upgrader = AutoDisposeAsyncNotifier<ug.Upgrader>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

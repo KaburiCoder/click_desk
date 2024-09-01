@@ -11,10 +11,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tz;
+import 'package:upgrader/upgrader.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 Future<void> initializeFire() async {
-  if(Platform.isWindows) return;
+  if (Platform.isWindows) return;
   await Firebase.initializeApp();
   FlutterError.onError = (errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
@@ -43,6 +44,8 @@ void main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
   final sharedPreferencesOverride = await createSharedPreferencesOverride();
+  await Upgrader.clearSavedSettings();
+
   runApp(
     ProviderScope(
       overrides: [sharedPreferencesOverride],
