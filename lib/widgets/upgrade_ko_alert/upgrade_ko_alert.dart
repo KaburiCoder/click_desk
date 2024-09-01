@@ -24,7 +24,7 @@ class UpgradeKoAlert extends ConsumerWidget {
               return true;
             },
             dialogStyle: UpgradeDialogStyle.cupertino,
-            showLater: false, // "나중에" 버튼 표시
+            // showLater: false, // "나중에" 버튼 표시
             showIgnore: false, // "무시" 버튼 숨기기
             upgrader: upgraderAsyncValue.value,                      
           )

@@ -30,10 +30,7 @@ class Receive extends _$Receive {
     final socketIO = ref.read(socketIOProvider);
     final response = await guard(
       ref,
-      () {
-        throw Exception("dsa");
-        return socketIO.receiveMobilePatient(checkinState);
-      },
+      () => socketIO.receiveMobilePatient(checkinState),
       (error, stack) {
         _setError(error.toString());
       },

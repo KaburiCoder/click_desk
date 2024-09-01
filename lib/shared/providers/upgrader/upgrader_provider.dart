@@ -20,6 +20,12 @@ class Upgrader extends _$Upgrader {
 
     return upgrader;
   }
+
+  Future<void> initializeUpgrader() async {
+    if (state.value != null) {
+      await state.value!.initialize();
+    }
+  }
 }
 
 class MyKoreanMessages extends UpgraderMessages {
