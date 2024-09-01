@@ -44,7 +44,6 @@ GoRouter route(RouteRef ref) {
         return null;
       },
       observers: [
-        // MyRouteObserver(),
         routeObserver
       ],
       routes: [

@@ -9,7 +9,7 @@ class Upgrader extends _$Upgrader {
   FutureOr<ug.Upgrader> build() async {
     final upgrader = ug.Upgrader(
       // debugDisplayAlways: true,
-      // debugLogging: true,
+      debugLogging: true,
       languageCode: "ko",
       countryCode: "KR",
       minAppVersion: "0.0.0",

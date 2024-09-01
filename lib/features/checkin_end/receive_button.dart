@@ -8,18 +8,6 @@ import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ExTest {
-  final String exTest;
-
-  ExTest({required this.exTest});
-}
-
-class Test extends ExTest {
-  final String test;
-
-  Test({required this.test}) : super(exTest: '');
-}
-
 class ReceiveButton extends ConsumerWidget {
   const ReceiveButton({super.key});
 

@@ -1,25 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'upgrader_provider.dart';
+part of 'log_dio_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$upgraderHash() => r'8ab61f2c1351d202dbb92acb08feeba3c446b33f';
+String _$logDioHash() => r'2c040ba060cfcc10add58ace9bcc1f122e2a1a6b';
 
-/// See also [Upgrader].
-@ProviderFor(Upgrader)
-final upgraderProvider =
-    AutoDisposeAsyncNotifierProvider<Upgrader, ug.Upgrader>.internal(
-  Upgrader.new,
-  name: r'upgraderProvider',
+/// See also [logDio].
+@ProviderFor(logDio)
+final logDioProvider = AutoDisposeProvider<Dio>.internal(
+  logDio,
+  name: r'logDioProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$upgraderHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$logDioHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$Upgrader = AutoDisposeAsyncNotifier<ug.Upgrader>;
+typedef LogDioRef = AutoDisposeProviderRef<Dio>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

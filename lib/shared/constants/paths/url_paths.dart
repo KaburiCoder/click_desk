@@ -6,9 +6,15 @@ class UrlPaths {
         ? "https://hs.click-soft.co.kr/api"
         : "http://192.168.1.43:4020/api";
   }
+
   static String get sockUrl {
     return kReleaseMode
         ? "https://sock.click-soft.co.kr/click-desk"
         : "http://192.168.1.43:4001/click-desk";
+  }
+
+  static String get logUrl {
+    return "http://192.168.1.43:8080/api";
+    // return "https://log.click-soft.co.kr/api";
   }
 }

@@ -6,7 +6,7 @@ part of 'receive_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$receiveHash() => r'c247429aca6c501fd0d07ec469aedd377eb482b2';
+String _$receiveHash() => r'ef916a52049dd26062fa4802136928a4dd7f6078';
 
 /// See also [Receive].
 @ProviderFor(Receive)
