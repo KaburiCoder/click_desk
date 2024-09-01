@@ -1,5 +1,5 @@
 build:
-	dart run build_runner build -d
+	flutter build appbundle
 watch:
 	dart run build_runner watch -d
 watch2:

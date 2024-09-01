@@ -7,8 +7,11 @@ part 'upgrader_provider.g.dart';
 class Upgrader extends _$Upgrader {
   @override
   FutureOr<ug.Upgrader> build() async {
+    return await buildUpgrader();
+  }
+
+  Future<ug.Upgrader> buildUpgrader() async {
     final upgrader = ug.Upgrader(
-      // debugDisplayAlways: true,
       debugLogging: true,
       languageCode: "ko",
       countryCode: "KR",
@@ -19,12 +22,6 @@ class Upgrader extends _$Upgrader {
     await upgrader.initialize();
 
     return upgrader;
-  }
-
-  Future<void> initializeUpgrader() async {
-    if (state.value != null) {
-      await state.value!.initialize();
-    }
   }
 }
 

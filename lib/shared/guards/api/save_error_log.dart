@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:click_desk/shared/constants/paths/api_paths.dart';
 import 'package:click_desk/shared/providers/auth/auth_provider.dart';
 import 'package:click_desk/shared/providers/dio/log_dio_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,7 +10,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 Future<void> saveErrorLog(Ref ref, error, stack) async {
   final dio = ref.read(logDioProvider);
   final result = await generateErrorReport(ref, error, stack);
-  await dio.post("/click/error-log", data: result);
+  await dio.post(ApiPath.errorLog, data: result);
 }
 
 Future<Map<String, dynamic>> generateErrorReport(

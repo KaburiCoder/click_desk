@@ -14,7 +14,8 @@ class UrlPaths {
   }
 
   static String get logUrl {
-    return "http://192.168.1.43:8080/api";
-    // return "https://log.click-soft.co.kr/api";
+    return kReleaseMode
+        ? "https://log.click-soft.co.kr/api"
+        : "http://192.168.1.43:8080/api";
   }
 }

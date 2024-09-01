@@ -1,5 +1,6 @@
 import 'package:click_desk/models/doctor_state/doctor_state.dart';
 import 'package:click_desk/models/socket_io/socket_response.dart';
+import 'package:click_desk/shared/constants/paths/api_paths.dart';
 import 'package:click_desk/shared/providers/dio/dio_provider.dart';
 import 'package:click_desk/shared/providers/socket_io/socket_io_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -12,7 +13,7 @@ class DoctorService {
 
   Future<List<DoctorState>> getAll() async {
     final dio = ref.read(dioProvider);
-    final response = await dio.get("/clickdesk/doctor");
+    final response = await dio.get(ApiPath.doctor);
 
     final doctors = (response.data as List).map((d) {
       return DoctorState.fromJson(d);

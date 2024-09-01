@@ -1,3 +1,5 @@
+import 'package:click_desk/shared/constants/paths/api_paths.dart';
+import 'package:click_desk/shared/guards/guard.dart';
 import 'package:click_desk/shared/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -14,7 +16,7 @@ class AuthService {
   Future<User> signin(String userId, String password) async {
     final dio = ref.read(dioProvider);
     final response = await dio
-        .post("/signin", data: {"userId": userId, "password": password});
+        .post(ApiPath.signin, data: {"userId": userId, "password": password});
     final cookies = response.headers.map['set-cookie'];
     await ref.read(sharedUtilityProvider).setAuthCookies(cookies: cookies);
     final User user = User.fromJson(response.data);
@@ -22,15 +24,16 @@ class AuthService {
   }
 
   Future<User> currentUser() async {
-    try {
-      final dio = ref.read(dioProvider);
-      final response = await dio.post("/currentuser");
-      final User user = User.fromJson(response.data['currentUser']);
-      return user;
-    } catch (error) {
-      print(error);
-      return const User();
-    }
+    final user = await guard(
+      ref,
+      () async {
+        final dio = ref.read(dioProvider);
+        final response = await dio.post(ApiPath.currentUser);
+        return User.fromJson(response.data['currentUser']);
+      },
+      (error, stack) {},
+    );
+    return user ?? const User();
   }
 }
 

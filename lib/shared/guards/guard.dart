@@ -3,18 +3,20 @@ import 'dart:developer';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'api/save_error_log.dart';
 
-R? guard<R>(Ref ref, R Function() body,
-    void Function(Object error, StackTrace stack) onError) {
-  return runZonedGuarded(
-    body,
-    (error, stack) {
-      onError(error, stack);
-      saveErrorLog(ref, error, stack).catchError((err) {
-        log(err);
-      });
-      // 로그 수집
-    },
-  );
+Future<R?> guard<R>(Ref ref, Future<R> Function() body,
+    void Function(Object error, StackTrace stack) onError) async {
+  try {
+    final result = await body();
+    return result; // 정상적으로 완료된 경우 결과 반환
+  } catch (error, stack) {
+    onError(error, stack);
+    try {
+      await saveErrorLog(ref, error, stack);
+    } catch (ex) {
+      log(ex.toString());
+    }
+    return null; // 예외 발생 시 null 반환
+  }
 }
 
 // FutureOr<GuardResult<R>> guard<R>(

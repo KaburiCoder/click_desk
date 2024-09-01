@@ -1,4 +1,5 @@
 import 'package:click_desk/models/reason_state/reason_state.dart';
+import 'package:click_desk/shared/constants/paths/api_paths.dart';
 import 'package:click_desk/shared/providers/dio/dio_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -19,14 +20,14 @@ class ReasonService {
 
   Future<List<ReasonState>> getAll() async {
     final dio = ref.read(dioProvider);
-    final response = await dio.get("/clickdesk/reason");
+    final response = await dio.get(ApiPath.reason);
 
     return _toList(response.data);
   }
 
   Future<List<ReasonState>> getByDoctorId(String doctorId) async {
     final dio = ref.read(dioProvider);
-    final response = await dio.get("/clickdesk/reason/$doctorId");
+    final response = await dio.get(ApiPath.reasonDoctorId(doctorId));
 
     return _toList(response.data);
   }
