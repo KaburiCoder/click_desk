@@ -6,7 +6,7 @@ part of 'upgrader_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$upgraderHash() => r'8ab61f2c1351d202dbb92acb08feeba3c446b33f';
+String _$upgraderHash() => r'a93fdef1311111f41dbaed58cbc5e64c00801bdb';
 
 /// See also [Upgrader].
 @ProviderFor(Upgrader)

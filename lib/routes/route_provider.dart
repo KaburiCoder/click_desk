@@ -14,6 +14,7 @@ import 'package:click_desk/routes/details/signin_route.dart';
 import 'package:click_desk/routes/details/success_route.dart';
 import 'package:click_desk/shared/constants/paths/paths.dart';
 import 'package:click_desk/shared/providers/auth/auth_provider.dart';
+import 'package:click_desk/shared/providers/desk_settings/desk_settings.dart';
 import 'package:click_desk/shared/providers/upgrader/upgrader_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -35,9 +36,9 @@ GoRouter route(RouteRef ref) {
         if (auth.isLoading || upgrader.isLoading) return null;
 
         final isInitView = state.matchedLocation == Paths.initView;
-        // final isSigninView = state.matchedLocation == Paths.signin;
         final hasAuth = auth.value?.roomKey.isNotEmpty ?? false;
         if (isInitView) {
+          // 여기서 비동기 호출
           return hasAuth ? Paths.main : Paths.signin;
         }
 

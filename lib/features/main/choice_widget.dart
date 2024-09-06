@@ -1,19 +1,23 @@
 import 'package:click_desk/shared/constants/lottie_paths.dart';
 import 'package:click_desk/routes/nav.dart';
+import 'package:click_desk/shared/providers/desk_settings/desk_settings.dart';
 import 'package:click_desk/widgets/lottie.dart';
 import 'package:click_desk/widgets/right_container.dart';
 import 'package:click_desk/widgets/spacer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'choice_card.dart';
 
-class ChoiceWidget extends StatelessWidget {
+class ChoiceWidget extends ConsumerWidget {
   const ChoiceWidget({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final settings = ref.watch(deskSettingsProvider);
+
     return Expanded(
       flex: 4,
       child: RightContainer(
@@ -30,7 +34,11 @@ class ChoiceWidget extends StatelessWidget {
                   duration: 3000,
                 ),
                 onClick: () {
-                  Nav.of(context).pushCertNew();
+                  if (settings.value?.unUseQR == true) {
+                    Nav.of(context).pushRegist();
+                  } else {
+                    Nav.of(context).pushCertNew();
+                  }
                 },
               ),
             ),

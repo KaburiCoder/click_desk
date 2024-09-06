@@ -1,5 +1,6 @@
 import 'package:click_desk/features/main/choice_widget.dart';
 import 'package:click_desk/features/main/left_widget.dart';
+import 'package:click_desk/shared/providers/desk_settings/desk_settings.dart';
 import 'package:click_desk/shared/providers/socket_io/socket_io_provider.dart';
 import 'package:click_desk/features/ad_carousel/ad_carousel.dart';
 import 'package:click_desk/widgets/left_wrapper.dart';
@@ -14,7 +15,8 @@ class MainPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(socketIOProvider);
-
+    ref.watch(deskSettingsProvider);
+    
     return PopScope(
       canPop: false,
       child: SizedScaffold(

@@ -24,29 +24,15 @@ class SocketIOService {
     socket = IO.io(UrlPaths.sockUrl,
         IO.OptionBuilder().setTransports(['websocket']).build());
 
-    socket.onConnect((_) {
-      print('connect');
-    });
+    socket.onConnect((_) => print('connect'));
     socket.onDisconnect((_) => print('disconnect'));
-    socket.onError((error) {
-      print(error.toString());
-    });
+    socket.onError((error) => print(error.toString()));
   }
 
-  Future<SocketResponse<List<PatientState>>> getMobilePatientInfo(
-      UserSearchParams params) async {
-    Map<String, dynamic> data = params.toJson();
-    data['key'] = user!.roomKey;
-
-    final response =
-        await socket.emitWithAckAsync(SocketEv.getMobilePatientInfo, data);
-
-    final resData = SocketResponse.fromJson(
-      response,
-      (json) => (json as List<dynamic>)
-          .map((item) => PatientState.fromJson(item))
-          .toList(),
-    );
+  Future<SocketResponse<T>> _emitWithAckAsync<T>(
+      String event, Map<String, dynamic> data, T Function(dynamic) fromJson) async {
+    final response = await socket.emitWithAckAsync(event, data);
+    final resData = SocketResponse.fromJson(response, fromJson);
 
     if (resData.status == ResponseStatus.error) {
       throw resData.message!;
@@ -54,80 +40,55 @@ class SocketIOService {
     return resData;
   }
 
+  Future<SocketResponse<List<PatientState>>> getMobilePatientInfo(
+      UserSearchParams params) async {
+    final data = params.toJson()..['key'] = user!.roomKey;
+    return _emitWithAckAsync(
+        SocketEv.getMobilePatientInfo, data, (json) => (json as List<dynamic>)
+            .map((item) => PatientState.fromJson(item))
+            .toList());
+  }
+
   Future<SocketResponse<List<DoctorState>>> getMobileDoctorInfo() async {
-    Map<String, dynamic> data = {"key": user!.roomKey};
-
-    final response =
-        await socket.emitWithAckAsync(SocketEv.getMobileDoctorInfo, data);
-
-    return SocketResponse.fromJson(
-        response,
-        (json) => (json as List<dynamic>)
+    final data = {"key": user!.roomKey};
+    return _emitWithAckAsync(
+        SocketEv.getMobileDoctorInfo, data, (json) => (json as List<dynamic>)
             .map((item) => DoctorState.fromJson(item))
             .toList());
   }
 
   Future<SocketResponse<PatientCertState>> getMobilePatientCert(
       PatientCertParams params) async {
-    final jsonData = params.toJson();
-    jsonData['key'] = user!.roomKey;
-
-    final response =
-        await socket.emitWithAckAsync(SocketEv.getMobilePatientCert, jsonData);
-
-    return SocketResponse.fromJson(response,
+    final data = params.toJson()..['key'] = user!.roomKey;
+    return _emitWithAckAsync(SocketEv.getMobilePatientCert, data,
         (json) => PatientCertState.fromJson(json as Map<String, dynamic>));
   }
 
   Future<SocketResponse<ReceivePatientResState>> receiveMobilePatient(
       CheckinState checkin) async {
-    final jsonData = checkin.toJson();
-    jsonData['key'] = user!.roomKey;
-
-    final response =
-        await socket.emitWithAckAsync(SocketEv.receiveMobilePatient, jsonData);
-
-    return SocketResponse.fromJson(
-        response,
-        (json) =>
-            ReceivePatientResState.fromJson(json as Map<String, dynamic>));
+    final data = checkin.toJson()..['key'] = user!.roomKey;
+    return _emitWithAckAsync(SocketEv.receiveMobilePatient, data,
+        (json) => ReceivePatientResState.fromJson(json as Map<String, dynamic>));
   }
 
   Future<SocketResponse<SocketCheckConsentRes>> checkMobileConsent(
       SocketCheckConsentArgs args) async {
-    final jsonData = args.toJson();
-    jsonData['key'] = user!.roomKey;
-
-    final response = await socket.emitWithAckAsync(
-        SocketEv.checkMobilePatientConsent, jsonData);
-
-    return SocketResponse.fromJson(response,
+    final data = args.toJson()..['key'] = user!.roomKey;
+    return _emitWithAckAsync(SocketEv.checkMobilePatientConsent, data,
         (json) => SocketCheckConsentRes.fromJson(json as Map<String, dynamic>));
   }
 
   Future<SocketResponse<SocketSaveConsentRes>> saveMobileConsent(
       SocketSaveConsentArgs args) async {
-    final jsonData = args.toJson();
-    jsonData['key'] = user!.roomKey;
-
-    final response = await socket.emitWithAckAsync(
-        SocketEv.saveMobilePatientConsent, jsonData);
-
-    return SocketResponse.fromJson(response,
+    final data = args.toJson()..['key'] = user!.roomKey;
+    return _emitWithAckAsync(SocketEv.saveMobilePatientConsent, data,
         (json) => SocketSaveConsentRes.fromJson(json as Map<String, dynamic>));
   }
 
   Future<SocketResponse<SocketFetchHealthCheckUpListRes>>
       fetchHealthCheckUpList(SocketFetchHealthCheckUpListArgs args) async {
-    final jsonData = args.toJson();
-    jsonData['key'] = user!.roomKey;
-
-    final response = await socket.emitWithAckAsync(
-        SocketEv.fetchHealthCheckUpList, jsonData);
-
-    return SocketResponse.fromJson(
-        response,
-        (json) => SocketFetchHealthCheckUpListRes.fromJson(
-            json as Map<String, dynamic>));
+    final data = args.toJson()..['key'] = user!.roomKey;
+    return _emitWithAckAsync(SocketEv.fetchHealthCheckUpList, data,
+        (json) => SocketFetchHealthCheckUpListRes.fromJson(json as Map<String, dynamic>));
   }
 }

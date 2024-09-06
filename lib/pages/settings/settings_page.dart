@@ -1,3 +1,4 @@
+import 'package:click_desk/pages/settings/ui/setting_row_sync_settings.dart';
 import 'package:click_desk/widgets/spacer.dart';
 import 'package:click_desk/widgets/tab_outside_to_close_keyboard.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,8 @@ class SettingsPage extends StatelessWidget {
                 child: const Column(
                   children: [
                     SettingRowTimer(),
+                    Divider(height: 30),
+                    SettingRowSyncSettings(),
                     Divider(height: 30),
                     SettingRowAppVersion(),
                   ],

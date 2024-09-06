@@ -10,9 +10,11 @@ class ApiPath {
 
   static String get doctor => "/clickdesk/doctor";
   static String get reason => "/clickdesk/reason";
+  static String get settings => "/clickdesk/settings";
   static String reasonDoctorId(String doctorId) =>
       "/clickdesk/reason/$doctorId";
   static String get errorLog => "/click/error-log";
   static String get signin => "/signin";
   static String get currentUser => "/currentuser";
+  
 }

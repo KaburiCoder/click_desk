@@ -6,7 +6,7 @@ part of 'patient_confirm_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$patientConfirmHash() => r'efabaf006b96fa9bae86b9118c6d36a349fb2a2d';
+String _$patientConfirmHash() => r'605f3e80f05cc2cce0c98c91a1dc6615d6ebd093';
 
 /// See also [PatientConfirm].
 @ProviderFor(PatientConfirm)

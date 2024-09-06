@@ -72,7 +72,7 @@ Map<String, dynamic> _$$ConsentErrorStateImplToJson(
 // RiverpodGenerator
 // **************************************************************************
 
-String _$consentHash() => r'c782bc0fcc3bb9ffdae2b5bc8e14a91ab1e94329';
+String _$consentHash() => r'c192a3b9b7b073ccaa6e223eb24725f65ebd562c';
 
 /// See also [Consent].
 @ProviderFor(Consent)
