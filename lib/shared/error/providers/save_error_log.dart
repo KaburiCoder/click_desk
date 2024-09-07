@@ -23,6 +23,7 @@ class SaveErrorLog extends _$SaveErrorLog {
 
   Future<void> _save(error, stack) async {
     final auth = ref.read(authProvider);
+    if(auth.hasError) return;
     final user = auth.value;
     final data = await generateErrorReport(user, error, stack);
     await saveErrorLog(ref, data);
