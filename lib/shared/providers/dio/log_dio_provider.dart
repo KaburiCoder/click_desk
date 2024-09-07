@@ -6,7 +6,12 @@ part 'log_dio_provider.g.dart';
 
 @riverpod
 Dio logDio(LogDioRef ref) {
-  final dio = Dio(BaseOptions(baseUrl: UrlPaths.logUrl));
+  final dio = Dio(BaseOptions(
+    baseUrl: UrlPaths.logUrl,
+    connectTimeout: const Duration(seconds: 10), // 5 seconds
+    receiveTimeout: const Duration(seconds: 10), // 3 seconds
+    sendTimeout: const Duration(seconds: 10),
+  ));
 
   return dio;
 }

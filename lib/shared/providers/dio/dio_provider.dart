@@ -7,7 +7,12 @@ part 'dio_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 Dio dio(DioRef ref) {
-  final dio = Dio(BaseOptions(baseUrl: UrlPaths.baseUrl));
+  final dio = Dio(BaseOptions(
+    baseUrl: UrlPaths.baseUrl,
+    connectTimeout: const Duration(seconds: 10), // 5 seconds
+    receiveTimeout: const Duration(seconds: 10), // 3 seconds
+    sendTimeout: const Duration(seconds: 10),
+  ));
 
   dio.interceptors.add(InterceptorsWrapper(
     onRequest: (options, handler) {

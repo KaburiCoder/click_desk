@@ -10,10 +10,11 @@ part 'desk_settings.g.dart';
 class DeskSettings extends _$DeskSettings {
   @override
   FutureOr<DeskSettingsState> build() async {
-    return await fetchDeskSettings();
+    final settings = await _fetchDeskSettings();
+    return settings;
   }
 
-  Future<DeskSettingsState> fetchDeskSettings() async {
+  Future<DeskSettingsState> _fetchDeskSettings() async {
     state = const AsyncValue.loading();
     final auth = ref.read(authProvider);
     if (auth.value != null) {

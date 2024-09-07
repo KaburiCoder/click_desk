@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:click_desk/routes/route_provider.dart';
+import 'package:click_desk/shared/error/error_observer.dart';
 import 'package:click_desk/shared/providers/pointer/pointer_provider.dart';
 import 'package:click_desk/shared/providers/shared_utiltiy/shared_utility_provider.dart';
-import 'package:click_desk/routes/route_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,7 @@ void main() async {
 
   runApp(
     ProviderScope(
+      observers: [ErrorObserver()],
       overrides: [sharedPreferencesOverride],
       child: const MyApp(),
     ),
@@ -80,3 +82,4 @@ class MyApp extends ConsumerWidget {
     );
   }
 }
+

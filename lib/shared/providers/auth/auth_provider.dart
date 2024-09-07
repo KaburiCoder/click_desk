@@ -1,6 +1,7 @@
 import 'package:click_desk/models/user/user.dart';
 import 'package:click_desk/shared/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:click_desk/shared/services/auth/auth_service.dart';
+import 'package:click_desk/shared/utils/toast_msg.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_provider.g.dart';
@@ -17,10 +18,16 @@ class Auth extends _$Auth {
     state = await AsyncValue.guard(
       () async {
         User user = await ref.read(authServiceProvider).currentUser();
-      
+
         return user;
       },
     );
+
+    if (state.hasError) {
+      ToastMsg.error("사용자 정보를 불러오는 데 실패했습니다.");
+
+      return const User();
+    }
 
     return state.value ?? const User();
   }

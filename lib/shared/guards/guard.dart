@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'dart:developer';
+
+import 'package:click_desk/shared/error/providers/save_error_log.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'api/save_error_log.dart';
 
 Future<R?> guard<R>(Ref ref, Future<R> Function() body,
     void Function(Object error, StackTrace stack) onError) async {
@@ -10,11 +10,8 @@ Future<R?> guard<R>(Ref ref, Future<R> Function() body,
     return result; // 정상적으로 완료된 경우 결과 반환
   } catch (error, stack) {
     onError(error, stack);
-    try {
-      await saveErrorLog(ref, error, stack);
-    } catch (ex) {
-      log(ex.toString());
-    }
+    ref.read(saveErrorLogProvider.notifier).save(error, stack);
+
     return null; // 예외 발생 시 null 반환
   }
 }

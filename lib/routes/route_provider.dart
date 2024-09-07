@@ -14,7 +14,6 @@ import 'package:click_desk/routes/details/signin_route.dart';
 import 'package:click_desk/routes/details/success_route.dart';
 import 'package:click_desk/shared/constants/paths/paths.dart';
 import 'package:click_desk/shared/providers/auth/auth_provider.dart';
-import 'package:click_desk/shared/providers/desk_settings/desk_settings.dart';
 import 'package:click_desk/shared/providers/upgrader/upgrader_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

@@ -63,6 +63,7 @@ dependencies:
   permission_handler: ^11.3.1
   package_info_plus: ^8.0.2
   upgrader: ^10.3.0
+  fluttertoast: ^8.2.8
   # qr_code_scanner:
   #   git:
   #     url: https://github.com/dola99/qr_code_scanner

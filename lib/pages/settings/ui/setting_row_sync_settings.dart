@@ -12,6 +12,7 @@ class SettingRowSyncSettings extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final settingsAsync = ref.watch(deskSettingsProvider);
+
     return SettingRow(
       iconData: Icons.sync,
       iconColor: Colors.blueAccent,
@@ -24,9 +25,7 @@ class SettingRowSyncSettings extends ConsumerWidget {
               onPressed: settingsAsync.isLoading
                   ? null
                   : () {
-                      ref
-                          .read(deskSettingsProvider.notifier)
-                          .build();
+                      ref.read(deskSettingsProvider.notifier).build();
                     },
               child: BaseText(
                 "설정 동기화 ${settingsAsync.isLoading ? "중..." : ""}",

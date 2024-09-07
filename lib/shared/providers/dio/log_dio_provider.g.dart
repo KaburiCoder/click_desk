@@ -6,7 +6,7 @@ part of 'log_dio_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$logDioHash() => r'2c040ba060cfcc10add58ace9bcc1f122e2a1a6b';
+String _$logDioHash() => r'2158386ecdde442088b57339d5d0dadb79a86716';
 
 /// See also [logDio].
 @ProviderFor(logDio)

@@ -6,7 +6,7 @@ part of 'desk_settings.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$deskSettingsHash() => r'3843c167c47846ce1157a07d8f61032c8c87dc5e';
+String _$deskSettingsHash() => r'05a020fa7f6aafdc3302f60980e70bc95548bc14';
 
 /// See also [DeskSettings].
 @ProviderFor(DeskSettings)
