@@ -16,8 +16,6 @@ class ChoiceWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final settings = ref.watch(deskSettingsProvider);
-
     return Expanded(
       flex: 4,
       child: RightContainer(
@@ -34,11 +32,7 @@ class ChoiceWidget extends ConsumerWidget {
                   duration: 3000,
                 ),
                 onClick: () {
-                  if (settings.value?.unUseQR == true) {
-                    Nav.of(context).pushRegist();
-                  } else {
-                    Nav.of(context).pushCertNew();
-                  }
+                  Nav.of(context).pushCertNew();
                 },
               ),
             ),

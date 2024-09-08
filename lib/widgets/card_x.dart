@@ -10,7 +10,9 @@ class HeaderedContainer extends StatelessWidget {
   final IconData? icon;
   final Widget rightWidget;
   final double? verticalMargin;
+  final BoxConstraints? constraints;
   final Function() onClick;
+
   const HeaderedContainer({
     super.key,
     required this.title,
@@ -18,6 +20,7 @@ class HeaderedContainer extends StatelessWidget {
     required this.description,
     required this.rightWidget,
     required this.onClick,
+    this.constraints,
     this.icon,
     this.verticalMargin = 8.0,
   });
@@ -27,6 +30,7 @@ class HeaderedContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onClick,
       child: ContainerX(
+        constraints: constraints,
         margin: EdgeInsets.symmetric(vertical: verticalMargin!),
         // color: Colors.blueAccent[50],
         child: Column(
@@ -60,9 +64,7 @@ class HeaderedContainer extends StatelessWidget {
                           BaseText(text, fontSize: 24, bold: true),
                           const HeightSpacer(),
                           BaseText(description,
-                              fontSize: 16,
-                              bold: true,
-                              color: Colors.blueGrey),
+                              fontSize: 16, bold: true, color: Colors.blueGrey),
                         ],
                       ),
                       rightWidget,

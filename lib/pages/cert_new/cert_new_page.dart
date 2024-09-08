@@ -1,6 +1,8 @@
+import 'package:click_desk/routes/nav.dart';
 import 'package:click_desk/shared/constants/lottie_paths.dart';
 import 'package:click_desk/models/checkin_state/checkin_state.dart';
 import 'package:click_desk/shared/providers/checkin/checkin_provider.dart';
+import 'package:click_desk/shared/providers/desk_settings/desk_settings.dart';
 import 'package:click_desk/widgets/common_left_body.dart';
 import 'package:click_desk/widgets/left_wrapper.dart';
 import 'package:click_desk/widgets/lottie.dart';
@@ -19,6 +21,9 @@ class CertNewPage extends HookConsumerWidget {
     useEffect(() {
       Future(() {
         ref.read(checkinProvider.notifier).setStartType(StartType.first);
+        if (ref.read(deskSettingsProvider).valueOrNull?.unUseQR == true) {
+          Nav.of(context).pushRegist();
+        }
       });
       return null;
     }, []);

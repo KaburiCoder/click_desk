@@ -5,12 +5,15 @@ class ContainerX extends StatelessWidget {
   final Color? color;
   final EdgeInsets? margin;
   final BoxBorder? border;
+  final BoxConstraints? constraints;
+  
   const ContainerX({
     super.key,
     required this.child,
     this.color,
     this.margin,
     this.border,
+    this.constraints,
   });
 
   @override
@@ -18,6 +21,7 @@ class ContainerX extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(2),
       margin: margin,
+      constraints: constraints,
       decoration: BoxDecoration(
         color: color,
         border: border,

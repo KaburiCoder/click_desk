@@ -1,6 +1,6 @@
-build:
+b:
 	flutter build appbundle
-watch:
+w:
 	dart run build_runner watch -d
-watch2:
+w2:
 	dart run build_runner watch -d --delete-conflicting-outputs
