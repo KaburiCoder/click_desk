@@ -6,19 +6,31 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_service.g.dart';
 
-class AuthService {
-  final AuthServiceRef ref;
-
-  AuthService(this.ref);
+@Riverpod(keepAlive: true)
+class AuthService extends _$AuthService {
+  @override
+  FutureOr<bool> build() {
+    return false;
+  }
 
   Future<User> signin(String userId, String password) async {
-    final dio = ref.read(dioProvider);
-    final response = await dio
-        .post(ApiPath.signin, data: {"userId": userId, "password": password});
-    final cookies = response.headers.map['set-cookie'];
-    await ref.read(sharedUtilityProvider).setAuthCookies(cookies: cookies);
-    final User user = User.fromJson(response.data);
-    return user;
+    state = const AsyncLoading();
+
+    final userAsync = await AsyncValue.guard(() async {
+      final dio = ref.read(dioProvider);
+      final response = await dio
+          .post(ApiPath.signin, data: {"userId": userId, "password": password});
+      final cookies = response.headers.map['set-cookie'];
+      await ref.read(sharedUtilityProvider).setAuthCookies(cookies: cookies);
+      return User.fromJson(response.data);
+    });
+
+    if (userAsync.hasError) {
+      state = AsyncError(userAsync.error!, userAsync.stackTrace!);
+    }else{
+      state = const AsyncData(true);
+    }
+    return userAsync.valueOrNull ?? const User();
   }
 
   Future<User> currentUser() async {
@@ -26,9 +38,9 @@ class AuthService {
     final response = await dio.post(ApiPath.currentUser);
     return User.fromJson(response.data['currentUser']);
   }
-}
 
-@Riverpod(keepAlive: true)
-AuthService authService(AuthServiceRef ref) {
-  return AuthService(ref);
+   Future<User> signout() async {
+    await ref.read(sharedUtilityProvider).setAuthCookies(cookies: null);
+    return const User();
+  }
 }

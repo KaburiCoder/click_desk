@@ -18,15 +18,18 @@ class SaveErrorLog extends _$SaveErrorLog {
   }
 
   void save(error, stack) {
-    _save(error, stack).catchError((error) => {log(error)});
+    _save(error, stack);
   }
 
   Future<void> _save(error, stack) async {
-    final auth = ref.read(authProvider);
-    if(auth.hasError) return;
-    final user = auth.value;
-    final data = await generateErrorReport(user, error, stack);
-    await saveErrorLog(ref, data);
+    try {
+      final auth = ref.read(authProvider);
+      final user = auth.valueOrNull;
+      final data = await generateErrorReport(user, error, stack);
+      await saveErrorLog(ref, data);
+    } catch (ex) {
+      log(ex.toString());
+    }
   }
 
   Future<Map<String, dynamic>> generateErrorReport(
@@ -34,7 +37,7 @@ class SaveErrorLog extends _$SaveErrorLog {
     final packageInfo = await PackageInfo.fromPlatform();
 
     return {
-      "ykiho": user?.orgName, // 사용자 정의 항목 - 기본값 사용
+      "ykiho": user?.orgName ?? "", // 사용자 정의 항목 - 기본값 사용
       "computerName": "", // 컴퓨터 이름
       "moduleName": packageInfo.packageName, // 모듈 이름 - 예: 앱 이름
       "clientVersion": packageInfo.version, // 앱 버전 - 기본값 사용
@@ -57,11 +60,13 @@ class SaveErrorLog extends _$SaveErrorLog {
               ? Platform.operatingSystemVersion.split('.')[1]
               : 0, // 운영체제 버전의 두 번째 부분 (가능한 경우)
         },
-        "user": {
-          "id": user?.userId, // 사용자 ID - 기본값 사용
-          "name": user?.orgName, // 사용자 이름 - 기본값 사용
-          "email": user?.email,
-        },
+        "user": user != null
+            ? {
+                "id": user.userId, // 사용자 ID - 기본값 사용
+                "name": user.orgName, // 사용자 이름 - 기본값 사용
+                "email": user.email,
+              }
+            : null,
         "process": {
           "private":
               "${(ProcessInfo.currentRss / (1024 * 1024)).toStringAsFixed(2)}MB",

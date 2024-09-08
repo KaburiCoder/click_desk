@@ -6,7 +6,7 @@ part of 'save_error_log.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$saveErrorLogHash() => r'e452717e32d83b2c31648ec0d9367f2835fb2eeb';
+String _$saveErrorLogHash() => r'f50d5be29127361b5595976d9f1283a1f9d09c9b';
 
 /// See also [SaveErrorLog].
 @ProviderFor(SaveErrorLog)

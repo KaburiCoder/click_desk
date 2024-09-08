@@ -1,4 +1,5 @@
 import 'package:click_desk/shared/providers/auth/auth_provider.dart';
+import 'package:click_desk/shared/services/auth/auth_service.dart';
 import 'package:click_desk/shared/utils/error_util.dart';
 import 'package:click_desk/widgets/ev_button.dart';
 import 'package:click_desk/widgets/round_input.dart';
@@ -28,7 +29,7 @@ class _SigninFormState extends ConsumerState<SigninForm> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = ref.watch(authProvider);
+    final authSvc = ref.watch(authServiceProvider);
 
     return Form(
       key: _formKey,
@@ -52,7 +53,7 @@ class _SigninFormState extends ConsumerState<SigninForm> {
               validator: (value) => validateEmpty(value, "비밀번호를 입력하세요."),
             ),
             const SizedBox(height: 16),
-            if (auth.hasError) ...[
+            if (authSvc.hasError) ...[
               Container(
                 width: double.infinity,
                 alignment: Alignment.center,
@@ -64,7 +65,7 @@ class _SigninFormState extends ConsumerState<SigninForm> {
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: BaseText(
-                  parseError(auth.error, key: "_form"),
+                  parseError(authSvc.error, key: "_form"),
                   color: Colors.red,
                 ),
               ),
@@ -77,12 +78,14 @@ class _SigninFormState extends ConsumerState<SigninForm> {
               onPressed: () async {
                 if (!_formKey.currentState!.validate()) return;
 
-                await ref
-                    .read(authProvider.notifier)
+                final user = await ref
+                    .read(authServiceProvider.notifier)
                     .signin(_userId.text, _password.text);
+
+                ref.read(authProvider.notifier).setUser(user);
               },
               text: "로그인",
-              isLoading: auth.isLoading,
+              isLoading: authSvc.isLoading,
             ),
           ],
         ),

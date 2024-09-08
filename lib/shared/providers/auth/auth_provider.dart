@@ -1,7 +1,5 @@
 import 'package:click_desk/models/user/user.dart';
-import 'package:click_desk/shared/providers/shared_utiltiy/shared_utility_provider.dart';
 import 'package:click_desk/shared/services/auth/auth_service.dart';
-import 'package:click_desk/shared/utils/toast_msg.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_provider.g.dart';
@@ -17,35 +15,21 @@ class Auth extends _$Auth {
   Future<User> _loadCurrentUser() async {
     state = await AsyncValue.guard(
       () async {
-        User user = await ref.read(authServiceProvider).currentUser();
+        User user = await ref.read(authServiceProvider.notifier).currentUser();
 
         return user;
       },
     );
-
-    if (state.hasError) {
-      ToastMsg.error("사용자 정보를 불러오는 데 실패했습니다.");
-
-      return const User();
-    }
-
-    return state.value ?? const User();
+ 
+    return state.valueOrNull ?? const User();
   }
 
-  Future<void> signin(String userId, String password) async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(
-      () async {
-        final user =
-            await ref.read(authServiceProvider).signin(userId, password);
-
-        return user;
-      },
-    );
+  void setUser(User user) {
+    state = AsyncData(user);
   }
 
   Future<void> signout() async {
-    await ref.read(sharedUtilityProvider).setAuthCookies(cookies: null);
-    state = const AsyncValue.data(User());
+    final user = await ref.read(authServiceProvider.notifier).signout();
+    state = AsyncValue.data(user);
   }
 }
