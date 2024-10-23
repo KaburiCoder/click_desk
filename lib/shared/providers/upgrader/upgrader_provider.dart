@@ -40,7 +40,7 @@ class MyKoreanMessages extends UpgraderMessages {
         case UpgraderMessage.buttonTitleUpdate:
           return '업데이트';
         case UpgraderMessage.prompt:
-          return '업데이트 후 클릭데스크를 실행해주세요.';
+          return '업데이트 후 dClick을 실행해주세요.';
         case UpgraderMessage.releaseNotes:
           return '출시 노트';
         case UpgraderMessage.title:
