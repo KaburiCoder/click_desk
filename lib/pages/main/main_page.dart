@@ -16,7 +16,7 @@ class MainPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(socketIOProvider);
     ref.watch(deskSettingsProvider);
-    
+
     return PopScope(
       canPop: false,
       child: SizedScaffold(

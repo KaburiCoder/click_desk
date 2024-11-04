@@ -16,5 +16,5 @@ class ApiPath {
   static String get errorLog => "/click/error-log";
   static String get signin => "/signin";
   static String get currentUser => "/currentuser";
-  
+  static String get adMessage => "/common-settings/ad-message";
 }

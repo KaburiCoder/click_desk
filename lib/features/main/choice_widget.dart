@@ -1,6 +1,5 @@
-import 'package:click_desk/shared/constants/lottie_paths.dart';
 import 'package:click_desk/routes/nav.dart';
-import 'package:click_desk/shared/providers/desk_settings/desk_settings.dart';
+import 'package:click_desk/shared/constants/lottie_paths.dart';
 import 'package:click_desk/widgets/lottie.dart';
 import 'package:click_desk/widgets/right_container.dart';
 import 'package:click_desk/widgets/spacer.dart';

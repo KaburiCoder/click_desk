@@ -4,6 +4,7 @@ import 'package:click_desk/features/ad_carousel/api/get_ad_files.dart';
 import 'package:click_desk/features/ad_carousel/api/get_ad_image.dart';
 import 'package:click_desk/features/ad_carousel/api/get_ad_video.dart';
 import 'package:click_desk/models/ad_files/ad_files.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -18,8 +19,20 @@ class AdFileApi extends _$AdFileApi {
     return getAdDirPaths();
   }
 
+  List<File> getTestFiles() {
+    final List<File> testFiles = [
+      File("assets/images/ad_file1.png"),
+      File("assets/images/ad_file2.png"),
+      File("assets/images/ad_file3.png"),
+    ];
+    return testFiles;
+  }
+
   Future<List<File>> getAdDirPaths() async {
     state = await AsyncValue.guard(() async {
+      if (!kReleaseMode) {
+        return getTestFiles();
+      }
       final adFiles = await getAdFiles(ref);
 
       List<File> files = [];

@@ -6,7 +6,7 @@ part of 'ad_file_api.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$adFileApiHash() => r'd01add16338b08898e0f6f3b6ee8da71ea7d88fb';
+String _$adFileApiHash() => r'f914ff4f183e3a7b34cd36a6bba56c39838e2d92';
 
 /// See also [AdFileApi].
 @ProviderFor(AdFileApi)

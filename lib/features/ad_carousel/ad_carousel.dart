@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:click_desk/features/ad_carousel/ad_message_widget.dart';
 import 'package:click_desk/features/ad_carousel/animation/animated_text_color.dart';
 import 'package:click_desk/features/ad_carousel/providers/ad_file_api.dart';
 import 'package:click_desk/routes/route_provider.dart';
 import 'package:click_desk/shared/utils/widget_util.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -96,7 +98,9 @@ class _AdCarouselState extends ConsumerState<AdCarousel> with RouteAware {
                     initialPage: initialPage,
                   ),
                   items: data.map((file) {
-                    final image = Image.file(file, fit: BoxFit.fill);
+                    final image = kReleaseMode
+                        ? Image.file(file, fit: BoxFit.fill)
+                        : Image.asset(file.path, fit: BoxFit.fill);
                     precacheImage(image.image, context);
                     return Builder(
                       builder: (BuildContext context) {
@@ -111,12 +115,13 @@ class _AdCarouselState extends ConsumerState<AdCarousel> with RouteAware {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(bottom: 50.0),
+                padding: EdgeInsets.only(bottom: 140.0),
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: AnimatedTextColor(),
                 ),
               ),
+              const AdMessageWidget(),
             ],
           ),
         );
