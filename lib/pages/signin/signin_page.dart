@@ -63,7 +63,7 @@ class _SigininPageState extends ConsumerState<SigninPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           XlHanbitText(
-                            'Click Desk Sign In',
+                            'dClick Sign In',
                             color: Colors.blue,
                           ),
                           SizedBox(height: 32),
