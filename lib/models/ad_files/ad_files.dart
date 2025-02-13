@@ -15,3 +15,4 @@ class AdFile with _$AdFile {
   factory AdFile.fromJson(Map<String, dynamic> json) =>
       _$AdFileFromJson(json);
 }
+

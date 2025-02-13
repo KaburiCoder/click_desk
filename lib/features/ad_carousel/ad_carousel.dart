@@ -115,10 +115,12 @@ class _AdCarouselState extends ConsumerState<AdCarousel> with RouteAware {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(bottom: 140.0),
+                padding: EdgeInsets.only(top: 80.0),
                 child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: AnimatedTextColor(),
+                  alignment: Alignment.topCenter,
+                  child: AnimatedTextColor(
+                    fontSize: 100,
+                  ),
                 ),
               ),
               const AdMessageWidget(),

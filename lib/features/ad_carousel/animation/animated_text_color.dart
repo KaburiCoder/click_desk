@@ -1,9 +1,14 @@
-import 'package:click_desk/shared/constants/font_family.dart';
-import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 
+import 'package:click_desk/shared/constants/font_family.dart';
+import 'package:click_desk/widgets/texts/base_text.dart';
+
 class AnimatedTextColor extends StatefulWidget {
-  const AnimatedTextColor({super.key});
+  final double fontSize;
+  const AnimatedTextColor({
+    super.key,
+    this.fontSize = 24,
+  });
 
   @override
   State<AnimatedTextColor> createState() => _AnimatedTextColorState();
@@ -30,14 +35,7 @@ class _AnimatedTextColorState extends State<AnimatedTextColor>
         TweenSequenceItem(
           weight: 1.0,
           tween: ColorTween(
-            begin: Colors.greenAccent,
-            end: Colors.amber,
-          ),
-        ),
-        TweenSequenceItem(
-          weight: 1.0,
-          tween: ColorTween(
-            begin: Colors.amber,
+            begin: Colors.green[100],
             end: Colors.white,
           ),
         ),
@@ -45,14 +43,21 @@ class _AnimatedTextColorState extends State<AnimatedTextColor>
           weight: 1.0,
           tween: ColorTween(
             begin: Colors.white,
-            end: Colors.deepOrangeAccent,
+            end: Colors.blue[100],
           ),
         ),
         TweenSequenceItem(
           weight: 1.0,
           tween: ColorTween(
-            begin: Colors.deepOrangeAccent,
-            end: Colors.greenAccent,
+            begin: Colors.blue[100],
+            end: Colors.white,
+          ),
+        ),
+        TweenSequenceItem(
+          weight: 1.0,
+          tween: ColorTween(
+            begin: Colors.white,
+            end: Colors.green[100],
           ),
         ),
       ],
@@ -78,12 +83,12 @@ class _AnimatedTextColorState extends State<AnimatedTextColor>
                 ..style = PaintingStyle.stroke
                 ..strokeWidth = 4
                 ..color = Colors.black,
-              fontSize: 24,
+              fontSize: widget.fontSize,
               fontFamily: FontFamily.kccHanbit,
             ),
             BaseText(
               "터치하면 접수가 진행됩니다.",
-              fontSize: 24,
+              fontSize: widget.fontSize,
               fontFamily: FontFamily.kccHanbit,
               color: _colorAnimation.value, // 애니메이션 색상 적용
             ),
