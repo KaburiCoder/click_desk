@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:click_desk/models/qr_scan_state/qr_scan_state.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'qr_scan_provider.g.dart';

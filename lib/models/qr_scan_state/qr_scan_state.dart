@@ -1,4 +1,4 @@
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'qr_scan_state.freezed.dart';

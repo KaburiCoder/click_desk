@@ -15,7 +15,7 @@ class RegistCarousel extends ConsumerStatefulWidget {
 }
 
 class _RegistCarouselState extends ConsumerState<RegistCarousel> {
-  final CarouselController _controller = CarouselController();
+  final CarouselSliderController _controller = CarouselSliderController();
   final GlobalKey<InputsWidget2State> widget2Key =
       GlobalKey<InputsWidget2State>();
 

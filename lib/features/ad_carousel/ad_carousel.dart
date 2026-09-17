@@ -88,13 +88,13 @@ class _AdCarouselState extends ConsumerState<AdCarousel> with RouteAware {
               SizedBox(
                 width: size.width,
                 child: FlutterCarousel(
-                  options: CarouselOptions(
+                  options: FlutterCarouselOptions(
                     enableInfiniteScroll: true,
                     viewportFraction: 1.0,
                     autoPlay: data.length > 1,
                     autoPlayInterval: const Duration(seconds: 5),
                     showIndicator: true,
-                    slideIndicator: const CircularSlideIndicator(),
+                    slideIndicator: CircularSlideIndicator(),
                     initialPage: initialPage,
                   ),
                   items: data.map((file) {

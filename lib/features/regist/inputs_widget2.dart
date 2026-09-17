@@ -1,13 +1,13 @@
 import 'package:click_desk/shared/utils/string_util.dart';
 import 'package:click_desk/widgets/base_alert_dialog.dart';
 import 'package:click_desk/widgets/dash.dart';
+import 'package:click_desk/widgets/kopo/kopo_page.dart';
 import 'package:click_desk/widgets/labeld_row.dart';
 import 'package:click_desk/widgets/round_input.dart';
 import 'package:click_desk/widgets/spacer.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:remedi_kopo/remedi_kopo.dart';
 
 import '../../widgets/ev_button.dart';
 
@@ -182,7 +182,7 @@ class InputsWidget2State extends ConsumerState<InputsWidget2> {
               KopoModel? model = await Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => RemediKopo(),
+                  builder: (context) => const KopoPage(),
                 ),
               );
 

@@ -8,6 +8,11 @@
         android:icon="@mipmap/launcher_icon"
         android:enableOnBackInvokedCallback="true">
 
+        <!-- Android 16(API 36)부터 태블릿(sw600dp 이상)에서 가로 고정이 무시되는 것을 막음. API 37 대상부터는 적용되지 않음 -->
+        <property
+            android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY"
+            android:value="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

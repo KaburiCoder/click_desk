@@ -2,7 +2,7 @@ import 'package:click_desk/features/qr_scan/providers/qr_scan_provider.dart';
 import 'package:click_desk/widgets/texts/base_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
 
 class BuildQrView extends StatelessWidget {
   const BuildQrView({super.key});
