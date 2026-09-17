@@ -44,3 +44,9 @@ app.*.map.json
 /android/app/keystore.jks
 /android/app/keystore.properties
 /android/app/google-services.json
+
+# fastlane
+/android/play-service-account.json
+/android/fastlane/report.xml
+/android/fastlane/README.md
+/android/vendor/

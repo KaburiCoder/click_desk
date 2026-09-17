@@ -1,0 +1,63 @@
+name: Deploy to Play (internal)
+
+# v1.0.13 같은 태그를 push하면 빌드 후 Play Console 내부 테스트 트랙에 업로드
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: 태그 버전과 출시 노트 확인
+        run: |
+          version=$(grep -E '^version:' pubspec.yaml | sed -E 's/^version:[[:space:]]*//')
+          version_name=${version%%+*}
+          version_code=${version##*+}
+          if [ "${GITHUB_REF_NAME#v}" != "$version_name" ]; then
+            echo "::error::태그 ${GITHUB_REF_NAME}와 pubspec 버전 ${version_name}이 다릅니다."
+            exit 1
+          fi
+          changelog="android/fastlane/metadata/android/ko-KR/changelogs/${version_code}.txt"
+          if [ ! -s "$changelog" ]; then
+            echo "::error::출시 노트가 없습니다: $changelog"
+            exit 1
+          fi
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.47.4"
+          channel: stable
+          cache: true
+
+      - name: 서명·Firebase·Play 서비스 계정 파일 복원
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 -d > android/app/keystore.jks
+          printf '%s\n' "$KEYSTORE_PROPERTIES" > android/app/keystore.properties
+          printf '%s' "$GOOGLE_SERVICES_JSON" > android/app/google-services.json
+          printf '%s' "$PLAY_SERVICE_ACCOUNT_JSON" > android/play-service-account.json
+
+      - run: flutter build appbundle
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          working-directory: android
+
+      - name: 내부 테스트 트랙 업로드
+        run: bundle exec fastlane internal
+        working-directory: android

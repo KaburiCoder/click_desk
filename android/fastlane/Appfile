@@ -1,0 +1,3 @@
+# play-service-account.json은 CI에서 GitHub Secrets로 생성함 (커밋 금지)
+json_key_file("play-service-account.json")
+package_name("kr.click_soft.click_desk")

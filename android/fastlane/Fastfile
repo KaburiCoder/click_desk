@@ -1,0 +1,15 @@
+default_platform(:android)
+
+platform :android do
+  desc "빌드된 AAB와 출시 노트를 Play Console 내부 테스트 트랙에 업로드"
+  lane :internal do
+    upload_to_play_store(
+      track: "internal",
+      aab: "../build/app/outputs/bundle/release/app-release.aab",
+      # 출시 노트(metadata/android/ko-KR/changelogs/<versionCode>.txt)만 올리고 스토어 정보는 건드리지 않음
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+end
